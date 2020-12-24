@@ -27,3 +27,9 @@ Then go on with the PHP part for dynamic display of data – avoid SQL queries w
 - Data output
 
 Additional filters can be added to the calendar presentation.
+
+## Concept
+
+### Database Model
+
+![EventRadar Database Model](documentation/01_db-model.png)
