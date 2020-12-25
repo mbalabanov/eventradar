@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 25, 2020 at 01:37 PM
--- Server version: 10.4.16-MariaDB
--- PHP Version: 7.4.12
+-- Host: 127.0.0.1
+-- Generation Time: Dec 25, 2020 at 07:11 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -59,6 +59,13 @@ CREATE TABLE `contenders` (
   `scoreTeamB` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `contenders`
+--
+
+INSERT INTO `contenders` (`contendersId`, `_teamIdA`, `_teamIdB`, `scoreTeamA`, `scoreTeamB`) VALUES
+(1, 1, 2, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -69,10 +76,16 @@ CREATE TABLE `contest` (
   `contestId` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `imageUrl` varchar(255) DEFAULT NULL,
-  `foundingYear` year(4) DEFAULT NULL,
   `federationName` varchar(255) DEFAULT NULL,
   `website` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contest`
+--
+
+INSERT INTO `contest` (`contestId`, `name`, `imageUrl`, `federationName`, `website`) VALUES
+(1, 'UEFA Europe Cup', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -298,12 +311,22 @@ CREATE TABLE `event` (
   `eventDate` datetime NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `imageUrl` varchar(255) DEFAULT NULL,
+  `_teamIdA` int(11) NOT NULL,
+  `scoreTeamA` int(11) DEFAULT NULL,
+  `_teamIdB` int(11) NOT NULL,
+  `scoreTeamB` int(11) DEFAULT NULL,
   `_contestId` int(11) NOT NULL,
   `_locationId` int(11) NOT NULL,
   `_categoryId` int(11) NOT NULL,
-  `_contendersId` int(11) NOT NULL,
   `note` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`eventId`, `eventDate`, `name`, `imageUrl`, `_teamIdA`, `scoreTeamA`, `_teamIdB`, `scoreTeamB`, `_contestId`, `_locationId`, `_categoryId`, `note`) VALUES
+(1, '2021-03-04 20:00:00', 'Lorem Ipsum', NULL, 1, 0, 1, 0, 1, 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -315,7 +338,6 @@ CREATE TABLE `league` (
   `leagueId` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `logoUrl` varchar(255) DEFAULT NULL,
-  `foundingYear` year(4) DEFAULT NULL,
   `website` varchar(255) NOT NULL,
   `_countryId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -324,13 +346,13 @@ CREATE TABLE `league` (
 -- Dumping data for table `league`
 --
 
-INSERT INTO `league` (`leagueId`, `name`, `logoUrl`, `foundingYear`, `website`, `_countryId`) VALUES
-(1, 'bet-at-home Eishockey-Liga', 'assets/logos/bet-at-home-eishockey-liga-logo.png', 1965, 'ice.hockey', 10),
-(2, 'Tipico Bundesliga', 'assets/logos/tipico-bundesliga.png', 1911, 'bundesliga.at', 10),
-(3, 'Deutsche Bundesliga', 'assets/logos/deutsche-bundesliga-logo.png', 1963, 'bundesliga.de', 65),
-(4, 'Ligue 1', 'assets/logos/ligue1-france.png', 1930, 'ligue1.fr', 61),
-(5, 'La Liga', 'assets/logos/la-liga-espana.png', 1929, 'laliga.com', 165),
-(6, 'Premier League', 'assets/logos/premier-league-logo.png', 1992, 'premierleague.com', 186);
+INSERT INTO `league` (`leagueId`, `name`, `logoUrl`, `website`, `_countryId`) VALUES
+(1, 'bet-at-home Eishockey-Liga', 'assets/logos/bet-at-home-eishockey-liga-logo.png', 'ice.hockey', 10),
+(2, 'Tipico Bundesliga', 'assets/logos/tipico-bundesliga.png', 'bundesliga.at', 10),
+(3, 'Deutsche Bundesliga', 'assets/logos/deutsche-bundesliga-logo.png', 'bundesliga.de', 65),
+(4, 'Ligue 1', 'assets/logos/ligue1-france.png', 'ligue1.fr', 61),
+(5, 'La Liga', 'assets/logos/la-liga-espana.png', 'laliga.com', 165),
+(6, 'Premier League', 'assets/logos/premier-league-logo.png', 'premierleague.com', 186);
 
 -- --------------------------------------------------------
 
@@ -353,6 +375,13 @@ CREATE TABLE `location` (
   `_countryId` int(11) NOT NULL,
   `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `location`
+--
+
+INSERT INTO `location` (`locationId`, `name`, `imageUrl`, `maxAudienceCapacity`, `website`, `phone`, `email`, `street`, `streetNo`, `postalCode`, `city`, `_countryId`, `description`) VALUES
+(1, 'Gerhard-Hanappi-Stadion', '/assets/locations/ernst-happel-stadion.jpg', 17500, 'https://www.skrapid.at/de/startseite/verein/geschichte/gerhard-hanappi-stadion', NULL, NULL, 'Gerhard-Hanappi-Platz', '1', '1140 ', 'Vienna', 10, 'The Gerhard-Hanappi-Stadion was a football stadium in Hütteldorf, in the west of Vienna, Austria. It was the home ground of Rapid Vienna. It was officially opened in 1977 as \"Weststadion\" (Western stadium). In 1980 it was renamed to honour its architect, Austrian football player Gerhard Hanappi. Among fans the stadium was also known as \"Sankt Hanappi\" (Saint Hanappi), in reference to the fans\' slogan \"Rapid ist uns\'re Religion\" (\"Rapid is our religion\"). Source: Wikipedia.');
 
 -- --------------------------------------------------------
 
@@ -377,31 +406,31 @@ CREATE TABLE `person` (
 --
 
 INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES
-(1, 'Tanguy', NULL, 'Nianzou', NULL, 'assets/persons/tanguy-nianzou.jpg', 1, 61, 2),
-(2, 'Manuel', NULL, 'Neuer', NULL, 'assets/persons/manuel-neuer.jpg', 1, 65, 3),
-(3, 'Javi', NULL, 'Martínez', NULL, NULL, 1, 65, 2),
-(4, 'Joshua', NULL, 'Zirkzee', NULL, NULL, 1, 65, 2),
-(5, 'Niklas', NULL, 'Süle', NULL, NULL, 1, 65, 2),
-(6, 'Jérôme', NULL, 'Boateng', NULL, NULL, 1, 65, 2),
-(7, 'Eric', 'Maxim', 'Choupo-Moting', NULL, NULL, 1, 65, 2),
-(8, 'Leon', NULL, 'Goretzka', NULL, NULL, 1, 65, 2),
-(9, 'Chris', NULL, 'Richards', NULL, NULL, 1, 65, 2),
-(10, 'Jamal', NULL, 'Musiala', NULL, NULL, 1, 65, 2),
-(11, 'Marc', NULL, 'Roca', NULL, NULL, 1, 65, 2),
-(12, 'Corentin', NULL, 'Tolisso', NULL, NULL, 1, 65, 2),
-(13, 'Robert', NULL, 'Lewandowski', NULL, NULL, 1, 65, 2),
-(14, 'Leroy', NULL, 'Sané', NULL, NULL, 1, 65, 2),
-(15, 'Thomas', NULL, 'Müller', NULL, NULL, 1, 65, 2),
-(16, 'Lucas', NULL, 'Hernández', NULL, NULL, 1, 65, 2),
-(17, 'Alphonso', NULL, 'Davies', NULL, NULL, 1, 65, 2),
-(18, 'David', NULL, 'Alaba', NULL, NULL, 1, 10, 2),
-(19, 'Toni', NULL, 'Tapalović', NULL, NULL, 1, 65, 2),
-(20, 'Miroslav', NULL, 'Klose', NULL, NULL, 1, 65, 2),
-(21, 'Hermann', NULL, 'Gerland', NULL, NULL, 1, 65, 2),
-(22, 'Hansi', NULL, 'Flick', NULL, NULL, 1, 65, 2),
-(23, 'Danny', NULL, 'Röhl', NULL, NULL, 1, 65, 2),
-(24, 'Holger', NULL, 'Broich', 'Prof. Dr.', 'assets/persons/holger-broich.jpg', 1, 65, 4),
-(25, 'Kingsley', NULL, 'Coman', NULL, NULL, 1, 65, 4);
+(1, 'Tanguy', NULL, 'Nianzou', NULL, '/assets/persons/tanguy-nianzou.jpg', 1, 61, 2),
+(2, 'Manuel', NULL, 'Neuer', NULL, '/assets/persons/manuel-neuer.jpg', 1, 65, 3),
+(3, 'Javi', NULL, 'Martínez', NULL, '/assets/persons/javi-martinez.jpg', 1, 65, 2),
+(4, 'Joshua', NULL, 'Zirkzee', NULL, '/assets/persons/joshua-zirkzee.jpg', 1, 65, 2),
+(5, 'Niklas', NULL, 'Süle', NULL, '/assets/persons/niklas-suele.jpg', 1, 65, 2),
+(6, 'Jérôme', NULL, 'Boateng', NULL, '/assets/persons/jerome-boateng.jpg', 1, 65, 2),
+(7, 'Eric', 'Maxim', 'Choupo-Moting', NULL, '/assets/persons/eric-choupo-moting.jpg', 1, 65, 2),
+(8, 'Leon', NULL, 'Goretzka', NULL, '/assets/persons/leon-goretzka.jpg', 1, 65, 2),
+(9, 'Chris', NULL, 'Richards', NULL, '/assets/persons/chris-richards.jpg', 1, 65, 2),
+(10, 'Jamal', NULL, 'Musiala', NULL, '/assets/persons/jamal-musiala.jpg', 1, 65, 2),
+(11, 'Marc', NULL, 'Roca', NULL, '/assets/persons/marc-roca.jpg', 1, 65, 2),
+(12, 'Corentin', NULL, 'Tolisso', NULL, '/assets/persons/corentin-tolisso.jpg', 1, 65, 2),
+(13, 'Robert', NULL, 'Lewandowski', NULL, '/assets/persons/robert-lewandowski.jpg', 1, 65, 2),
+(14, 'Leroy', NULL, 'Sané', NULL, '/assets/persons/leroy-sane.jpg', 1, 65, 2),
+(15, 'Thomas', NULL, 'Müller', NULL, '/assets/persons/thomas-mueller.jpg', 1, 65, 2),
+(16, 'Lucas', NULL, 'Hernández', NULL, '/assets/persons/lucas-hernandez.jpg', 1, 65, 2),
+(17, 'Alphonso', NULL, 'Davies', NULL, '/assets/persons/alphonso-davies.jpg', 1, 65, 2),
+(18, 'David', NULL, 'Alaba', NULL, '/assets/persons/david-alaba.jpg', 1, 10, 2),
+(19, 'Toni', NULL, 'Tapalović', NULL, '/assets/persons/toni-tapalovic.jpg', 1, 65, 2),
+(20, 'Miroslav', NULL, 'Klose', NULL, '/assets/persons/miroslav-klose.jpg', 1, 65, 2),
+(21, 'Hermann', NULL, 'Gerland', NULL, '/assets/persons/hermann-gerland.jpg', 1, 65, 2),
+(22, 'Hansi', NULL, 'Flick', NULL, '/assets/persons/hansi-flick.jpg', 1, 65, 2),
+(23, 'Danny', NULL, 'Röhl', NULL, '/assets/persons/danny-roehl.jpg', 1, 65, 2),
+(24, 'Holger', NULL, 'Broich', 'Prof. Dr.', '/assets/persons/holger-broich.jpg', 1, 65, 4),
+(25, 'Kingsley', NULL, 'Coman', NULL, '/assets/persons/kingsley-coman.jpg', 1, 65, 4);
 
 -- --------------------------------------------------------
 
@@ -492,8 +521,7 @@ ALTER TABLE `event`
   ADD PRIMARY KEY (`eventId`),
   ADD KEY `event-contest` (`_contestId`),
   ADD KEY `event-location` (`_locationId`),
-  ADD KEY `event-category` (`_categoryId`),
-  ADD KEY `event-contenders` (`_contendersId`);
+  ADD KEY `event-category` (`_categoryId`);
 
 --
 -- Indexes for table `league`
@@ -546,13 +574,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `contenders`
 --
 ALTER TABLE `contenders`
-  MODIFY `contendersId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `contendersId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `contest`
 --
 ALTER TABLE `contest`
-  MODIFY `contestId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `contestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `country`
@@ -564,7 +592,7 @@ ALTER TABLE `country`
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `eventId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `eventId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `league`
@@ -576,7 +604,7 @@ ALTER TABLE `league`
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
-  MODIFY `locationId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `locationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `person`
@@ -612,7 +640,6 @@ ALTER TABLE `contenders`
 --
 ALTER TABLE `event`
   ADD CONSTRAINT `event-category` FOREIGN KEY (`_categoryId`) REFERENCES `category` (`categoryId`),
-  ADD CONSTRAINT `event-contenders` FOREIGN KEY (`_contendersId`) REFERENCES `contenders` (`contendersId`),
   ADD CONSTRAINT `event-contest` FOREIGN KEY (`_contestId`) REFERENCES `contest` (`contestId`),
   ADD CONSTRAINT `event-location` FOREIGN KEY (`_locationId`) REFERENCES `location` (`locationId`);
 

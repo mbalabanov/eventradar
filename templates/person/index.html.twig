@@ -3,43 +3,42 @@
 {% block title %}Person index{% endblock %}
 
 {% block body %}
-    <h1>Person index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Person ID</th>
-                <th>First Name</th>
-                <th>Middle Name(s)</th>
-                <th>Last Name</th>
-                <th>Academic Title</th>
-                <th>Photo URL</th>
-                <th>Country</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <h2>Team Members</h2>
+    <p><a href="{{ path('person_new') }}" class="btn btn-primary">Create new</a></p>
+    
+    <div class="row">
         {% for person in people %}
-            <tr>
-                <td>{{ person.personid }}</td>
-                <td>{{ person.firstname }}</td>
-                <td>{{ person.middlenames }}</td>
-                <td>{{ person.lastname }}</td>
-                <td>{{ person.academictitle }}</td>
-                <td>{{ person.photourl }}</td>
-                <td>{{ person.nationality.name }}</td>
-                <td>
-                    <a href="{{ path('person_show', {'personid': person.personid}) }}">show</a>
-                    <a href="{{ path('person_edit', {'personid': person.personid}) }}">edit</a>
-                </td>
-            </tr>
+            <div class="col-md-3">
+                <div class="alert alert-light border">
+                    <h4>
+                        <a href="{{ path('person_show', {'personid': person.personid}) }}" class="text-decoration-none">
+                            {% if person.academictitle %}
+                                {{ person.academictitle }}&nbsp;
+                            {% endif %}
+                            
+                            {{ person.firstname }}
+                            {% if person.middlenames %}
+                                &nbsp;{{ person.middlenames }}&nbsp;
+                            {% endif %}
+                            {{ person.lastname }}
+                        </a>
+                    </h4>
+                    <p class="text-center">
+                        <a href="{{ path('person_show', {'personid': person.personid}) }}" class="text-decoration-none">
+                            <img src="{{ person.photourl }}" class="img-fluid rounded">
+                        </a>
+                    </p>
+                    <p><strong>Nationality:</strong> {{ person.nationality.name }}</p>
+                    <p class="text-center">
+                        <a href="{{ path('person_show', {'personid': person.personid}) }}" class="btn btn-primary btn-sm">Details</a>
+                        <a href="{{ path('person_edit', {'personid': person.personid}) }}" class="btn btn-primary btn-sm">Edit</a>
+                    </p>
+                </div>
+            </div>
         {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
+            <div class="col-md-12">
+                No records found
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('person_new') }}">Create new</a>
+    </div>
 {% endblock %}
