@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}League index{% endblock %}
+
+{% block body %}
+    <h1>League index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Leagueid</th>
+                <th>Name</th>
+                <th>Logourl</th>
+                <th>Website</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for league in leagues %}
+            <tr>
+                <td>{{ league.leagueid }}</td>
+                <td>{{ league.name }}</td>
+                <td>{{ league.logourl }}</td>
+                <td>{{ league.website }}</td>
+                <td>
+                    <a href="{{ path('league_show', {'leagueid': league.leagueid}) }}">show</a>
+                    <a href="{{ path('league_edit', {'leagueid': league.leagueid}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('league_new') }}">Create new</a>
+{% endblock %}

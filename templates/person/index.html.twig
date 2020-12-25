@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Person index{% endblock %}
+
+{% block body %}
+    <h1>Person index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Person ID</th>
+                <th>First Name</th>
+                <th>Middle Name(s)</th>
+                <th>Last Name</th>
+                <th>Academic Title</th>
+                <th>Photo URL</th>
+                <th>Country</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for person in people %}
+            <tr>
+                <td>{{ person.personid }}</td>
+                <td>{{ person.firstname }}</td>
+                <td>{{ person.middlenames }}</td>
+                <td>{{ person.lastname }}</td>
+                <td>{{ person.academictitle }}</td>
+                <td>{{ person.photourl }}</td>
+                <td>{{ person.nationality.name }}</td>
+                <td>
+                    <a href="{{ path('person_show', {'personid': person.personid}) }}">show</a>
+                    <a href="{{ path('person_edit', {'personid': person.personid}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('person_new') }}">Create new</a>
+{% endblock %}

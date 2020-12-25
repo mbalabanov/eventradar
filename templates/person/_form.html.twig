@@ -1,0 +1,87 @@
+{{ form_start(form) }}
+
+<div class="form-group">
+    <div class="row my-2">
+        <div class="col-md-12">
+            {{ form_label(form.firstname) }}
+            {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.firstname) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.firstname) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-12">
+            {{ form_label(form.middlenames) }}
+            {{ form_widget(form.middlenames, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.middlenames) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.middlenames) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-12">
+            {{ form_label(form.lastname) }}
+            {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.lastname) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.lastname) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-12">
+            {{ form_label(form.academictitle) }}
+            {{ form_widget(form.academictitle, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.academictitle) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.academictitle) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-12">
+            {{ form_label(form.photourl) }}
+            {{ form_widget(form.photourl, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.photourl) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.photourl) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-12">
+            {{ form_label(form.nationality) }}
+            {{ form_widget(form.nationality, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.nationality) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.nationality) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-12">
+            {{ form_label(form.teamid) }}
+            {{ form_widget(form.teamid, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.teamid) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.teamid) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-12">
+            {{ form_label(form.roleid) }}
+            {{ form_widget(form.roleid, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.roleid) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.roleid) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
