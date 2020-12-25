@@ -23,7 +23,7 @@ class EventController extends AbstractController
     {
         $events = $this->getDoctrine()
             ->getRepository(Event::class)
-            ->findAll();
+            ->findBy([], ['eventdate' => 'ASC']);
 
         return $this->render('event/index.html.twig', [
             'events' => $events,

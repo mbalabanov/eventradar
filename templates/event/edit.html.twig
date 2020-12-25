@@ -3,11 +3,12 @@
 {% block title %}Edit Event{% endblock %}
 
 {% block body %}
-    <h1>Edit Event</h1>
-
-    {{ include('event/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('event_index') }}">back to list</a>
-
-    {{ include('event/_delete_form.html.twig') }}
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2>Edit Event</h2>
+            <a href="{{ path('event_index') }}" class="btn btn-primary">Back to Events</a>
+            {{ include('event/_form.html.twig', {'button_label': 'Update'}) }}
+            <p>{{ include('event/_delete_form.html.twig') }}</p>
+        </div>
+    </div>
 {% endblock %}

@@ -1,38 +1,63 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Team{% endblock %}
+{% block title %}{{ team.name }}{% endblock %}
 
 {% block body %}
-    <h1>Team</h1>
+    <h2>Team Information</h2>
+    <p><a href="{{ path('team_index') }}" class="btn btn-primary">Back To All Teams</a></p>
+    <div class="row mt-4">
+        <div class="col-md-2 text-center">
+            <p><img src="{{ team.logourl }}" alt="{{ team.name }}" class="img-fluid"></p>
+        </div>
+        <div class="col-md-10">
+            <h3>{{ team.name }}</h3>
+            <p><span class="badge bg-secondary">{{ team.categoryid.name }}</span></p>
+            <p class="fs-5">Ranked at no. {{ team.leagueranking }} in the {{ team.leagueid.name }}</p>
+            <p>{{ team.description }}</p>
+            <p><a href="{{ path('team_edit', {'teamid': team.teamid}) }}" class="btn btn-primary">Edit</a></p>
+            <p>{{ include('team/_delete_form.html.twig') }}</p>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Teamid</th>
-                <td>{{ team.teamid }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ team.name }}</td>
-            </tr>
-            <tr>
-                <th>Logourl</th>
-                <td>{{ team.logourl }}</td>
-            </tr>
-            <tr>
-                <th>Leagueranking</th>
-                <td>{{ team.leagueranking }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ team.description }}</td>
-            </tr>
-        </tbody>
-    </table>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Team Members</h4>
+                </div>
+            </div>
+            <div class="row">
+                {% for member in members %}
+                    <div class="col-md-3">
+                        <div class="alert alert-light border">
+                            <p class="alert alert-warning text-center"><strong>{{ member.teamid.name }}</strong></p>
+                            <p class="text-center">
+                                <img src="{{ member.photourl }}" class="img-fluid border rounded">
+                            </p>
+                            <h4>
+                                {% if member.academictitle %}
+                                    {{ member.academictitle }}&nbsp;
+                                {% endif %}
+                                {{ member.firstname }}
+                                {% if member.middlenames %}
+                                    &nbsp;{{ member.middlenames }}&nbsp;
+                                {% endif %}
+                                {{ member.lastname }}
+                            </h4>
+                            <p>
+                                <strong>Role:</strong> {{ member.roleid.name }}<br/>
+                                <strong>Nationality:</strong> {{ member.nationality.name }}
+                            </p>
+                            <p><a href="{{ path('person_edit', {'personid': member.personid}) }}" class="btn btn-primary btn-sm">Edit</a></p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col-md-12">
+                        <div class="alert alert-danger text-center" role="alert">
+                            No team members found
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
 
-    <a href="{{ path('team_index') }}">back to list</a>
+        </div>
+    </div>
 
-    <a href="{{ path('team_edit', {'teamid': team.teamid}) }}">edit</a>
 
-    {{ include('team/_delete_form.html.twig') }}
 {% endblock %}

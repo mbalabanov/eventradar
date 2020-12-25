@@ -1,43 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Team index{% endblock %}
+{% block title %}Team List{% endblock %}
 
 {% block body %}
-    <h1>Team index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Teamid</th>
-                <th>Name</th>
-                <th>Logourl</th>
-                <th>Leagueranking</th>
-                <th>Description</th>
-                <th>League</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for team in teams %}
-            <tr>
-                <td>{{ team.teamid }}</td>
-                <td>{{ team.name }}</td>
-                <td>{{ team.logourl }}</td>
-                <td>{{ team.leagueid.name }}</td>
-                <td>{{ team.leagueranking }}</td>
-                <td>{{ team.description }}</td>
-                <td>
-                    <a href="{{ path('team_show', {'teamid': team.teamid}) }}">show</a>
-                    <a href="{{ path('team_edit', {'teamid': team.teamid}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('team_new') }}">Create new</a>
+    <h2>Team List</h2>
+    <p><a href="{{ path('team_new') }}" class="btn btn-primary">Add New Team</a></p>
+    <div class="table-responsive border rounded bg-light p-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th width="20%">Name</th>
+                    <th width="10%" class="text-center">Logo</th>
+                    <th width="20%" class="text-center">League</th>
+                    <th width="35%" class="text-center">Description</th>
+                    <th width="15%" class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for team in teams %}
+                <tr>
+                    <td><strong>{{ team.name }}</strong><br>(ID {{ team.teamid }})</td>
+                    <td class="text-center"><img src="{{ team.logourl }}" alt="{{ team.name }}" class="img-fluid"></td>
+                    <td class="text-center">Ranked at no. <strong>{{ team.leagueranking }}</strong> in the <strong>{{ team.leagueid.name }}</strong><br/><span class="badge bg-secondary">{{ team.categoryid.name }}</span></td>
+                    <td>{{ team.description }}</td>
+                    <td class="text-center">
+                        <a href="{{ path('team_show', {'teamid': team.teamid}) }}" class="btn btn-primary m-1">Details</a>
+                        <a href="{{ path('team_edit', {'teamid': team.teamid}) }}" class="btn btn-primary m-1">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

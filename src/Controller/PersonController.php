@@ -61,16 +61,6 @@ class PersonController extends AbstractController
     }
 
     /**
-     * @Route("/{personid}", name="person_show", methods={"GET"})
-     */
-    public function show(Person $person): Response
-    {
-        return $this->render('person/show.html.twig', [
-            'person' => $person,
-        ]);
-    }
-
-    /**
      * @Route("/{personid}/edit", name="person_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Person $person): Response

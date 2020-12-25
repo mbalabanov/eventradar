@@ -1,4 +1,140 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+<div class="form-group">
+    <div class="row my-2">
+        <div class="col-md-8">
+            {{ form_label(form.name, 'Event Name') }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.name) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.name) }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            {{ form_label(form.categoryid, 'Sports Category') }}
+            {{ form_widget(form.categoryid, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.categoryid) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.categoryid) }}
+            </div>
+        </div>
+    </div>
+    <div class="border rounded bg-light p-3">
+        <div class="row my-2">
+            <div class="col-md-6">
+                <h4>Opponent Teams</h4>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-md-6">
+                {{ form_label(form.teamida, ' Team A') }}
+                {{ form_widget(form.teamida, {'attr': {'class': 'form-control'}}) }}
+                <small>{{ form_help(form.teamida) }}</small>
+                <div class="form-error">
+                    {{ form_errors(form.teamida) }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                {{ form_label(form.teamidb, 'Team B') }}
+                {{ form_widget(form.teamidb, {'attr': {'class': 'form-control'}}) }}
+                <small>{{ form_help(form.teamidb) }}</small>
+                <div class="form-error">
+                    {{ form_errors(form.teamidb) }}
+                </div>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-md-6">
+                {{ form_label(form.scoreteama, 'Score of Team A (enter after the game)') }}
+                {{ form_widget(form.scoreteama, {'attr': {'class': 'form-control'}}) }}
+                <small>{{ form_help(form.scoreteama) }}</small>
+                <div class="form-error">
+                    {{ form_errors(form.scoreteama) }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                {{ form_label(form.scoreteamb, 'Score of Team B (enter after the game)') }}
+                {{ form_widget(form.scoreteamb, {'attr': {'class': 'form-control'}}) }}
+                <small>{{ form_help(form.scoreteamb) }}</small>
+                <div class="form-error">
+                    {{ form_errors(form.scoreteamb) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-4">
+            {{ form_label(form.contestid, 'Type of Contest') }}
+            {{ form_widget(form.contestid, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.contestid) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.contestid) }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            {{ form_label(form.locationid, 'Event Location') }}
+            {{ form_widget(form.locationid, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.locationid) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.locationid) }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            {{ form_label(form.imageurl, 'Image URL') }}
+            {{ form_widget(form.imageurl, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.imageurl) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.imageurl) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-12">
+            {{ form_label(form.eventdate, 'Date and Time of the Event') }}
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Day</label> {{ form_widget(form.eventdate.date.day, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-md-4">
+                        <label>Month</label> {{ form_widget(form.eventdate.date.month, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-md-4">
+                            <label>Year</label> {{ form_widget(form.eventdate.date.year, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Hours</label> {{ form_widget(form.eventdate.time.hour, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-md-6">
+                            <label>Minutes</label> {{ form_widget(form.eventdate.time.minute, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <small>{{ form_help(form.eventdate) }}</small>
+                    <div class="form-error">
+                        {{ form_errors(form.eventdate) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-2">
+        <div class="col-md-12">
+            {{ form_label(form.note, 'Notes') }}
+            {{ form_widget(form.note, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.note) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.note) }}
+            </div>
+        </div>
+    </div>
+    <p><button class="btn btn-primary">{{ button_label|default('Save') }}</button></p>
+</div>
+
+
 {{ form_end(form) }}

@@ -3,36 +3,28 @@
 {% block title %}Event{% endblock %}
 
 {% block body %}
-    <h1>Event</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Eventid</th>
-                <td>{{ event.eventid }}</td>
-            </tr>
-            <tr>
-                <th>Eventdate</th>
-                <td>{{ event.eventdate ? event.eventdate|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ event.name }}</td>
-            </tr>
-            <tr>
-                <th>Imageurl</th>
-                <td>{{ event.imageurl }}</td>
-            </tr>
-            <tr>
-                <th>Note</th>
-                <td>{{ event.note }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('event_index') }}">back to list</a>
-
-    <a href="{{ path('event_edit', {'eventid': event.eventid}) }}">edit</a>
-
-    {{ include('event/_delete_form.html.twig') }}
+    <div class="row mb-3">
+        <div class="col-md-6 p-4">
+            <h3>{{ event.teamida.name }} vs. {{ event.teamidb.name }}</h3>
+            <h4>
+                {{ event.eventdate ? event.eventdate|date('D, d. M. Y') : '' }}, {{ event.eventdate ? event.eventdate|date('H:i') : '' }} Hr.
+            </h4>
+            <p><img src="{{ event.imageurl }}" class="img-fluid border rounded"></p>
+            <p><a href="{{ path('event_index') }}" class="btn btn-primary">Back to Events</a></p>
+        </div>
+        <div class="col-md-6 p-4">
+            <h3>{{ event.name }}</h3>
+            <p><span class="badge bg-secondary">{{ event.contestid.name }}</span> <span class="badge bg-secondary">{{ event.categoryid.name }}</span></p>
+            <p><strong>Event-No. {{ event.eventid }} at Location "{{ event.locationid.name }}"</strong></p>
+            <p>{{ event.note }}</p>
+            <p>
+                <strong>Teams:</strong><br/>
+                <a href="/team/{{ event.teamida.teamid }}" class="btn btn-warning">{{ event.teamida.name }}</a> <a href="/team/{{ event.teamidb.teamid }}" class="btn btn-warning">{{ event.teamidb.name }}</a>
+            </p>
+            <p class="border-top pt-2">
+                <a href="{{ path('event_edit', {'eventid': event.eventid}) }}" class="btn btn-primary">Edit</a>
+            </p>
+            {{ include('event/_delete_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

@@ -4,35 +4,32 @@
 
 {% block body %}
     <h2>Team Members</h2>
-    <p><a href="{{ path('person_new') }}" class="btn btn-primary">Create new</a></p>
+    <p><a href="{{ path('person_new') }}" class="btn btn-primary">Add New Person</a></p>
     
     <div class="row">
         {% for person in people %}
             <div class="col-md-3">
                 <div class="alert alert-light border">
+                    <p class="alert alert-warning text-center"><strong>{{ person.teamid.name }}</strong></p>
+                    <p class="text-center">
+                        <img src="{{ person.photourl }}" class="img-fluid border rounded">
+                    </p>
                     <h4>
-                        <a href="{{ path('person_show', {'personid': person.personid}) }}" class="text-decoration-none">
-                            {% if person.academictitle %}
-                                {{ person.academictitle }}&nbsp;
-                            {% endif %}
-                            
-                            {{ person.firstname }}
-                            {% if person.middlenames %}
-                                &nbsp;{{ person.middlenames }}&nbsp;
-                            {% endif %}
-                            {{ person.lastname }}
-                        </a>
+                        {% if person.academictitle %}
+                            {{ person.academictitle }}&nbsp;
+                        {% endif %}
+                        
+                        {{ person.firstname }}
+                        {% if person.middlenames %}
+                            &nbsp;{{ person.middlenames }}&nbsp;
+                        {% endif %}
+                        {{ person.lastname }}
                     </h4>
-                    <p class="text-center">
-                        <a href="{{ path('person_show', {'personid': person.personid}) }}" class="text-decoration-none">
-                            <img src="{{ person.photourl }}" class="img-fluid rounded">
-                        </a>
+                    <p>
+                        <strong>Role:</strong> {{ person.roleid.name }}<br/>
+                        <strong>Nationality:</strong> {{ person.nationality.name }}
                     </p>
-                    <p><strong>Nationality:</strong> {{ person.nationality.name }}</p>
-                    <p class="text-center">
-                        <a href="{{ path('person_show', {'personid': person.personid}) }}" class="btn btn-primary btn-sm">Details</a>
-                        <a href="{{ path('person_edit', {'personid': person.personid}) }}" class="btn btn-primary btn-sm">Edit</a>
-                    </p>
+                    <p><a href="{{ path('person_edit', {'personid': person.personid}) }}" class="btn btn-primary btn-sm">Edit</a></p>
                 </div>
             </div>
         {% else %}

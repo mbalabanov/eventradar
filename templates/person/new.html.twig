@@ -3,9 +3,11 @@
 {% block title %}New Person{% endblock %}
 
 {% block body %}
-    <h1>Create new Person</h1>
-
-    {{ include('person/_form.html.twig') }}
-
-    <a href="{{ path('person_index') }}">back to list</a>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2>Add New Person</h2>
+            <p><a href="{{ path('person_index') }}" class="btn btn-primary">Back to Events</a></p>
+            {{ include('person/_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

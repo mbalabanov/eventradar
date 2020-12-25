@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Team;
 use App\Form\TeamType;
+use App\Entity\Person;
+use App\Form\PersonType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,7 +23,7 @@ class TeamController extends AbstractController
     {
         $teams = $this->getDoctrine()
             ->getRepository(Team::class)
-            ->findAll();
+            ->findBy([], ['name' => 'ASC']);
 
         return $this->render('team/index.html.twig', [
             'teams' => $teams,
@@ -56,8 +58,14 @@ class TeamController extends AbstractController
      */
     public function show(Team $team): Response
     {
+
+        $members = $this->getDoctrine()
+            ->getRepository(Person::class)
+            ->findBy(['teamid' => $team]);
+
         return $this->render('team/show.html.twig', [
             'team' => $team,
+            'members' => $members,
         ]);
     }
 
