@@ -1,0 +1,41 @@
+{{ form_start(form) }}
+<div class="form-group">
+    <div class="row my-2">
+        <div class="col-md-6">
+            {{ form_label(form.name, 'Contest Name') }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.name) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.name) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            {{ form_label(form.imageurl, 'Image URL') }}
+            {{ form_widget(form.imageurl, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.imageurl) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.imageurl) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-6">
+            {{ form_label(form.federationname, 'Federation Name') }}
+            {{ form_widget(form.federationname, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.federationname) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.federationname) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            {{ form_label(form.website, 'Website URL') }}
+            {{ form_widget(form.website, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.website) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.website) }}
+            </div>
+        </div>
+    </div>
+    <p><button class="btn btn-primary">{{ button_label|default('Save') }}</button></p>
+</div>
+{{ form_end(form) }}

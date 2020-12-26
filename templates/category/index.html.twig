@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sports Categories{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Sports Categories</h2>
+            <p><a href="{{ path('category_new') }}" class="btn btn-primary">Add New Sports Category</a></p>
+        </div>
+    </div>
+    <div class="row">
+        {% for category in categories %}
+            <div class="col-md-4 p-2">
+                <div class="rounded border bg-light p-3">
+                    <h4>{{ category.name }} (ID: {{ category.categoryid }})</h4>
+                    <p><strong>Alias:</strong> {{ category.alias }}</p>
+                    <p><strong>Description:</strong><br/>{{ category.description }}</td>
+                    <p><a href="{{ path('category_edit', {'categoryid': category.categoryid}) }}" class="btn btn-primary">Edit</a></p>
+                </div>
+            </div>
+        {% else %}
+        <div class="col-md-12">
+            <div class="alert alert-danger text-center">
+                No Categories Found
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

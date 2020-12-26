@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Category{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <h2>Add New Sports Category</h2>
+        <p><a href="{{ path('category_index') }}" class="btn btn-primary">Back to Sports Categories</a></p>
+        {{ include('category/_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}

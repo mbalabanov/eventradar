@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Contest{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <h2>Add New Contest</h2>
+        <p><a href="{{ path('contest_index') }}" class="btn btn-primary">Back to Contest List</a></p>
+        {{ include('contest/_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}

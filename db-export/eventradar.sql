@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2020 at 08:06 PM
+-- Generation Time: Dec 27, 2020 at 12:33 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -85,7 +85,9 @@ CREATE TABLE `contest` (
 --
 
 INSERT INTO `contest` (`contestId`, `name`, `imageUrl`, `federationName`, `website`) VALUES
-(1, 'UEFA Europe Cup', NULL, NULL, NULL);
+(1, 'UEFA Cup', '/assets/others/uefa-cup.png', 'UEFA', 'uefa.com'),
+(2, 'Champions League', '/assets/others/champions-league.png', 'UEFA', 'uefa.com/uefachampionsleague/'),
+(3, 'Eishockey Pokal Österreich', '/assets/others/eishockey-pokal.png', 'Bet-At-Home Eishockey Liga', 'ice.hockey');
 
 -- --------------------------------------------------------
 
@@ -298,7 +300,8 @@ INSERT INTO `country` (`countryId`, `name`, `flagUrl`) VALUES
 (192, 'Vietnam', '/assets/flags/flag-of-Vietnam.png'),
 (193, 'Yemen', '/assets/flags/flag-of-Yemen.png'),
 (194, 'Zambia', '/assets/flags/flag-of-Zambia.png'),
-(195, 'Zimbabwe', '/assets/flags/flag-of-Zimbabwe.png');
+(195, 'Zimbabwe', '/assets/flags/flag-of-Zimbabwe.png'),
+(196, 'Kosovo', '/assets/flags/flag-of-Kosovo.png');
 
 -- --------------------------------------------------------
 
@@ -327,7 +330,14 @@ CREATE TABLE `event` (
 
 INSERT INTO `event` (`eventId`, `eventDate`, `name`, `imageUrl`, `_teamIdA`, `scoreTeamA`, `_teamIdB`, `scoreTeamB`, `_contestId`, `_locationId`, `_categoryId`, `note`) VALUES
 (1, '2021-03-06 19:00:00', 'Battle of the Century', '/assets/events/promo1.jpg', 1, 0, 2, 0, 1, 1, 1, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.'),
-(2, '2021-05-09 19:00:00', 'Rematch of the Century', '/assets/events/promo2.jpg', 2, 0, 1, 0, 1, 1, 1, 'Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo.');
+(2, '2021-05-09 19:00:00', 'Rematch of the Century', '/assets/events/promo2.jpg', 2, 0, 1, 0, 1, 1, 1, 'Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo.'),
+(3, '2021-05-15 20:00:00', 'Fight for the Cup', '/assets/events/promo3.jpg', 2, NULL, 3, NULL, 2, 1, 1, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.'),
+(4, '2021-07-08 18:00:00', 'A Storm in the Water Glass', '/assets/events/promo4.jpg', 8, NULL, 2, NULL, 2, 5, 1, 'Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.'),
+(5, '2021-07-06 18:30:00', 'Green Is The New Black', '/assets/events/promo5.jpg', 8, NULL, 3, NULL, 1, 5, 1, 'Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.'),
+(6, '2021-07-12 19:00:00', 'Kick Like There\'s No Tomorrow', '/assets/events/promo6.jpg', 2, NULL, 5, NULL, 2, 3, 1, 'Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.'),
+(7, '2021-02-05 17:00:00', 'This Is Brutality!', '/assets/events/promo10.jpg', 10, NULL, 6, NULL, 3, 2, 3, 'Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc. \'Nuff Said!'),
+(8, '2021-03-08 18:00:00', 'No Puckin\' Around', '/assets/events/promo11.jpg', 7, NULL, 10, NULL, 3, 2, 3, 'Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.'),
+(9, '2021-08-01 18:00:00', 'Get Ready To Kick Balls!', '/assets/events/promo7.jpg', 5, NULL, 3, NULL, 2, 4, 1, 'Cras dapibus. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.');
 
 -- --------------------------------------------------------
 
@@ -382,7 +392,11 @@ CREATE TABLE `location` (
 --
 
 INSERT INTO `location` (`locationId`, `name`, `imageUrl`, `maxAudienceCapacity`, `website`, `phone`, `email`, `street`, `streetNo`, `postalCode`, `city`, `_countryId`, `description`) VALUES
-(1, 'Gerhard-Hanappi-Stadion', '/assets/locations/ernst-happel-stadion.jpg', 17500, 'https://www.skrapid.at/de/startseite/verein/geschichte/gerhard-hanappi-stadion', NULL, NULL, 'Gerhard-Hanappi-Platz', '1', '1140 ', 'Vienna', 10, 'The Gerhard-Hanappi-Stadion was a football stadium in Hütteldorf, in the west of Vienna, Austria. It was the home ground of Rapid Vienna. It was officially opened in 1977 as \"Weststadion\" (Western stadium). In 1980 it was renamed to honour its architect, Austrian football player Gerhard Hanappi. Among fans the stadium was also known as \"Sankt Hanappi\" (Saint Hanappi), in reference to the fans\' slogan \"Rapid ist uns\'re Religion\" (\"Rapid is our religion\"). Source: Wikipedia.');
+(1, 'Gerhard-Hanappi-Stadion', '/assets/locations/gerhard-hanappi-stadion.jpg', 17500, 'https://www.skrapid.at/de/startseite/verein/geschichte/gerhard-hanappi-stadion', NULL, NULL, 'Gerhard-Hanappi-Platz', '1', '1140', 'Vienna', 10, 'The Gerhard-Hanappi-Stadion was a football stadium in Hütteldorf, in the west of Vienna, Austria. It was the home ground of Rapid Vienna. It was officially opened in 1977 as \"Weststadion\" (Western stadium). In 1980 it was renamed to honour its architect, Austrian football player Gerhard Hanappi. Among fans the stadium was also known as \"Sankt Hanappi\" (Saint Hanappi), in reference to the fans\' slogan \"Rapid ist uns\'re Religion\" (\"Rapid is our religion\"). Source: Wikipedia.'),
+(2, 'Erste Bank Arena', '/assets/locations/albert-schultz-halle.jpg', 7000, 'erstebank-arena.at', '+43 1 204 85 80', 'office@erstebank-arena.at', 'Attemsgasse', '1', '1200', 'Vienna', 10, 'Erste Bank Arena (also known as Albert Schultz Eishalle) is an indoor sporting arena located in Vienna, Austria. The arena has a capacity of 7,022 people[1] and was opened in January 1995. It underwent major renovations in 2010 and 2011 to increase the capacity from 4,500 to over 7,000.'),
+(3, 'Ernst-Happel-Stadion', '/assets/locations/ernst-happel-stadion.jpg', 50000, 'www.wien.gv.at/freizeit/sportamt/sportstaetten/stadien/happel.html', '+43 1 728 08 54', 'info@wienersportstaetten.at', 'Meiereistraße', '7', '1020', 'Vienna', 10, 'The Ernst-Happel-Stadion, known as Praterstadion until 1992, sometimes also called Wiener-Stadion, is a football stadium in Leopoldstadt, the 2nd district of Austria\'s capital Vienna. With 50,865 seats, it is the largest stadium in Austria. It was built between 1929 and 1931 for the second Workers\' Olympiad to the design of German architect Otto Ernst Schweizer. The stadium was renamed in honour of Austrian footballer Ernst Happel following his death in 1992. (Source: Wikipedia.)'),
+(4, 'Wembley Stadium', '/assets/locations/wembley-stadium.jpg', 82000, 'wembleystadium.com', '+44 333 999 1863', 'clubwembley@wembleystadium.com', 'Wembley Stadium', NULL, 'HA9 0WS', 'London', 186, 'Wembley Stadium is a football stadium in Wembley, London. It opened in 2007 on the site of the original Wembley Stadium, which was demolished from 2002 to 2003. The stadium hosts major football matches including home matches of the England national football team, and the FA Cup Final. (Source: Wikipedia.)'),
+(5, 'Merkur Arena', '/assets/locations/merkur-arena.jpg', 16300, 'mcg.at/locations/merkur-arena/', NULL, NULL, 'Stadionplatz', '1', '8041', 'Graz', 10, 'The Liebenauer Stadium, sponsored as the Merkur-Arena (formerly known as the Arnold Schwarzenegger Stadium and UPC-Arena) is in Graz, Styria, Austria. The ground is the home of the football clubs SK Sturm Graz and Grazer AK.');
 
 -- --------------------------------------------------------
 
@@ -467,7 +481,7 @@ INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `acade
 (58, 'Sanford', NULL, 'Scheck', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
 (59, 'Clair', NULL, 'Okane', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
 (60, 'Franklin', NULL, 'Baumgartner', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(61, 'Taylor', NULL, 'Auslander', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(61, 'Taylor', NULL, 'Rulander', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
 (62, 'Kevin', NULL, 'Rasor', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
 (63, 'Joshua', NULL, 'Delahoussaye', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
 (64, 'Rosario', NULL, 'Olah', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
@@ -475,38 +489,38 @@ INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `acade
 (66, 'Julius', NULL, 'Shehorn', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
 (67, 'Albert', NULL, 'Winbush', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
 (68, 'Neville', NULL, 'Hornbuckle', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(69, 'Dale', NULL, 'Murawski', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(70, 'Rod', NULL, 'Matzen', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(69, 'Dale', NULL, 'Murawski', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(70, 'Roland', NULL, 'Latzen', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
 (71, 'Jack', NULL, 'Belfield', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
 (72, 'Denis', NULL, 'Maher', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
 (73, 'Alva', NULL, 'Buchta', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(74, 'Adolfo', NULL, 'Lout', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(74, 'Erwin', NULL, 'Lout', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
 (75, 'Buck', NULL, 'Prada', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(76, 'Rodrick', NULL, 'Piazza', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(77, 'Randolph', NULL, 'Monteleone', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(78, 'Felix', NULL, 'Shorter', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(79, 'Franklin', NULL, 'Baumgartner', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(80, 'Taylor', NULL, 'Auslander', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(76, 'Robin', NULL, 'Battinger', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(77, 'Rudolf', NULL, 'Schlager', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(78, 'Friedolin', NULL, 'Ignazius', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(79, 'Josef', NULL, 'Gantinger', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(80, 'Tim', NULL, 'Rupold', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
 (81, 'Kevin', NULL, 'Rasor', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(82, 'Joshua', NULL, 'Delahoussaye', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(83, 'Rosario', NULL, 'Olah', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(84, 'Lavern', NULL, 'Joshi', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(85, 'Julius', NULL, 'Shehorn', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(82, 'Johann', NULL, 'Hörlinger', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(83, 'Kurt', NULL, 'Öhlinger', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(84, 'Leopold', NULL, 'Strasser', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(85, 'Jens', NULL, 'Einhorn', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
 (86, 'Albert', NULL, 'Winbush', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(87, 'Neville', NULL, 'Hornbuckle', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(88, 'Dale', NULL, 'Murawski', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(89, 'Rod', NULL, 'Matzen', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(90, 'Jack', NULL, 'Belfield', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(91, 'Denis', NULL, 'Maher', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(92, 'Alva', NULL, 'Buchta', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(93, 'Adolfo', NULL, 'Lout', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(87, 'Norbert', NULL, 'Bauer', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(88, 'Daniel', NULL, 'Flußberger', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(89, 'Reinhold', NULL, 'Netz', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(90, 'Ignaz', NULL, 'Gregory', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(91, 'Dorian', NULL, 'Meister', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(92, 'Peter', NULL, 'Untergantschnigg', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(93, 'Alfons', NULL, 'Laimer', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
 (94, 'Buck', NULL, 'Prada', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(95, 'Rodrick', NULL, 'Piazza', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(96, 'Randolph', NULL, 'Monteleone', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(97, 'Felix', NULL, 'Shorter', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(98, 'Randolph', NULL, 'Monteleone', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(99, 'Felix', NULL, 'Shorter', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
-(100, 'Elvin', NULL, 'Burford', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(95, 'Rodrick', NULL, 'Schnur', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(96, 'Richard', NULL, 'Herz', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(97, 'Florian', NULL, 'Sturz', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(98, 'Reinhard', NULL, 'Monte', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(99, 'Felix', NULL, 'Shorter', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(100, 'Elvin', NULL, 'Burford', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
 (101, 'Hilton', NULL, 'Reames', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
 (102, 'Darin', NULL, 'Rush', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
 (103, 'Alexis', NULL, 'Boice', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
@@ -557,7 +571,34 @@ INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `acade
 (148, 'Ercan', NULL, 'Kara', NULL, '/assets/persons/ercan-kara.jpg', 2, 10, 2),
 (149, 'Koya', NULL, 'Kitagawa', NULL, '/assets/persons/koya-kitagawa.jpg', 2, 86, 2),
 (150, 'Kelvin', NULL, 'Arase', NULL, '/assets/persons/kelvin-arase.jpg', 2, 10, 2),
-(151, 'Yusuf', NULL, 'Demir', NULL, '/assets/persons/yusuf-demir.jpg', 2, 10, 2);
+(151, 'Yusuf', NULL, 'Demir', NULL, '/assets/persons/yusuf-demir.jpg', 2, 10, 2),
+(152, 'Jörg', NULL, 'Siebenhandl', NULL, '/assets/persons/siebenhandl.jpg', 8, 10, 2),
+(153, 'Luka', NULL, 'Maric', NULL, '/assets/persons/maric.jpg', 8, 10, 2),
+(154, 'Tobias', NULL, 'Schützenauer', NULL, '/assets/persons/schuetzenauer.jpg', 8, 10, 2),
+(155, 'Jon', NULL, 'Gorenc-Stankovic', NULL, '/assets/persons/gorenc-stankovic.jpg', 8, 159, 2),
+(156, 'Gregory', NULL, 'Wüthrich', NULL, '/assets/persons/wuethrich.jpg', 8, 170, 2),
+(157, 'David', NULL, 'Nemeth', NULL, '/assets/persons/nemeth.jpg', 8, 10, 2),
+(158, 'Jusuf', NULL, 'Gazibegovic', NULL, '/assets/persons/gazibegovic.jpg', 8, 22, 2),
+(159, 'Paul', NULL, 'Komposch', NULL, '/assets/persons/komposch.jpg', 8, 10, 2),
+(160, 'Sandro', NULL, 'Ingolitsch', NULL, '/assets/persons/ingolitsch.jpg', 8, 10, 2),
+(161, 'Niklas', NULL, 'Geyrhofer', NULL, '/assets/persons/geyrhofer.jpg', 8, 10, 2),
+(162, 'Vincent', NULL, 'Trummer', NULL, '/assets/persons/trummer.jpg', 8, 10, 2),
+(163, 'Amadou', NULL, 'Dante', NULL, '/assets/persons/dante.jpg', 8, 106, 2),
+(164, 'Otar', NULL, 'Kiteishvili', NULL, '/assets/persons/kiteishvili.jpg', 8, 64, 2),
+(165, 'Jakob', NULL, 'Jantscher', NULL, '/assets/persons/jantscher.jpg', 8, 10, 2),
+(166, 'Sebastian', NULL, 'Zettl', NULL, '/assets/persons/zettl.jpg', 8, 10, 2),
+(167, 'Sandro', NULL, 'Schendl', NULL, '/assets/persons/person-placeholder.jpg', 8, 10, 2),
+(168, 'Lukas', NULL, 'Jäger', NULL, '/assets/persons/jaeger.jpg', 8, 10, 2),
+(169, 'Philipp', NULL, 'Huspek', NULL, '/assets/persons/huspek.jpg', 8, 10, 2),
+(170, 'Andreas', NULL, 'Kuen', NULL, '/assets/persons/kuen.jpg', 8, 10, 2),
+(171, 'Tobias', NULL, 'Koch', NULL, '/assets/persons/koch.jpg', 8, 10, 2),
+(172, 'Stefan', NULL, 'Hierländer', NULL, '/assets/persons/hierlaender.jpg', 8, 10, 2),
+(173, 'Ivan', NULL, 'Ljubic', NULL, '/assets/persons/ljubic.jpg', 8, 10, 2),
+(174, 'Dardan', NULL, 'Shabanhaxhaj', NULL, '/assets/persons/shabanhaxhaj.jpg', 8, 196, 2),
+(175, 'Bekim', NULL, 'Balaj', NULL, '/assets/persons/balaj.jpg', 8, 2, 2),
+(176, 'Kevin', NULL, 'Friesenbichler', NULL, '/assets/persons/friesenbichler.jpg', 8, 10, 2),
+(177, 'Francisco', NULL, 'Mwepu', NULL, '/assets/persons/mwepu.jpg', 8, 194, 2),
+(178, 'Emeka', NULL, 'Eze', NULL, '/assets/persons/eze.jpg', 8, 127, 2);
 
 -- --------------------------------------------------------
 
@@ -607,7 +648,7 @@ INSERT INTO `team` (`teamId`, `name`, `logoUrl`, `_categoryId`, `_leagueId`, `le
 (4, 'FC Barcelona', '/assets/logos/fc-barcelona-logo.png', 1, 5, 5, 'Futbol Club Barcelona, commonly referred to as Barcelona and colloquially known as Barça, is a Spanish professional football club based in Barcelona, that competes in La Liga, the top flight of Spanish football. Source: Wikipedia.'),
 (5, 'Manchester United F.C.', '/assets/logos/manchester-united-logo.png', 1, 6, 3, 'Manchester United Football Club is a professional football club based in Old Trafford, Greater Manchester, England, that competes in the Premier League, the top flight of English football. Nicknamed \"the Red Devils\", the club was founded as Newton Heath LYR Football Club in 1878, changed its name to Manchester United in 1902 and moved to its current stadium, Old Trafford, in 1910.'),
 (6, 'EC KAC', '/assets/logos/kac-logo.png', 3, 1, 4, 'Klagenfurt Athletic Sports Club or EC KAC (German: Klagenfurter Athletiksport Club) is a professional ice hockey team in the Austrian Erste Bank Hockey League. The team plays their home games in Klagenfurt, Carinthia, Austria at Stadthalle Klagenfurt. EC KAC has won the most Austrian ice hockey Championships, a total of 31 times including 11 consecutive titles from 1964 to 1974, and four consecutive from 1985 to 1988. Most recently they won it in 2019. Source: Wikipedia.'),
-(7, 'Steinbach Black Wings 1992 - EHC Linz', '/assets/logos/black-wings-logo.png', 3, 1, 7, 'The Steinbach Black Wings 1992 are a member of the Austrian Hockey League. They play their home games in Linz, Austria at the Linz AG Eisarena.'),
+(7, 'Steinbach Black Wings - EHC Linz', '/assets/logos/black-wings-logo.png', 3, 1, 7, 'The Steinbach Black Wings 1992 are a member of the Austrian Hockey League. They play their home games in Linz, Austria at the Linz AG Eisarena.'),
 (8, 'SK Sturm Graz', '/assets/logos/sturm-graz.png', 1, 2, 2, 'Sportklub Sturm Graz is an Austrian association football club, based in Graz, Styria, playing in the Austrian Football Bundesliga. The club was founded in 1909. Its colours are black and white. In its history, Sturm Graz has won the Austrian football championship three times, in 1998, 1999 and 2011, and participated several times in the UEFA Champions League and UEFA Europa League. Their biggest rivals are Graz neighbours Grazer AK. Source: Wikipedia.'),
 (9, 'FC Red Bull Salzburg', '/assets/logos/red-bull-salzburg.png', 1, 2, 1, 'FC Red Bull Salzburg is an Austrian professional football club based in Wals-Siezenheim, that competes in the Austrian Bundesliga, the top flight of Austrian Football. Their home ground is the Red Bull Arena. Due to sponsorship restrictions, the club is known as FC Salzburg and wears a modified crest when playing in UEFA competitions. The club was known as SV Austria Salzburg, and had several sponsored names, before being bought by Red Bull GmbH in 2005 who renamed the club and changed its colours from its traditional violet and white to red and white. The change resulted in some of the team\'s fans forming a new club, SV Austria Salzburg. Source: Wikipedia.'),
 (10, 'Vienna Capitals', '/assets/logos/vienna-capitals.png', 3, 1, 3, 'Vienna Capitals are an Austrian professional ice hockey club who participate in the Erste Bank Hockey League. Founded in 2001, the Capitals play their home games in Vienna, Austria, at Albert Schultz Eishalle. In the 2004–05 season, the Capitals claimed their first Austrian Championship in defeating EC KAC.');
@@ -737,19 +778,19 @@ ALTER TABLE `contenders`
 -- AUTO_INCREMENT for table `contest`
 --
 ALTER TABLE `contest`
-  MODIFY `contestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `contestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
-  MODIFY `countryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
+  MODIFY `countryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
 
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `eventId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `eventId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `league`
@@ -761,13 +802,13 @@ ALTER TABLE `league`
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
-  MODIFY `locationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `locationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `person`
 --
 ALTER TABLE `person`
-  MODIFY `personId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `personId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=179;
 
 --
 -- AUTO_INCREMENT for table `role`

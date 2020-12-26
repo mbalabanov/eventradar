@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contest index{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Contest index</h2>
+            <p><a href="{{ path('contest_new') }}" class="btn btn-primary">Add New Contest</a></p>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for contest in contests %}
+            <div class="col-md-4 p-2">
+                <div class="border bg-light round p-3">
+                    <p class="text-center"><img src="{{ contest.imageurl }}" alt="{{ contest.name }}"></p>
+                    <h4>{{ contest.name }} (ID: {{ contest.contestid }})</h4>
+                    <p><strong>Federation:</strong> {{ contest.federationname }}</p>
+                    <p class="text-break"><strong>Website:</strong> <a href="http://{{ contest.website }}" target="_blank">{{ contest.website }}</a></p>
+                    <p><a href="{{ path('contest_edit', {'contestid': contest.contestid}) }}" class="btn btn-primary">Edit</a></p>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-md-12">
+                <div class="alert alert-danger text-center">
+                    No records found
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

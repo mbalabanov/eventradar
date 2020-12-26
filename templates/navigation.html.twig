@@ -22,13 +22,15 @@
                         Admin
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                        <li><a class="dropdown-item" href="/admin/event">Events</a></li>
-                        <li><a class="dropdown-item" href="/admin/location">Locations</a></li>
-                        <li><a class="dropdown-item" href="/admin/team">Teams</a></li>
-                        <li><a class="dropdown-item" href="/admin/person">Persons</a></li>
-                        <li><a class="dropdown-item" href="/admin/role">Roles</a></li>
-                        <li><a class="dropdown-item" href="/admin/league">Leagues</a></li>
-                        <li><a class="dropdown-item" href="/admin/country">Countries</a></li>
+                        <li><a class="dropdown-item" href="{{ path('default_index') }}">Events</a></li>
+                        <li><a class="dropdown-item" href="{{ path('location_index') }}">Locations</a></li>
+                        <li><a class="dropdown-item" href="{{ path('team_index') }}">Teams</a></li>
+                        <li><a class="dropdown-item" href="{{ path('person_index') }}">Persons</a></li>
+                        <li><a class="dropdown-item" href="{{ path('role_index') }}">Roles</a></li>
+                        <li><a class="dropdown-item" href="{{ path('league_index') }}">Leagues</a></li>
+                        <li><a class="dropdown-item" href="{{ path('country_index') }}">Countries</a></li>
+                        <li><a class="dropdown-item" href="{{ path('contest_index') }}">Contest</a></li>
+                        <li><a class="dropdown-item" href="{{ path('category_index') }}">Sports Categories</a></li>
                     </ul>
                 </div>
                 <a href="/logout" class="btn btn-light m-2">Logout</a>

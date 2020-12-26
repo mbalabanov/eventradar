@@ -31,16 +31,16 @@ class Category
     /**
      * @var string|null
      *
-     * @ORM\Column(name="alias", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="alias", type="string", length=255, nullable=true)
      */
-    private $alias = 'NULL';
+    private $alias;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="description", type="text", length=65535, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="description", type="text", length=65535, nullable=true)
      */
-    private $description = 'NULL';
+    private $description;
 
     public function getCategoryid(): ?int
     {

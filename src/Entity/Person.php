@@ -31,9 +31,9 @@ class Person
     /**
      * @var string|null
      *
-     * @ORM\Column(name="middleNames", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="middleNames", type="string", length=255, nullable=true)
      */
-    private $middlenames = 'NULL';
+    private $middlenames;
 
     /**
      * @var string
@@ -45,16 +45,16 @@ class Person
     /**
      * @var string|null
      *
-     * @ORM\Column(name="academicTitle", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="academicTitle", type="string", length=255, nullable=true)
      */
-    private $academictitle = 'NULL';
+    private $academictitle;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="photoUrl", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="photoUrl", type="string", length=255, nullable=true)
      */
-    private $photourl = 'NULL';
+    private $photourl;
 
     /**
      * @var \Country

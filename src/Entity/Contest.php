@@ -31,23 +31,23 @@ class Contest
     /**
      * @var string|null
      *
-     * @ORM\Column(name="imageUrl", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="imageUrl", type="string", length=255, nullable=true)
      */
-    private $imageurl = 'NULL';
+    private $imageurl;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="federationName", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="federationName", type="string", length=255, nullable=true)
      */
-    private $federationname = 'NULL';
+    private $federationname;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="website", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $website = 'NULL';
+    private $website;
 
     public function getContestid(): ?int
     {
