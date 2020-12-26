@@ -31,58 +31,58 @@ class Location
     /**
      * @var string|null
      *
-     * @ORM\Column(name="imageUrl", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="imageUrl", type="string", length=255, nullable=true)
      */
-    private $imageurl = 'NULL';
+    private $imageurl;
 
     /**
      * @var int|null
      *
-     * @ORM\Column(name="maxAudienceCapacity", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="maxAudienceCapacity", type="integer", nullable=true)
      */
-    private $maxaudiencecapacity = 'NULL';
+    private $maxaudiencecapacity;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="website", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="website", type="string", length=255, nullable=true)
      */
-    private $website = 'NULL';
+    private $website;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="phone", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
      */
-    private $phone = 'NULL';
+    private $phone;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="email", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
-    private $email = 'NULL';
+    private $email;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="street", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="street", type="string", length=255, nullable=true)
      */
-    private $street = 'NULL';
+    private $street;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="streetNo", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="streetNo", type="string", length=255, nullable=true)
      */
-    private $streetno = 'NULL';
+    private $streetno;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="postalCode", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="postalCode", type="string", length=255, nullable=true)
      */
-    private $postalcode = 'NULL';
+    private $postalcode;
 
     /**
      * @var string
@@ -94,9 +94,9 @@ class Location
     /**
      * @var string|null
      *
-     * @ORM\Column(name="description", type="text", length=65535, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="description", type="text", length=65535, nullable=true)
      */
-    private $description = 'NULL';
+    private $description;
 
     /**
      * @var \Country

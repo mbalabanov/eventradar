@@ -1,6 +1,6 @@
 Augustus Barrs
 
-INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Colby', 'Pasquale', 'Truesdale', NULL, '/assets/persons/person-placeholder-hockey.jpg', '10', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Colby', 'Pasquale', 'Truesdale', NULL, '/assets/persons/person-placeholder-hockey.jpg', '8', '10', '2');
 INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Byron', NULL, 'Edenfield', NULL, '/assets/persons/person-placeholder.jpg', '3', '61', '2');
 INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Marcus', NULL, 'Headley', NULL, '/assets/persons/person-placeholder.jpg', '3', '61', '2');
 INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Jarod', NULL, 'Fairey', NULL, '/assets/persons/person-placeholder.jpg', '3', '61', '2');
@@ -15,6 +15,37 @@ INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `acade
 INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Mohammed', NULL, 'Reddix', NULL, '/assets/persons/person-placeholder.jpg', '3', '61', '2');
 
 person-placeholder-hockey.jpg
+
+
+
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Jörg', NULL, 'Siebenhandl', NULL, '/assets/persons/siebenhandl.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Luka', NULL, 'Maric', NULL, '/assets/persons/maric.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Tobias', NULL, 'Schützenauer', NULL, '/assets/persons/schuetzenauer.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Jon', NULL, 'Gorenc-Stankovic', NULL, '/assets/persons/gorenc-stankovic.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Gregory', NULL, 'Wüthrich', NULL, '/assets/persons/wuethrich.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'David', NULL, 'Nemeth', NULL, '/assets/persons/nemeth.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Jusuf', NULL, 'Gazibegovic', NULL, '/assets/persons/gazibegovic.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Paul', NULL, 'Komposch', NULL, '/assets/persons/komposch.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Sandro', NULL, 'Ingolitsch', NULL, '/assets/persons/ingolitsch.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Niklas', NULL, 'Geyrhofer', NULL, '/assets/persons/geyrhofer.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Vincent', NULL, 'Trummer', NULL, '/assets/persons/trummer.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Amadou', NULL, 'Dante', NULL, '/assets/persons/dante.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Otar', NULL, 'Kiteishvili', NULL, '/assets/persons/kiteishvili.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Jakob', NULL, 'Jantscher', NULL, '/assets/persons/jantscher.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Sebastian', NULL, 'Zettl', NULL, '/assets/persons/zettl.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Sandro', NULL, 'Schendl', NULL, '/assets/persons/person-placeholder.jpg', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Lukas', NULL, 'Jäger', NULL, '/assets/persons/jaeger.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Philipp', NULL, 'Huspek', NULL, '/assets/persons/huspek.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Andreas', NULL, 'Kuen', NULL, '/assets/persons/kuen.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Tobias', NULL, 'Koch', NULL, '/assets/persons/koch.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Stefan', NULL, 'Hierländer', NULL, '/assets/persons/hierlaender.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Ivan', NULL, 'Ljubic', NULL, '/assets/persons/ljubic.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Dardan', NULL, 'Shabanhaxhaj', NULL, '/assets/persons/shabanhaxhaj.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Bekim', NULL, 'Balaj', NULL, '/assets/persons/balaj.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Kevin', NULL, 'Friesenbichler', NULL, '/assets/persons/friesenbichler.png.jpg', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Francisco', NULL, 'Mwepu', NULL, '/assets/persons/mwepu.png', '8', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Emeka', NULL, 'Eze', NULL, '/assets/persons/eze.png', '8', '10', '2');
+
 
 
 INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Hilton', NULL, 'Reames', NULL, '/assets/persons/person-placeholder-hockey.jpg', '10', '10', '2');
@@ -64,12 +95,12 @@ INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `acade
 INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Dejan', NULL, 'Ljubicic', NULL, '/assets/persons/dejan-ljubicic.jpg', '2', '10', '2');
 INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Melih', NULL, 'Ibrahimoglu', NULL, '/assets/persons/melih-ibrahimoglu.jpg', '2', '10', '2');
 INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Lion', NULL, 'Schuster', NULL, '/assets/persons/lion-schuster.jpg', '2', '10', '2');
-INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Dragoljub', NULL, 'Savic', NULL, '/assets/persons/dragoljub-savic.jpg', '2', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Dragoljub', NULL, 'Savic', NULL, '/assets/persons/dragoljub-savic.jpg', '2', '154', '2');
 INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Dalibor', NULL, 'Velimirovic', NULL, '/assets/persons/dalibor-velimirovic.jpg', '2', '10', '2');
 INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Philipp', NULL, 'Schobesberger', NULL, '/assets/persons/philipp-schobesberger.jpg', '2', '10', '2');
-INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Taxiarchis', NULL, 'Fountas', NULL, '/assets/persons/taxiarchis-fountas.jpg', '2', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Taxiarchis', NULL, 'Fountas', NULL, '/assets/persons/taxiarchis-fountas.jpg', '2', '67', '2');
 INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Deni', NULL, 'Alar', NULL, '/assets/persons/deni-alar.jpg', '2', '10', '2');
 INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Ercan', NULL, 'Kara', NULL, '/assets/persons/ercan-kara.jpg', '2', '10', '2');
-INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Koya', NULL, 'Kitagawa', NULL, '/assets/persons/koya-kitagawa.jpg', '2', '10', '2');
+INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Koya', NULL, 'Kitagawa', NULL, '/assets/persons/koya-kitagawa.jpg', '2', '86', '2');
 INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Kelvin', NULL, 'Arase', NULL, '/assets/persons/kelvin-arase.jpg', '2', '10', '2');
 INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `academicTitle`, `photoUrl`, `_teamId`, `_nationality`, `_roleId`) VALUES (NULL, 'Yusuf', NULL, 'Demir', NULL, '/assets/persons/yusuf-demir.jpg', '2', '10', '2');

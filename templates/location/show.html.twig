@@ -16,15 +16,21 @@
         <div class="col-md-9">
             <h4>{{ location.name }} (ID: {{ location.locationid }})</h4>
             <p><strong>Max. Audience Capacity:</strong> {{ location.maxaudiencecapacity }} PAX</p>
-            <p>
-                <strong>Address:</strong><br/>
-                {{ location.street }} {{ location.streetno }},<br/>
-                {{ location.postalcode }} {{ location.city }},
-                {{ location.countryid.name }} <img src="{{ location.countryid.flagurl }}" class="border" height="20px">
-            </p>
-            <p><strong>Phone:</strong> {{ location.phone }}</p>
-            <p class="text-break"><strong>Website:</strong> <a href="{{ location.website }}" target="_blank">{{ location.website }}</a></p>
-            <p><strong>Email:</strong> <a href="mailto:{{ location.email }}">{{ location.email }}</a></p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Address:</strong></p>
+                    <p>
+                        {{ location.street }} {{ location.streetno }},<br/>
+                        {{ location.postalcode }} {{ location.city }},<br/>
+                        {{ location.countryid.name }} <img src="{{ location.countryid.flagurl }}" class="border" height="20px">
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Phone:</strong> {{ location.phone }}</p>
+                    <p class="text-break"><strong>Website:</strong> <a href="{{ location.website }}" target="_blank">{{ location.website }}</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:{{ location.email }}">{{ location.email }}</a></p>
+                </div>
+            </div>
             <p>
                 <strong>Description:</strong><br/>
                 {{ location.description }}

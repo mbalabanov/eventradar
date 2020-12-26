@@ -1,4 +1,115 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+<div class="form-group">
+    <div class="row my-2">
+        <div class="col-md-12">
+            {{ form_label(form.name, 'Location Name') }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.name) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.name) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-6">
+            {{ form_label(form.imageurl, 'Image URL') }}
+            {{ form_widget(form.imageurl, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.imageurl) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.imageurl) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            {{ form_label(form.maxaudiencecapacity, 'Max. Audience Capacity URL') }}
+            {{ form_widget(form.maxaudiencecapacity, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.maxaudiencecapacity) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.maxaudiencecapacity) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-4">
+            {{ form_label(form.website, 'Website') }}
+            {{ form_widget(form.website, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.website) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.website) }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            {{ form_label(form.phone, 'Phone Number') }}
+            {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.phone) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.phone) }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            {{ form_label(form.email, 'Email Address') }}
+            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.email) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.email) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-6">
+            {{ form_label(form.street, 'Street Name') }}
+            {{ form_widget(form.street, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.street) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.street) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            {{ form_label(form.streetno, 'Street Number') }}
+            {{ form_widget(form.streetno, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.streetno) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.streetno) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-4">
+            {{ form_label(form.postalcode, 'Postal Code') }}
+            {{ form_widget(form.postalcode, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.postalcode) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.postalcode) }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            {{ form_label(form.city, 'City') }}
+            {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.city) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.city) }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            {{ form_label(form.countryid, 'Country') }}
+            {{ form_widget(form.countryid, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.countryid) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.countryid) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-12">
+            {{ form_label(form.description, 'Description') }}
+            {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.description) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.description) }}
+            </div>
+        </div>
+    </div>
+    <p><button class="btn btn-primary">{{ button_label|default('Save') }}</button></p>
+</div>
+
 {{ form_end(form) }}

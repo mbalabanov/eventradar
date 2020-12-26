@@ -10,44 +10,44 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-12 mb-4">
-            <h2 class="text-center">Upcoming Events</h2>
-            <h3 class="text-center">Today is {{ "now"|date("D, d. M Y") }}</h3>
+    <div class="row mt-4">
+        <div class="col-md-12 mb-4 text-center">
+            <h2>Upcoming Events</h2>
+            <h3>Today is {{ "now"|date("D, d. M Y") }}</h3>
+            {% if app.user %}
+                <p><a href="{{ path('event_new') }}" class="btn btn-primary mb-2">Create New Event</a></p>
+            {% endif %}
         </div>
     </div>
-    {% if app.user %}
-        <a href="{{ path('event_new') }}" class="btn btn-primary mb-2">Create New Event</a>
-    {% endif %}
-        {% for event in events %}
-            <div class="row bg-light border rounded mb-3">
-                <div class="col-md-4 p-4">
-                    <h3>{{ event.eventdate ? event.eventdate|date('D, d. M. Y') : '' }}</h3><h4>{{ event.eventdate ? event.eventdate|date('H:i') : '' }} Hr.</h4>
-                    <a href="{{ path('event_show', {'eventid': event.eventid}) }}"><img src="{{ event.imageurl }}" class="img-fluid border rounded"></a>
-                    <p><span class="badge bg-secondary">{{ event.categoryid.name }}</span></p>
-                </div>
-                <div class="col-md-8 p-4">
-                    <a href="{{ path('event_show', {'eventid': event.eventid}) }}" class="text-decoration-none">
-                        <h3>{{ event.teamida.name }} vs. {{ event.teamidb.name }}</h3>
-                        <h4>{{ event.name }}</h4>
-                    </a>
-                    <p><span class="badge bg-secondary">{{ event.contestid.name }}</span></p>
-                    <p>{{ event.note }}</p>
-                    <p><strong>Event-No. {{ event.eventid }} at Location "{{ event.locationid.name }}"</strong></p>
-                    <p>
-                        <a href="{{ path('event_show', {'eventid': event.eventid}) }}" class="btn btn-primary">Details</a>
-                        {% if app.user %}
-                            <a href="{{ path('event_edit', {'eventid': event.eventid}) }}" class="btn btn-primary">Edit</a>
-                        {% endif %}
-                    </p>
-                </div>
+    {% for event in events %}
+        <div class="row bg-light border rounded mb-3">
+            <div class="col-md-4 p-4">
+                <h3>{{ event.eventdate ? event.eventdate|date('D, d. M. Y') : '' }}</h3><h4>{{ event.eventdate ? event.eventdate|date('H:i') : '' }} Hr.</h4>
+                <a href="{{ path('event_show', {'eventid': event.eventid}) }}"><img src="{{ event.imageurl }}" class="img-fluid border rounded"></a>
+                <p><span class="badge bg-secondary">{{ event.categoryid.name }}</span></p>
             </div>
-        {% else %}
-            <div class="row bg-warning border rounded">
-                <div class="col-md-12 text-center">
-                    <p>No records found</p>
-                </div>
+            <div class="col-md-8 p-4">
+                <a href="{{ path('event_show', {'eventid': event.eventid}) }}" class="text-decoration-none">
+                    <h3>{{ event.teamida.name }} vs. {{ event.teamidb.name }}</h3>
+                    <h4>{{ event.name }}</h4>
+                </a>
+                <p><span class="badge bg-secondary">{{ event.contestid.name }}</span></p>
+                <p>{{ event.note }}</p>
+                <p><strong>Event-No. {{ event.eventid }} at Location "{{ event.locationid.name }}"</strong></p>
+                <p>
+                    <a href="{{ path('event_show', {'eventid': event.eventid}) }}" class="btn btn-primary">Details</a>
+                    {% if app.user %}
+                        <a href="{{ path('event_edit', {'eventid': event.eventid}) }}" class="btn btn-primary">Edit</a>
+                    {% endif %}
+                </p>
             </div>
-        {% endfor %}
+        </div>
+    {% else %}
+        <div class="row bg-warning border rounded">
+            <div class="col-md-12 text-center">
+                <p>No records found</p>
+            </div>
+        </div>
+    {% endfor %}
 
 {% endblock %}

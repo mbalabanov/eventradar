@@ -12,8 +12,8 @@
     <div class="row">
         {% for location in locations %}
             <div class="col-md-4 p-2">
-                <div class="border bg-light p-3">
-                    <p class="text-center"><a href="{{ path('location_show', {'locationid': location.locationid}) }}"><img src="{{ location.imageurl }}" alt="{{ location.name }}" class="img-fluid rounded"></a></p>
+                <div class="border rounded bg-light p-3">
+                    <p class="text-center"><a href="{{ path('location_show', {'locationid': location.locationid}) }}"><img src="{{ location.imageurl }}" alt="{{ location.name }}" class="img-fluid rounded border"></a></p>
                     <h4 class="text-center"><a href="{{ path('location_show', {'locationid': location.locationid}) }}" class="text-decoration-none">{{ location.name }}<br/>(ID: {{ location.locationid }})</a></h4>
                     <p><strong>Max. Audience Capacity:</strong> {{ location.maxaudiencecapacity }} PAX</p>
                     <p>

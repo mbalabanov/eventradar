@@ -28,12 +28,12 @@
             {% endif %}
             <div class="row mt-4 pt-2 border-top">
                 <div class="col-md-12">
-                    <h4>Location: {{ event.locationid.name }}</h4>
+                    <h4><a href="{{ path('location_show', {'locationid': event.locationid.locationid}) }}" class="text-decoration-none">Location: {{ event.locationid.name }}</a></h4>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <p><img src="{{ event.locationid.imageurl }}" alt="{{ event.locationid.name }}" class="img-fluid rounded border"></p>
+                    <p><a href="{{ path('location_show', {'locationid': event.locationid.locationid}) }}"><img src="{{ event.locationid.imageurl }}" alt="{{ event.locationid.name }}" class="img-fluid rounded border"></a></p>
                     <p><a href="{{ path('location_show', {'locationid': event.locationid.locationid}) }}" class="btn btn-primary">Location Details</a></p>
                 </div>
                 <div class="col-md-8">
