@@ -21,8 +21,9 @@ Create a database following the structure of your ERD. Add all necessary fields 
 
 ### 4. Task 3 – HTML/PHP:
 Create a HTML frontend to display the data in a user friendly way. Navigation should be indicated but no functionality is needed.
-Then go on with the PHP part for dynamic display of data – avoid SQL queries within loops! Required parts:
+Then go on with the PHP part for dynamic display of data – avoid SQL queries within loops!
 
+#### Required parts:
 - Database connection
 - SQL query
 - Data output
