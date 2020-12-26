@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Event
  *
- * @ORM\Table(name="event", indexes={@ORM\Index(name="event-location", columns={"_locationId"}), @ORM\Index(name="event-category", columns={"_categoryId"}), @ORM\Index(name="event-contest", columns={"_contestId"}), @ORM\Index(name="event-teamida", columns={"_teamIdA"}), @ORM\Index(name="event-scoreteama", columns={"_scoreTeamA"}), @ORM\Index(name="event-teamidb", columns={"_teamIdB"}), @ORM\Index(name="event-scoreteamb", columns={"_scoreTeamB"})})
+ * @ORM\Table(name="event", indexes={@ORM\Index(name="event-category", columns={"_categoryId"}), @ORM\Index(name="event-contest", columns={"_contestId"}), @ORM\Index(name="team-a-teamid", columns={"_teamIdA"}), @ORM\Index(name="event-location", columns={"_locationId"}), @ORM\Index(name="team-b-teamid", columns={"_teamIdB"})})
  * @ORM\Entity
  */
 class Event
@@ -31,37 +31,37 @@ class Event
     /**
      * @var string|null
      *
-     * @ORM\Column(name="name", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
-    private $name = 'NULL';
+    private $name;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="imageUrl", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="imageUrl", type="string", length=255, nullable=true)
      */
-    private $imageurl = 'NULL';
+    private $imageurl;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="scoreTeamA", type="integer", nullable=true)
+     */
+    private $scoreteama;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="scoreTeamB", type="integer", nullable=true)
+     */
+    private $scoreteamb;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="note", type="text", length=65535, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="note", type="text", length=65535, nullable=true)
      */
-    private $note = 'NULL';
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="scoreTeamA", type="string", length=255, nullable=true, options={"default"="NULL"})
-     */
-    private $scoreteama = 'NULL';
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="scoreTeamB", type="string", length=255, nullable=true, options={"default"="NULL"})
-     */
-    private $scoreteamb = 'NULL';
+    private $note;
 
     /**
      * @var \Category
@@ -72,26 +72,6 @@ class Event
      * })
      */
     private $categoryid;
-
-    /**
-     * @var \Team
-     *
-     * @ORM\ManyToOne(targetEntity="Team")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="_teamIdA", referencedColumnName="teamId")
-     * })
-     */
-    private $teamida;
-
-    /**
-     * @var \Team
-     *
-     * @ORM\ManyToOne(targetEntity="Team")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="_teamIdB", referencedColumnName="teamId")
-     * })
-     */
-    private $teamidb;
 
     /**
      * @var \Contest
@@ -112,6 +92,26 @@ class Event
      * })
      */
     private $locationid;
+
+    /**
+     * @var \Team
+     *
+     * @ORM\ManyToOne(targetEntity="Team")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="_teamIdA", referencedColumnName="teamId")
+     * })
+     */
+    private $teamida;
+
+    /**
+     * @var \Team
+     *
+     * @ORM\ManyToOne(targetEntity="Team")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="_teamIdB", referencedColumnName="teamId")
+     * })
+     */
+    private $teamidb;
 
     public function getEventid(): ?int
     {
@@ -154,6 +154,30 @@ class Event
         return $this;
     }
 
+    public function getScoreteama(): ?int
+    {
+        return $this->scoreteama;
+    }
+
+    public function setScoreteama(?int $scoreteama): self
+    {
+        $this->scoreteama = $scoreteama;
+
+        return $this;
+    }
+
+    public function getScoreteamb(): ?int
+    {
+        return $this->scoreteamb;
+    }
+
+    public function setScoreteamb(?int $scoreteamb): self
+    {
+        $this->scoreteamb = $scoreteamb;
+
+        return $this;
+    }
+
     public function getNote(): ?string
     {
         return $this->note;
@@ -166,30 +190,6 @@ class Event
         return $this;
     }
 
-    public function getScoreteama(): ?int
-    {
-        return $this->scoreteama;
-    }
-
-    public function setScoreteama(?int $note): self
-    {
-        $this->scoreteama = $scoreteama;
-
-        return $this;
-    }
-
-    public function getScoreteamb(): ?int
-    {
-        return $this->scoreteamb;
-    }
-
-    public function setScoreteamb(?int $note): self
-    {
-        $this->scoreteamb = $scoreteamb;
-
-        return $this;
-    }
-
     public function getCategoryid(): ?Category
     {
         return $this->categoryid;
@@ -198,30 +198,6 @@ class Event
     public function setCategoryid(?Category $categoryid): self
     {
         $this->categoryid = $categoryid;
-
-        return $this;
-    }
-
-    public function getTeamida(): ?Team
-    {
-        return $this->teamida;
-    }
-
-    public function setTeamida(?Team $teamid): self
-    {
-        $this->teamida = $teamid;
-
-        return $this;
-    }
-
-    public function getTeamidb(): ?Team
-    {
-        return $this->teamidb;
-    }
-
-    public function setTeamidb(?Team $teamid): self
-    {
-        $this->teamidb = $teamid;
 
         return $this;
     }
@@ -246,6 +222,30 @@ class Event
     public function setLocationid(?Location $locationid): self
     {
         $this->locationid = $locationid;
+
+        return $this;
+    }
+
+    public function getTeamida(): ?Team
+    {
+        return $this->teamida;
+    }
+
+    public function setTeamida(?Team $teamida): self
+    {
+        $this->teamida = $teamida;
+
+        return $this;
+    }
+
+    public function getTeamidb(): ?Team
+    {
+        return $this->teamidb;
+    }
+
+    public function setTeamidb(?Team $teamidb): self
+    {
+        $this->teamidb = $teamidb;
 
         return $this;
     }

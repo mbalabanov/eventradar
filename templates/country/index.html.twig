@@ -3,35 +3,37 @@
 {% block title %}Country index{% endblock %}
 
 {% block body %}
-    <h1>Country index</h1>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h2>Country List</h2>
+            <p><a href="{{ path('country_new') }}" class="btn btn-primary">Create new</a></p>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Countryid</th>
-                <th>Name</th>
-                <th>Flagurl</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for country in countries %}
-            <tr>
-                <td>{{ country.countryid }}</td>
-                <td>{{ country.name }}</td>
-                <td>{{ country.flagurl }}</td>
-                <td>
-                    <a href="{{ path('country_show', {'countryid': country.countryid}) }}">show</a>
-                    <a href="{{ path('country_edit', {'countryid': country.countryid}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('country_new') }}">Create new</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Countryid</th>
+                        <th>Name</th>
+                        <th>Flagurl</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for country in countries %}
+                    <tr>
+                        <td>{{ country.countryid }}</td>
+                        <td>{{ country.name }}</td>
+                        <td><img src="{{ country.flagurl }}" class="img-fluid border"></td>
+                        <td>
+                            <a href="{{ path('country_edit', {'countryid': country.countryid}) }}" class="btn btn-primary btn-sm">Edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}
