@@ -3,37 +3,34 @@
 {% block title %}League index{% endblock %}
 
 {% block body %}
-    <h1>League index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Leagueid</th>
-                <th>Name</th>
-                <th>Logourl</th>
-                <th>Website</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>League List</h2>
+            <p><a href="{{ path('league_new') }}" class="btn btn-primary">Create new</a></p>
+        </div>
+    </div>
+    <div class="row">
         {% for league in leagues %}
-            <tr>
-                <td>{{ league.leagueid }}</td>
-                <td>{{ league.name }}</td>
-                <td>{{ league.logourl }}</td>
-                <td>{{ league.website }}</td>
-                <td>
-                    <a href="{{ path('league_show', {'leagueid': league.leagueid}) }}">show</a>
-                    <a href="{{ path('league_edit', {'leagueid': league.leagueid}) }}">edit</a>
-                </td>
-            </tr>
+            <div class="col-md-4 p-2">
+                <div class="border rounded bg-light p-3 text-center">
+                    <div class="alert alert-warning text-center">
+                        <strong>{{ league.countryid.name }}</strong> <img src="{{ league.countryid.flagurl }}" alt="{{ league.countryid.name }}" class="border" height="20px">
+                    </div>
+                    <p><img src="{{ league.logourl }}" alt="{{ league.name }}" class="img-fluid"></p>
+                    <h3>{{ league.name }} (ID: {{ league.leagueid }})</h3>
+                    <p><strong>Website:</strong> <a href="http://{{ league.website }}" target="_blank">{{ league.website }}</p>
+                    <p>
+                        <a href="{{ path('league_edit', {'leagueid': league.leagueid}) }}" class="btn btn-primary">Edit</a>
+                    </p>
+                </div>
+            </div>
         {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
+            <div class="col-md-12">
+                <div class="alert alert-danger text-center" role="alert">
+                    No League Records Found
+                </div>
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
 
-    <a href="{{ path('league_new') }}">Create new</a>
 {% endblock %}

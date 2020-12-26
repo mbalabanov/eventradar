@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Team
  *
- * @ORM\Table(name="team", indexes={@ORM\Index(name="team-league", columns={"_leagueId"}), @ORM\Index(name="team-category", columns={"_categoryId"})})
+ * @ORM\Table(name="team", indexes={@ORM\Index(name="teamleague", columns={"_leagueId"}), @ORM\Index(name="teamcategory", columns={"_categoryId"})})
  * @ORM\Entity
  */
 class Team
@@ -31,23 +31,23 @@ class Team
     /**
      * @var string|null
      *
-     * @ORM\Column(name="logoUrl", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="logoUrl", type="string", length=255, nullable=true)
      */
-    private $logourl = 'NULL';
+    private $logourl;
 
     /**
      * @var int|null
      *
-     * @ORM\Column(name="leagueRanking", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="leagueRanking", type="integer", nullable=true)
      */
-    private $leagueranking = 'NULL';
+    private $leagueranking;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="description", type="text", length=65535, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="description", type="text", length=65535, nullable=true)
      */
-    private $description = 'NULL';
+    private $description;
 
     /**
      * @var \Category

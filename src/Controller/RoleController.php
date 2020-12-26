@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/role")
+ * @Route("/admin/role")
  */
 class RoleController extends AbstractController
 {
@@ -48,16 +48,6 @@ class RoleController extends AbstractController
         return $this->render('role/new.html.twig', [
             'role' => $role,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{roleid}", name="role_show", methods={"GET"})
-     */
-    public function role_show(Role $role): Response
-    {
-        return $this->render('role/show.html.twig', [
-            'role' => $role,
         ]);
     }
 

@@ -31,9 +31,9 @@ class League
     /**
      * @var string|null
      *
-     * @ORM\Column(name="logoUrl", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="logoUrl", type="string", length=255, nullable=true)
      */
-    private $logourl = 'NULL';
+    private $logourl;
 
     /**
      * @var string

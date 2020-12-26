@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/event")
+ * @Route("/admin/event")
  */
 class EventController extends AbstractController
 {
@@ -50,16 +50,6 @@ class EventController extends AbstractController
         return $this->render('event/new.html.twig', [
             'event' => $event,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{eventid}", name="event_show", methods={"GET"})
-     */
-    public function event_show(Event $event): Response
-    {
-        return $this->render('event/show.html.twig', [
-            'event' => $event,
         ]);
     }
 

@@ -3,33 +3,39 @@
 {% block title %}Role index{% endblock %}
 
 {% block body %}
-    <h1>Role index</h1>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h2>Role List</h2>
+            <p><a href="{{ path('role_new') }}" class="btn btn-primary">Add New Role</a></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center">Role ID</th>
+                        <th>Role Name</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for role in roles %}
+                    <tr>
+                        <td class="text-center">{{ role.roleid }}</td>
+                        <td>{{ role.name }}</td>
+                        <td class="text-center">
+                            <a href="{{ path('role_edit', {'roleid': role.roleid}) }}" class="btn btn-primary">Edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3" class="bg-danger">No Role Records Found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Roleid</th>
-                <th>Name</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for role in roles %}
-            <tr>
-                <td>{{ role.roleid }}</td>
-                <td>{{ role.name }}</td>
-                <td>
-                    <a href="{{ path('role_show', {'roleid': role.roleid}) }}">show</a>
-                    <a href="{{ path('role_edit', {'roleid': role.roleid}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('role_new') }}">Create new</a>
 {% endblock %}

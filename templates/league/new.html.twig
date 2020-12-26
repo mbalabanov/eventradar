@@ -3,9 +3,11 @@
 {% block title %}New League{% endblock %}
 
 {% block body %}
-    <h1>Create new League</h1>
-
-    {{ include('league/_form.html.twig') }}
-
-    <a href="{{ path('league_index') }}">back to list</a>
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <h2>Add New League</h2>
+        <p><a href="{{ path('league_index') }}" class="btn btn-primary">Back to Leagues</a></p>
+        {{ include('league/_form.html.twig') }}
+    </div>
+</div>
 {% endblock %}

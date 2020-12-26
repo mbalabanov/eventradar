@@ -1,4 +1,42 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="form-group">
+    <div class="row my-2">
+        <div class="col-md-6">
+            {{ form_label(form.name, 'League Name') }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.name) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.name) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            {{ form_label(form.logourl, 'Logo URL') }}
+            {{ form_widget(form.logourl, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.logourl) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.logourl) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-6">
+            {{ form_label(form.website, 'League Website') }}
+            {{ form_widget(form.website, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.website) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.website) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            {{ form_label(form.countryid, 'Country') }}
+            {{ form_widget(form.countryid, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.countryid) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.countryid) }}
+            </div>
+        </div>
+    </div>
+    <p><button class="btn btn-primary">{{ button_label|default('Save') }}</button></p>
+</div>
+
 {{ form_end(form) }}

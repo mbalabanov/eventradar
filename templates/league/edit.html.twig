@@ -3,11 +3,12 @@
 {% block title %}Edit League{% endblock %}
 
 {% block body %}
-    <h1>Edit League</h1>
-
-    {{ include('league/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('league_index') }}">back to list</a>
-
-    {{ include('league/_delete_form.html.twig') }}
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <h2>Edit League</h2>
+        <p><a href="{{ path('league_index') }}" class="btn btn-primary">Back to Leagues</a></p>
+        {{ include('league/_form.html.twig', {'button_label': 'Update'}) }}
+        {{ include('league/_delete_form.html.twig') }}
+    </div>
+</div>
 {% endblock %}

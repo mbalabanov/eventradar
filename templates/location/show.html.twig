@@ -3,64 +3,65 @@
 {% block title %}Location{% endblock %}
 
 {% block body %}
-    <h1>Location</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Locationid</th>
-                <td>{{ location.locationid }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ location.name }}</td>
-            </tr>
-            <tr>
-                <th>Imageurl</th>
-                <td>{{ location.imageurl }}</td>
-            </tr>
-            <tr>
-                <th>Maxaudiencecapacity</th>
-                <td>{{ location.maxaudiencecapacity }}</td>
-            </tr>
-            <tr>
-                <th>Website</th>
-                <td>{{ location.website }}</td>
-            </tr>
-            <tr>
-                <th>Phone</th>
-                <td>{{ location.phone }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ location.email }}</td>
-            </tr>
-            <tr>
-                <th>Street</th>
-                <td>{{ location.street }}</td>
-            </tr>
-            <tr>
-                <th>Streetno</th>
-                <td>{{ location.streetno }}</td>
-            </tr>
-            <tr>
-                <th>Postalcode</th>
-                <td>{{ location.postalcode }}</td>
-            </tr>
-            <tr>
-                <th>City</th>
-                <td>{{ location.city }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ location.description }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('location_index') }}">back to list</a>
-
-    <a href="{{ path('location_edit', {'locationid': location.locationid}) }}">edit</a>
-
-    {{ include('location/_delete_form.html.twig') }}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Location Details</h2>
+            <p><a href="{{ path('default_index') }}" class="btn btn-primary">Back to Events</a></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <p class="text-center"><img src="{{ location.imageurl }}" alt="{{ location.name }}" class="img-fluid rounded"></p>
+        </div>
+        <div class="col-md-9">
+            <h4>{{ location.name }} (ID: {{ location.locationid }})</h4>
+            <p><strong>Max. Audience Capacity:</strong> {{ location.maxaudiencecapacity }} PAX</p>
+            <p>
+                <strong>Address:</strong><br/>
+                {{ location.street }} {{ location.streetno }},<br/>
+                {{ location.postalcode }} {{ location.city }},
+                {{ location.countryid.name }} <img src="{{ location.countryid.flagurl }}" class="border" height="20px">
+            </p>
+            <p><strong>Phone:</strong> {{ location.phone }}</p>
+            <p class="text-break"><strong>Website:</strong> <a href="{{ location.website }}" target="_blank">{{ location.website }}</a></p>
+            <p><strong>Email:</strong> <a href="mailto:{{ location.email }}">{{ location.email }}</a></p>
+            <p>
+                <strong>Description:</strong><br/>
+                {{ location.description }}
+            </p>
+            {% if app.user %}
+                <p><a href="{{ path('location_edit', {'locationid': location.locationid}) }}" class="btn btn-primary">Edit</a></p>
+                <p>{{ include('location/_delete_form.html.twig') }}</p>
+            {% endif %}
+            <div class="row mt-2 pt-2 border-top">
+                {% for event in locationevents %}
+                    <div class="col-md-6 p-2">
+                        <div class="border rounded bt-light p-3">
+                            <a href="{{ path('event_show', {'eventid': event.eventid}) }}" class="text-decoration-none">
+                                <h3>{{ event.teamida.name }} vs. {{ event.teamidb.name }}</h3>
+                                <h4>{{ event.name }}</h4>
+                            </a>
+                            <h4>{{ event.eventdate ? event.eventdate|date('D, d. M. Y') : '' }}</h4>
+                            <h4>{{ event.eventdate ? event.eventdate|date('H:i') : '' }} Hr.</h4>
+                            <p><span class="badge bg-secondary">{{ event.categoryid.name }}</span></p>
+                            <a href="{{ path('event_show', {'eventid': event.eventid}) }}"><img src="{{ event.imageurl }}" class="img-fluid border rounded"></a>
+                            <p><span class="badge bg-secondary">{{ event.contestid.name }}</span></p>
+                            <p>{{ event.note }}</p>
+                            <p><strong>Event-No. {{ event.eventid }} at Location "{{ event.locationid.name }}"</strong></p>
+                            <p>
+                                <a href="{{ path('event_show', {'eventid': event.eventid}) }}" class="btn btn-primary">Details</a>
+                                {% if app.user %}
+                                    <a href="{{ path('event_edit', {'eventid': event.eventid}) }}" class="btn btn-primary">Edit</a>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="alert alert-danger text-center">
+                        <p>No Events Found For This Location</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

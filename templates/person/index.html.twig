@@ -8,7 +8,7 @@
     
     <div class="row">
         {% for person in people %}
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="alert alert-light border">
                     <p class="alert alert-warning text-center"><strong>{{ person.teamid.name }}</strong></p>
                     <p class="text-center">
@@ -26,7 +26,7 @@
                     </h4>
                     <p>
                         <strong>Role:</strong> {{ person.roleid.name }}<br/>
-                        <strong>Nationality:</strong> {{ person.nationality.name }}
+                        <strong>Nationality:</strong> {{ person.nationality.name }} <img src="{{ person.nationality.flagurl }}" alt="{{ person.nationality.name }}" class="border" height="20px">
                     </p>
                     <p><a href="{{ path('person_edit', {'personid': person.personid}) }}" class="btn btn-primary btn-sm">Edit</a></p>
                 </div>

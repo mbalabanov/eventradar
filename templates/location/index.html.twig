@@ -1,57 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Location index{% endblock %}
+{% block title %}Location List{% endblock %}
 
 {% block body %}
-    <h1>Location index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Locationid</th>
-                <th>Name</th>
-                <th>Imageurl</th>
-                <th>Maxaudiencecapacity</th>
-                <th>Website</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Street</th>
-                <th>Streetno</th>
-                <th>Postalcode</th>
-                <th>City</th>
-                <th>Country</th>
-                <th>Description</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Location List</h2>
+            <p><a href="{{ path('location_new') }}" class="btn btn-primary">Create new</a></p>
+        </div>
+    </div>
+    <div class="row">
         {% for location in locations %}
-            <tr>
-                <td>{{ location.locationid }}</td>
-                <td>{{ location.name }}</td>
-                <td>{{ location.imageurl }}</td>
-                <td>{{ location.maxaudiencecapacity }}</td>
-                <td>{{ location.website }}</td>
-                <td>{{ location.phone }}</td>
-                <td>{{ location.email }}</td>
-                <td>{{ location.street }}</td>
-                <td>{{ location.streetno }}</td>
-                <td>{{ location.postalcode }}</td>
-                <td>{{ location.city }}</td>
-                <td>{{ location.countryid.name }}</td>
-                <td>{{ location.description }}</td>
-                <td>
-                    <a href="{{ path('location_show', {'locationid': location.locationid}) }}">show</a>
-                    <a href="{{ path('location_edit', {'locationid': location.locationid}) }}">edit</a>
-                </td>
-            </tr>
+            <div class="col-md-4 p-2">
+                <div class="border bg-light p-3">
+                    <p class="text-center"><a href="{{ path('location_show', {'locationid': location.locationid}) }}"><img src="{{ location.imageurl }}" alt="{{ location.name }}" class="img-fluid rounded"></a></p>
+                    <h4 class="text-center"><a href="{{ path('location_show', {'locationid': location.locationid}) }}" class="text-decoration-none">{{ location.name }}<br/>(ID: {{ location.locationid }})</a></h4>
+                    <p><strong>Max. Audience Capacity:</strong> {{ location.maxaudiencecapacity }} PAX</p>
+                    <p>
+                        <strong>Address:</strong><br/>
+                        {{ location.street }} {{ location.streetno }},<br/>
+                        {{ location.postalcode }} {{ location.city }},
+                        {{ location.countryid.name }} <img src="{{ location.countryid.flagurl }}" class="border" height="20px">
+                    </p>
+                    <p><strong>Phone:</strong> {{ location.phone }}</p>
+                    <p class="text-break"><strong>Website:</strong> <a href="{{ location.website }}" target="_blank">{{ location.website }}</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:{{ location.email }}">{{ location.email }}</a></p>
+                    <p>
+                        <strong>Description:</strong><br/>
+                        {{ location.description }}
+                    </p>
+                    <p>
+                        <a href="{{ path('location_show', {'locationid': location.locationid}) }}" class="btn btn-primary">Details</a>
+                        <a href="{{ path('location_edit', {'locationid': location.locationid}) }}" class="btn btn-primary">Edit</a>
+                    </p>
+                </div>
+            </div>
         {% else %}
-            <tr>
-                <td colspan="13">no records found</td>
-            </tr>
+            <div class="col-md-12">
+                <div class="alert alert-danger text-center" role="alert">
+                    No Location Records Found
+                </div>
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
+</div>
 
-    <a href="{{ path('location_new') }}">Create new</a>
 {% endblock %}

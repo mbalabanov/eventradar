@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/league")
+ * @Route("/admin/league")
  */
 class LeagueController extends AbstractController
 {
@@ -48,16 +48,6 @@ class LeagueController extends AbstractController
         return $this->render('league/new.html.twig', [
             'league' => $league,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{leagueid}", name="league_show", methods={"GET"})
-     */
-    public function league_show(League $league): Response
-    {
-        return $this->render('league/show.html.twig', [
-            'league' => $league,
         ]);
     }
 

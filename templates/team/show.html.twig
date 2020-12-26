@@ -3,19 +3,37 @@
 {% block title %}{{ team.name }}{% endblock %}
 
 {% block body %}
-    <h2>Team Information</h2>
-    <p><a href="{{ path('team_index') }}" class="btn btn-primary">Back To All Teams</a></p>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Team Information</h2>
+            <p><a href="{{ path('default_index') }}" class="btn btn-primary">Back To Events</a></p>
+        </div>
+    </div>
     <div class="row mt-4">
-        <div class="col-md-2 text-center">
+        <div class="col-md-3 text-center">
             <p><img src="{{ team.logourl }}" alt="{{ team.name }}" class="img-fluid"></p>
         </div>
-        <div class="col-md-10">
-            <h3>{{ team.name }}</h3>
+        <div class="col-md-9">
             <p><span class="badge bg-secondary">{{ team.categoryid.name }}</span></p>
-            <p class="fs-5">Ranked at no. {{ team.leagueranking }} in the {{ team.leagueid.name }}</p>
+            <h3>{{ team.name }}</h3>
             <p>{{ team.description }}</p>
-            <p><a href="{{ path('team_edit', {'teamid': team.teamid}) }}" class="btn btn-primary">Edit</a></p>
-            <p>{{ include('team/_delete_form.html.twig') }}</p>
+            {% if app.user %}
+                <p><a href="{{ path('team_edit', {'teamid': team.teamid}) }}" class="btn btn-primary">Edit</a></p>
+                <p>{{ include('team/_delete_form.html.twig') }}</p>
+            {% endif %}
+
+            <div class="row border p-1 mx-1 my-4">
+                <div class="col-md-6 p-4 text-center">
+                    <h4>League</h4>
+                    <p><img src="{{ team.leagueid.logourl }}" alt="{{ team.leagueid.name }}" class="img-fluid"></p>
+                    <p>Ranked at no. <strong>{{ team.leagueranking }}</strong> in the <strong>{{ team.leagueid.name }}</strong></p>
+                </div>
+                <div class="col-md-6 p-4 text-center">
+                    <h4>Country</h4>
+                    <p><img src="{{ team.leagueid.countryid.flagurl }}" alt="{{ team.leagueid.countryid.name }}" class="border border-secondary img-fluid m-4"></p>
+                    <h5>{{ team.leagueid.countryid.name }}</h5>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-md-12">
@@ -24,7 +42,7 @@
             </div>
             <div class="row">
                 {% for member in members %}
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="alert alert-light border">
                             <p class="alert alert-warning text-center"><strong>{{ member.teamid.name }}</strong></p>
                             <p class="text-center">
@@ -42,15 +60,17 @@
                             </h4>
                             <p>
                                 <strong>Role:</strong> {{ member.roleid.name }}<br/>
-                                <strong>Nationality:</strong> {{ member.nationality.name }}
+                                <strong>Nationality:</strong> {{ member.nationality.name }}  <img src="{{ member.nationality.flagurl }}" alt="{{ member.nationality.name }}" class="border" height="20px">
                             </p>
-                            <p><a href="{{ path('person_edit', {'personid': member.personid}) }}" class="btn btn-primary btn-sm">Edit</a></p>
+                            {% if app.user %}
+                                <p><a href="{{ path('person_edit', {'personid': member.personid}) }}" class="btn btn-primary btn-sm">Edit</a></p>
+                            {% endif %}
                         </div>
                     </div>
                 {% else %}
                     <div class="col-md-12">
                         <div class="alert alert-danger text-center" role="alert">
-                            No team members found
+                            No Team Members Found
                         </div>
                     </div>
                 {% endfor %}

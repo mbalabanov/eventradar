@@ -3,37 +3,36 @@
 {% block title %}Team List{% endblock %}
 
 {% block body %}
-    <h2>Team List</h2>
-    <p><a href="{{ path('team_new') }}" class="btn btn-primary">Add New Team</a></p>
-    <div class="table-responsive border rounded bg-light p-3">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th width="20%">Name</th>
-                    <th width="10%" class="text-center">Logo</th>
-                    <th width="20%" class="text-center">League</th>
-                    <th width="35%" class="text-center">Description</th>
-                    <th width="15%" class="text-center">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for team in teams %}
-                <tr>
-                    <td><strong>{{ team.name }}</strong><br>(ID {{ team.teamid }})</td>
-                    <td class="text-center"><img src="{{ team.logourl }}" alt="{{ team.name }}" class="img-fluid"></td>
-                    <td class="text-center">Ranked at no. <strong>{{ team.leagueranking }}</strong> in the <strong>{{ team.leagueid.name }}</strong><br/><span class="badge bg-secondary">{{ team.categoryid.name }}</span></td>
-                    <td>{{ team.description }}</td>
-                    <td class="text-center">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Team List</h2>
+            <p><a href="{{ path('team_new') }}" class="btn btn-primary">Add New Team</a></p>
+        </div>
+    </div>
+    <div class="row">
+        {% for team in teams %}
+            <div class="col-md-4 p-2">
+                <div class="border rounded bg-light p-3">
+                    <div class="alert alert-warning text-center" role="alert">
+                        <strong>{{ team.categoryid.name }}</strong>
+                    </div>
+                    <p class="text-center"><a href="{{ path('team_show', {'teamid': team.teamid}) }}"><img src="{{ team.logourl }}" alt="{{ team.name }}" class="img-fluid"></a></p>
+                    <h3 class="text-center"><a href="{{ path('team_show', {'teamid': team.teamid}) }}" class="text-decoration-none">{{ team.name }} (ID {{ team.teamid }})</a></h3>
+                    <p class="text-center">Ranked at no. <strong>{{ team.leagueranking }}</strong> in the <strong>{{ team.leagueid.name }}</strong></p>
+                    <p>{{ team.description }}</p>
+                    <p>
                         <a href="{{ path('team_show', {'teamid': team.teamid}) }}" class="btn btn-primary m-1">Details</a>
                         <a href="{{ path('team_edit', {'teamid': team.teamid}) }}" class="btn btn-primary m-1">Edit</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="6">No records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                    </p>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-md-12">
+                <div class="alert alert-danger text-center" role="alert">
+                    No Team Records Found
+                </div>
+            </div>
+        {% endfor %}
     </div>
+
 {% endblock %}

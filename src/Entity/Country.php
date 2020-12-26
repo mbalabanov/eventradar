@@ -31,9 +31,9 @@ class Country
     /**
      * @var string|null
      *
-     * @ORM\Column(name="flagUrl", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="flagUrl", type="string", length=255, nullable=true)
      */
-    private $flagurl = 'NULL';
+    private $flagurl;
 
     public function getCountryid(): ?int
     {

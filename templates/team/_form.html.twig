@@ -1,4 +1,61 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+<div class="form-group">
+    <div class="row my-2">
+        <div class="col-md-8">
+            {{ form_label(form.name, 'Team Name') }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.name) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.name) }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            {{ form_label(form.categoryid, 'Sports Category') }}
+            {{ form_widget(form.categoryid, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.categoryid) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.categoryid) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-8">
+            {{ form_label(form.leagueid, 'League Name') }}
+            {{ form_widget(form.leagueid, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.leagueid) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.leagueid) }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            {{ form_label(form.leagueranking, 'League Ranking') }}
+            {{ form_widget(form.leagueranking, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.leagueranking) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.leagueranking) }}
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-8">
+            {{ form_label(form.description, 'Description') }}
+            {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.description) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.description) }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            {{ form_label(form.logourl, 'Logo URL') }}
+            {{ form_widget(form.logourl, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.logourl) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.logourl) }}
+            </div>
+        </div>
+    </div>
+    <p><button class="btn btn-primary">{{ button_label|default('Save') }}</button></p>
+</div>
+
 {{ form_end(form) }}

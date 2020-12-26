@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/location")
+ * @Route("/admin/location")
  */
 class LocationController extends AbstractController
 {
@@ -50,16 +50,6 @@ class LocationController extends AbstractController
         return $this->render('location/new.html.twig', [
             'location' => $location,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{locationid}", name="location_show", methods={"GET"})
-     */
-    public function location_show(Location $location): Response
-    {
-        return $this->render('location/show.html.twig', [
-            'location' => $location,
         ]);
     }
 

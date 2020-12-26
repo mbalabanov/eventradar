@@ -1,4 +1,26 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="form-group">
+    <div class="row my-2">
+        <div class="col-md-6">
+            {{ form_label(form.name, 'Country Name') }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.name) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.name) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            {{ form_label(form.flagurl, 'Flag URL') }}
+            {{ form_widget(form.flagurl, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.flagurl) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.flagurl) }}
+            </div>
+        </div>
+    </div>
+    <p>
+        <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+    </p>
+</div>
+
 {{ form_end(form) }}

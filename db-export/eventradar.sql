@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2020 at 02:40 AM
+-- Generation Time: Dec 26, 2020 at 08:06 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -348,12 +348,12 @@ CREATE TABLE `league` (
 --
 
 INSERT INTO `league` (`leagueId`, `name`, `logoUrl`, `website`, `_countryId`) VALUES
-(1, 'bet-at-home Eishockey-Liga', 'assets/logos/bet-at-home-eishockey-liga-logo.png', 'ice.hockey', 10),
-(2, 'Tipico Bundesliga', 'assets/logos/tipico-bundesliga.png', 'bundesliga.at', 10),
-(3, 'Deutsche Bundesliga', 'assets/logos/deutsche-bundesliga-logo.png', 'bundesliga.de', 65),
-(4, 'Ligue 1', 'assets/logos/ligue1-france.png', 'ligue1.fr', 61),
-(5, 'La Liga', 'assets/logos/la-liga-espana.png', 'laliga.com', 165),
-(6, 'Premier League', 'assets/logos/premier-league-logo.png', 'premierleague.com', 186);
+(1, 'bet-at-home Eishockey-Liga', '/assets/logos/bet-at-home-eishockey-liga-logo.png', 'ice.hockey', 10),
+(2, 'Tipico Bundesliga', '/assets/logos/tipico-bundesliga.png', 'bundesliga.at', 10),
+(3, 'Deutsche Bundesliga', '/assets/logos/deutsche-bundesliga-logo.png', 'bundesliga.de', 65),
+(4, 'Ligue 1', '/assets/logos/ligue1-france.png', 'ligue1.fr', 61),
+(5, 'La Liga', '/assets/logos/la-liga-espana.png', 'laliga.com', 165),
+(6, 'Premier League', '/assets/logos/premier-league-logo.png', 'premierleague.com', 186);
 
 -- --------------------------------------------------------
 
@@ -431,7 +431,133 @@ INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `acade
 (22, 'Hansi', NULL, 'Flick', NULL, '/assets/persons/hansi-flick.jpg', 1, 65, 1),
 (23, 'Danny', NULL, 'Röhl', NULL, '/assets/persons/danny-roehl.jpg', 1, 65, 1),
 (24, 'Holger', NULL, 'Broich', 'Prof. Dr.', '/assets/persons/holger-broich.jpg', 1, 65, 4),
-(25, 'Kingsley', NULL, 'Coman', NULL, '/assets/persons/kingsley-coman.jpg', 1, 61, 2);
+(25, 'Kingsley', NULL, 'Coman', NULL, '/assets/persons/kingsley-coman.jpg', 1, 61, 2),
+(26, 'Augustus', NULL, 'Barrs', NULL, '/assets/persons/person-placeholder.jpg', 3, 61, 2),
+(27, 'Colby', 'Pasquale', 'Truesdale', NULL, '/assets/persons/person-placeholder.jpg', 3, 61, 2),
+(28, 'Byron', NULL, 'Edenfield', NULL, '/assets/persons/person-placeholder.jpg', 3, 61, 2),
+(29, 'Marcus', NULL, 'Headley', NULL, '/assets/persons/person-placeholder.jpg', 3, 61, 2),
+(30, 'Jarod', NULL, 'Fairey', NULL, '/assets/persons/person-placeholder.jpg', 3, 61, 2),
+(31, 'Ike', NULL, 'Hornick', NULL, '/assets/persons/person-placeholder.jpg', 3, 61, 2),
+(32, 'Manual', NULL, 'Nolette', NULL, '/assets/persons/person-placeholder.jpg', 3, 61, 2),
+(33, 'Gonzalo', 'Eliseo', 'Woolsey', NULL, '/assets/persons/person-placeholder.jpg', 3, 61, 2),
+(34, 'Stanton', NULL, 'Zielinski', NULL, '/assets/persons/person-placeholder.jpg', 3, 61, 2),
+(35, 'Elvis', NULL, 'Beckman', NULL, '/assets/persons/person-placeholder.jpg', 3, 61, 2),
+(36, 'Porfirio', NULL, 'Fonte', NULL, '/assets/persons/person-placeholder.jpg', 3, 61, 2),
+(37, 'Brice', NULL, 'Focht', NULL, '/assets/persons/person-placeholder.jpg', 3, 61, 2),
+(38, 'Zackary', 'Julio', 'Ochs', NULL, '/assets/persons/person-placeholder.jpg', 3, 61, 2),
+(39, 'Mohammed', NULL, 'Reddix', NULL, '/assets/persons/person-placeholder.jpg', 3, 61, 2),
+(40, 'Shaun', NULL, 'Wragg', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(41, 'Kenneth', NULL, 'Scheffler', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(42, 'Gonzalo', NULL, 'Vaughn', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(43, 'Renato', NULL, 'Eberhart', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(44, 'Adalberto', NULL, 'Racicot', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(45, 'Ronnie', NULL, 'Journey', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(46, 'Moises', NULL, 'Labarre', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(47, 'Bobbie', NULL, 'Kissane', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(48, 'Rudy', NULL, 'Ammann', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(49, 'Les', NULL, 'Ryce', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(50, 'Caleb', NULL, 'Mcguire', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(51, 'Felipe', NULL, 'Najera', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(52, 'Ronny', NULL, 'Marney', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(53, 'Earl', NULL, 'Fettig', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(54, 'Ed', NULL, 'Omalley', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(55, 'Teodoro', NULL, 'Cancel', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(56, 'Rey', NULL, 'Mozingo', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(57, 'Jason', NULL, 'Lafromboise', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(58, 'Sanford', NULL, 'Scheck', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(59, 'Clair', NULL, 'Okane', NULL, '/assets/persons/person-placeholder-hockey.jpg', 7, 10, 2),
+(60, 'Franklin', NULL, 'Baumgartner', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(61, 'Taylor', NULL, 'Auslander', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(62, 'Kevin', NULL, 'Rasor', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(63, 'Joshua', NULL, 'Delahoussaye', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(64, 'Rosario', NULL, 'Olah', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(65, 'Lavern', NULL, 'Joshi', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(66, 'Julius', NULL, 'Shehorn', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(67, 'Albert', NULL, 'Winbush', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(68, 'Neville', NULL, 'Hornbuckle', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(69, 'Dale', NULL, 'Murawski', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(70, 'Rod', NULL, 'Matzen', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(71, 'Jack', NULL, 'Belfield', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(72, 'Denis', NULL, 'Maher', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(73, 'Alva', NULL, 'Buchta', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(74, 'Adolfo', NULL, 'Lout', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(75, 'Buck', NULL, 'Prada', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(76, 'Rodrick', NULL, 'Piazza', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(77, 'Randolph', NULL, 'Monteleone', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(78, 'Felix', NULL, 'Shorter', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(79, 'Franklin', NULL, 'Baumgartner', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(80, 'Taylor', NULL, 'Auslander', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(81, 'Kevin', NULL, 'Rasor', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(82, 'Joshua', NULL, 'Delahoussaye', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(83, 'Rosario', NULL, 'Olah', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(84, 'Lavern', NULL, 'Joshi', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(85, 'Julius', NULL, 'Shehorn', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(86, 'Albert', NULL, 'Winbush', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(87, 'Neville', NULL, 'Hornbuckle', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(88, 'Dale', NULL, 'Murawski', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(89, 'Rod', NULL, 'Matzen', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(90, 'Jack', NULL, 'Belfield', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(91, 'Denis', NULL, 'Maher', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(92, 'Alva', NULL, 'Buchta', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(93, 'Adolfo', NULL, 'Lout', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(94, 'Buck', NULL, 'Prada', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(95, 'Rodrick', NULL, 'Piazza', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(96, 'Randolph', NULL, 'Monteleone', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(97, 'Felix', NULL, 'Shorter', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(98, 'Randolph', NULL, 'Monteleone', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(99, 'Felix', NULL, 'Shorter', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(100, 'Elvin', NULL, 'Burford', NULL, '/assets/persons/person-placeholder-hockey.jpg', 6, 10, 2),
+(101, 'Hilton', NULL, 'Reames', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(102, 'Darin', NULL, 'Rush', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(103, 'Alexis', NULL, 'Boice', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(104, 'Devin', NULL, 'Bowsher', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(105, 'Millard', NULL, 'Balling', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(106, 'Jae', NULL, 'Hoke', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(107, 'Lupe', NULL, 'Jordon', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(108, 'Enoch', NULL, 'Castelli', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(109, 'Timmy', NULL, 'Pepin', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(110, 'Mel', NULL, 'Hynson', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(111, 'Desmond', NULL, 'Garn', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(112, 'Kurt', NULL, 'Minard', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(113, 'Rashad', NULL, 'Caceres', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(114, 'Ahmad', NULL, 'Poissant', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(115, 'Max', NULL, 'Barrows', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(116, 'Carlos', NULL, 'Prahl', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(117, 'Dewey', NULL, 'Suter', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(118, 'Raymond', NULL, 'Vesely', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(119, 'Gordon', NULL, 'Mcclure', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(120, 'Jacob', NULL, 'Roberge', NULL, '/assets/persons/person-placeholder-hockey.jpg', 10, 10, 2),
+(121, 'Richard', NULL, 'Strebinger', NULL, '/assets/persons/richard-strebinger.jpg', 2, 10, 2),
+(122, 'Bernhard', NULL, 'Unger', NULL, '/assets/persons/bernhard-unger.jpg', 2, 10, 2),
+(123, 'Paul', NULL, 'Gartler', NULL, '/assets/persons/paul-gartler.jpg', 2, 10, 2),
+(124, 'Mateo', NULL, 'Barac', NULL, '/assets/persons/mateo-barac.jpg', 2, 42, 2),
+(125, 'Mario', NULL, 'Sonnleitner', NULL, '/assets/persons/mario-sonnleitner.jpg', 2, 10, 2),
+(126, 'Christopher', NULL, 'Dibon', NULL, '/assets/persons/christopher-dibon.jpg', 2, 10, 2),
+(127, 'Maximilian', NULL, 'Hofmann', NULL, '/assets/persons/max-hofmann.jpg', 2, 10, 2),
+(128, 'Filip', NULL, 'Stojkovic', NULL, '/assets/persons/filip-stojkovic.jpg', 2, 116, 2),
+(129, 'Leo', NULL, 'Greiml', NULL, '/assets/persons/leo-greiml.jpg', 2, 10, 2),
+(130, 'Maximilian', NULL, 'Ullmann', NULL, '/assets/persons/max-ullmann.jpg', 2, 10, 2),
+(131, 'Lukas', NULL, 'Sulzbacher', NULL, '/assets/persons/person-placeholder-rapid.jpg', 2, 10, 2),
+(132, 'Adrian', NULL, 'Hajdari', NULL, '/assets/persons/adrian-hajdari.jpg', 2, 10, 2),
+(133, 'Paul', NULL, 'Gobara', NULL, '/assets/persons/paul-gobara.jpg', 2, 10, 2),
+(134, 'Marcel', NULL, 'Ritzmaier', NULL, '/assets/persons/marcel-ritzmaier.jpg', 2, 10, 2),
+(135, 'Thorsten', NULL, 'Schick', NULL, '/assets/persons/thorsten-schick.jpg', 2, 10, 2),
+(136, 'Srdjan', NULL, 'Grahovac', NULL, '/assets/persons/srdjan-grahovac.jpg', 2, 22, 2),
+(137, 'Dejan', NULL, 'Petrovic', NULL, '/assets/persons/dejan-petrovic.jpg', 2, 159, 2),
+(138, 'Tamás', NULL, 'Szántó', NULL, '/assets/persons/tamas-szanto.jpg', 2, 76, 2),
+(139, 'Christoph', NULL, 'Knasmüllner', NULL, '/assets/persons/christopher-knasmuellner.jpg', 2, 10, 2),
+(140, 'Dejan', NULL, 'Ljubicic', NULL, '/assets/persons/dejan-ljubicic.jpg', 2, 10, 2),
+(141, 'Melih', NULL, 'Ibrahimoglu', NULL, '/assets/persons/melih-ibrahimoglu.jpg', 2, 10, 2),
+(142, 'Lion', NULL, 'Schuster', NULL, '/assets/persons/person-placeholder-rapid.jpg', 2, 10, 2),
+(143, 'Dragoljub', NULL, 'Savic', NULL, '/assets/persons/dragoljub-savic.jpg', 2, 154, 2),
+(144, 'Dalibor', NULL, 'Velimirovic', NULL, '/assets/persons/dalibor-velimirovic.jpg', 2, 10, 2),
+(145, 'Philipp', NULL, 'Schobesberger', NULL, '/assets/persons/philipp-schobesberger.jpg', 2, 10, 2),
+(146, 'Taxiarchis', NULL, 'Fountas', NULL, '/assets/persons/taxi-fountas.jpg', 2, 67, 2),
+(147, 'Deni', NULL, 'Alar', NULL, '/assets/persons/deni-alar.jpg', 2, 10, 2),
+(148, 'Ercan', NULL, 'Kara', NULL, '/assets/persons/ercan-kara.jpg', 2, 10, 2),
+(149, 'Koya', NULL, 'Kitagawa', NULL, '/assets/persons/koya-kitagawa.jpg', 2, 86, 2),
+(150, 'Kelvin', NULL, 'Arase', NULL, '/assets/persons/kelvin-arase.jpg', 2, 10, 2),
+(151, 'Yusuf', NULL, 'Demir', NULL, '/assets/persons/yusuf-demir.jpg', 2, 10, 2);
 
 -- --------------------------------------------------------
 
@@ -476,14 +602,35 @@ CREATE TABLE `team` (
 
 INSERT INTO `team` (`teamId`, `name`, `logoUrl`, `_categoryId`, `_leagueId`, `leagueRanking`, `description`) VALUES
 (1, 'FC Bayern München', '/assets/logos/fc-bayern-logo.png', 1, 3, 1, 'Fußball-Club Bayern München e.V. is a German professional sports club based in Munich, Bavaria. It is best known for its professional football team, which plays in the Bundesliga, the top tier of the German football league system, and is the most successful club in German football history, having won a record 30 national titles, including eight consecutively since 2013, and 20 national cups, along with numerous European honours. Source: Wikipedia.'),
-(2, 'SK Rapid Wien', '/assets/logos/rapid-wien-logo.png', 1, 2, 4, 'Sportklub Rapid Wien, commonly known as Rapid Vienna, is an Austrian football club playing in the country\'s capital city of Vienna. Rapid has won the most Austrian championship titles (32), including the first title in the season 1911–12, as well as a German championship in 1941 during Nazi rule. Rapid twice reached the final of the European Cup Winners\' Cup in 1985 and 1996, losing on both occasions. The club is often known as Die Grün-Weißen (The Green-Whites) for its team colours or as Hütteldorfer, in reference to the location of the Gerhard Hanappi Stadium, which is in Hütteldorf, part of the city\'s 14th district in Penzing. Source: Wikipedia.'),
+(2, 'SK Rapid Wien', '/assets/logos/rapid-wien-logo.png', 1, 2, 4, 'Sportklub Rapid Wien, commonly known as Rapid Vienna, is an Austrian football club playing in the country\'s capital city of Vienna.  Rapid twice reached the final of the European Cup Winners\' Cup in 1985 and 1996, losing on both occasions. The club is often known as \"Die Grün-Weißen\" (The Green-Whites) for its team colours or as Hütteldorfer, in reference to the location of the Gerhard Hanappi Stadium, which is in Hütteldorf, part of the city\'s 14th district in Penzing. Source: Wikipedia.'),
 (3, 'Paris Saint-Germain F.C.', '/assets/logos/paris-saint-germain.png', 1, 4, 3, 'Paris Saint-Germain Football Club, commonly referred to as Paris Saint-Germain, is a French professional football club based in Paris. They compete in Ligue 1, the top division of French football. PSG are one of France\'s most successful clubs, having won more than 40 official honours, including nine league titles and one major European trophy. Their home ground is the Parc des Princes. Source: Wikipedia.'),
 (4, 'FC Barcelona', '/assets/logos/fc-barcelona-logo.png', 1, 5, 5, 'Futbol Club Barcelona, commonly referred to as Barcelona and colloquially known as Barça, is a Spanish professional football club based in Barcelona, that competes in La Liga, the top flight of Spanish football. Source: Wikipedia.'),
 (5, 'Manchester United F.C.', '/assets/logos/manchester-united-logo.png', 1, 6, 3, 'Manchester United Football Club is a professional football club based in Old Trafford, Greater Manchester, England, that competes in the Premier League, the top flight of English football. Nicknamed \"the Red Devils\", the club was founded as Newton Heath LYR Football Club in 1878, changed its name to Manchester United in 1902 and moved to its current stadium, Old Trafford, in 1910.'),
 (6, 'EC KAC', '/assets/logos/kac-logo.png', 3, 1, 4, 'Klagenfurt Athletic Sports Club or EC KAC (German: Klagenfurter Athletiksport Club) is a professional ice hockey team in the Austrian Erste Bank Hockey League. The team plays their home games in Klagenfurt, Carinthia, Austria at Stadthalle Klagenfurt. EC KAC has won the most Austrian ice hockey Championships, a total of 31 times including 11 consecutive titles from 1964 to 1974, and four consecutive from 1985 to 1988. Most recently they won it in 2019. Source: Wikipedia.'),
 (7, 'Steinbach Black Wings 1992 - EHC Linz', '/assets/logos/black-wings-logo.png', 3, 1, 7, 'The Steinbach Black Wings 1992 are a member of the Austrian Hockey League. They play their home games in Linz, Austria at the Linz AG Eisarena.'),
 (8, 'SK Sturm Graz', '/assets/logos/sturm-graz.png', 1, 2, 2, 'Sportklub Sturm Graz is an Austrian association football club, based in Graz, Styria, playing in the Austrian Football Bundesliga. The club was founded in 1909. Its colours are black and white. In its history, Sturm Graz has won the Austrian football championship three times, in 1998, 1999 and 2011, and participated several times in the UEFA Champions League and UEFA Europa League. Their biggest rivals are Graz neighbours Grazer AK. Source: Wikipedia.'),
-(9, 'FC Red Bull Salzburg', '/assets/logos/red-bull-salzburg.png', 1, 2, 1, 'FC Red Bull Salzburg is an Austrian professional football club based in Wals-Siezenheim, that competes in the Austrian Bundesliga, the top flight of Austrian Football. Their home ground is the Red Bull Arena. Due to sponsorship restrictions, the club is known as FC Salzburg and wears a modified crest when playing in UEFA competitions. The club was known as SV Austria Salzburg, and had several sponsored names, before being bought by Red Bull GmbH in 2005 who renamed the club and changed its colours from its traditional violet and white to red and white. The change resulted in some of the team\'s fans forming a new club, SV Austria Salzburg. Source: Wikipedia.');
+(9, 'FC Red Bull Salzburg', '/assets/logos/red-bull-salzburg.png', 1, 2, 1, 'FC Red Bull Salzburg is an Austrian professional football club based in Wals-Siezenheim, that competes in the Austrian Bundesliga, the top flight of Austrian Football. Their home ground is the Red Bull Arena. Due to sponsorship restrictions, the club is known as FC Salzburg and wears a modified crest when playing in UEFA competitions. The club was known as SV Austria Salzburg, and had several sponsored names, before being bought by Red Bull GmbH in 2005 who renamed the club and changed its colours from its traditional violet and white to red and white. The change resulted in some of the team\'s fans forming a new club, SV Austria Salzburg. Source: Wikipedia.'),
+(10, 'Vienna Capitals', '/assets/logos/vienna-capitals.png', 3, 1, 3, 'Vienna Capitals are an Austrian professional ice hockey club who participate in the Erste Bank Hockey League. Founded in 2001, the Capitals play their home games in Vienna, Austria, at Albert Schultz Eishalle. In the 2004–05 season, the Capitals claimed their first Austrian Championship in defeating EC KAC.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `email` varchar(180) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `roles` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `email`, `roles`, `password`) VALUES
+(1, 'user@gmail.com', '[]', '$argon2id$v=19$m=65536,t=4,p=1$UFBBRERsUlRaVENteWJETg$rgXvVVmtQ9oPZigGNUfAdqLUiOtepn0sYkiqntfSOQE');
 
 --
 -- Indexes for dumped tables
@@ -523,8 +670,8 @@ ALTER TABLE `event`
   ADD KEY `event-contest` (`_contestId`),
   ADD KEY `event-location` (`_locationId`),
   ADD KEY `event-category` (`_categoryId`),
-  ADD KEY `team-a-teamid` (`_teamIdA`),
-  ADD KEY `team-b-teamid` (`_teamIdB`);
+  ADD KEY `teamateamid` (`_teamIdA`),
+  ADD KEY `teambteamid` (`_teamIdB`);
 
 --
 -- Indexes for table `league`
@@ -562,6 +709,13 @@ ALTER TABLE `team`
   ADD PRIMARY KEY (`teamId`),
   ADD KEY `team-category` (`_categoryId`),
   ADD KEY `team-league` (`_leagueId`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -613,7 +767,7 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `person`
 --
 ALTER TABLE `person`
-  MODIFY `personId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `personId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -625,7 +779,13 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `teamId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `teamId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -642,23 +802,23 @@ ALTER TABLE `contenders`
 -- Constraints for table `event`
 --
 ALTER TABLE `event`
-  ADD CONSTRAINT `event-category` FOREIGN KEY (`_categoryId`) REFERENCES `category` (`categoryId`),
-  ADD CONSTRAINT `event-contest` FOREIGN KEY (`_contestId`) REFERENCES `contest` (`contestId`),
-  ADD CONSTRAINT `event-location` FOREIGN KEY (`_locationId`) REFERENCES `location` (`locationId`),
-  ADD CONSTRAINT `team-a-teamid` FOREIGN KEY (`_teamIdA`) REFERENCES `team` (`teamId`),
-  ADD CONSTRAINT `team-b-teamid` FOREIGN KEY (`_teamIdB`) REFERENCES `team` (`teamId`);
+  ADD CONSTRAINT `eventcategory` FOREIGN KEY (`_categoryId`) REFERENCES `category` (`categoryId`),
+  ADD CONSTRAINT `eventcontest` FOREIGN KEY (`_contestId`) REFERENCES `contest` (`contestId`),
+  ADD CONSTRAINT `eventlocation` FOREIGN KEY (`_locationId`) REFERENCES `location` (`locationId`),
+  ADD CONSTRAINT `teamateamid` FOREIGN KEY (`_teamIdA`) REFERENCES `team` (`teamId`),
+  ADD CONSTRAINT `teambteamid` FOREIGN KEY (`_teamIdB`) REFERENCES `team` (`teamId`);
 
 --
 -- Constraints for table `league`
 --
 ALTER TABLE `league`
-  ADD CONSTRAINT `league-country` FOREIGN KEY (`_countryId`) REFERENCES `country` (`countryId`);
+  ADD CONSTRAINT `leaguecountry` FOREIGN KEY (`_countryId`) REFERENCES `country` (`countryId`);
 
 --
 -- Constraints for table `location`
 --
 ALTER TABLE `location`
-  ADD CONSTRAINT `location-country` FOREIGN KEY (`_countryId`) REFERENCES `country` (`countryId`);
+  ADD CONSTRAINT `locationcountry` FOREIGN KEY (`_countryId`) REFERENCES `country` (`countryId`);
 
 --
 -- Constraints for table `person`
@@ -672,8 +832,8 @@ ALTER TABLE `person`
 -- Constraints for table `team`
 --
 ALTER TABLE `team`
-  ADD CONSTRAINT `team-category` FOREIGN KEY (`_categoryId`) REFERENCES `category` (`categoryId`),
-  ADD CONSTRAINT `team-league` FOREIGN KEY (`_leagueId`) REFERENCES `league` (`leagueId`);
+  ADD CONSTRAINT `teamcategory` FOREIGN KEY (`_categoryId`) REFERENCES `category` (`categoryId`),
+  ADD CONSTRAINT `teamleague` FOREIGN KEY (`_leagueId`) REFERENCES `league` (`leagueId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -4,36 +4,27 @@
 
 {% block body %}
     <div class="row">
-        <div class="col-md-10 offset-md-1">
+        <div class="col-md-12">
             <h2>Country List</h2>
             <p><a href="{{ path('country_new') }}" class="btn btn-primary">Create new</a></p>
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Countryid</th>
-                        <th>Name</th>
-                        <th>Flagurl</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {% for country in countries %}
-                    <tr>
-                        <td>{{ country.countryid }}</td>
-                        <td>{{ country.name }}</td>
-                        <td><img src="{{ country.flagurl }}" class="img-fluid border"></td>
-                        <td>
-                            <a href="{{ path('country_edit', {'countryid': country.countryid}) }}" class="btn btn-primary btn-sm">Edit</a>
-                        </td>
-                    </tr>
-                {% else %}
-                    <tr>
-                        <td colspan="4">no records found</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
         </div>
+    </div>
+    <div class="row">
+        {% for country in countries %}
+            <div class="col-md-3 text-center p-2">
+                <div class="border rounded bg-light p-3">
+                <p><img src="{{ country.flagurl }}" class="img-fluid border"></p>
+                <h4>{{ country.name }} (ID: {{ country.countryid }})</h4>
+                <p><strong>Flag URL:</strong> <a href="{{ country.flagurl }}" target="_blank">{{ country.flagurl }}</a></p>
+                <p>
+                    <a href="{{ path('country_edit', {'countryid': country.countryid}) }}" class="btn btn-primary btn-sm">Edit</a>
+                </p>
+                </div>
+            </div>
+        {% else %}
+            <div class="alert alert-danger" role="alert">
+                <td colspan="4">No Country Records Found</td>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

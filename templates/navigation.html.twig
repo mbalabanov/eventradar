@@ -9,28 +9,31 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/event">Events</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/team">Teams</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/location">Locations</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/person">Persons</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/league">Leagues</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/country">Countries</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/role">Roles</a>
-                </li>
             </ul>
+
+            {% if not app.user %}
+                <a href="/login" class="btn btn-light m-2">Login</a>
+                <a href="/register" class="btn btn-light m-2">Register</a>
+            {% endif %}
+
+            {% if app.user %}
+                <div class="dropdown mx-1">
+                    <button class="btn btn-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Admin
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="/admin/event">Events</a></li>
+                        <li><a class="dropdown-item" href="/admin/location">Locations</a></li>
+                        <li><a class="dropdown-item" href="/admin/team">Teams</a></li>
+                        <li><a class="dropdown-item" href="/admin/person">Persons</a></li>
+                        <li><a class="dropdown-item" href="/admin/role">Roles</a></li>
+                        <li><a class="dropdown-item" href="/admin/league">Leagues</a></li>
+                        <li><a class="dropdown-item" href="/admin/country">Countries</a></li>
+                    </ul>
+                </div>
+                <a href="/logout" class="btn btn-light m-2">Logout</a>
+            {% endif %}
+
         </div>
     </div>
 </nav>

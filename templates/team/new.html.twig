@@ -3,9 +3,11 @@
 {% block title %}New Team{% endblock %}
 
 {% block body %}
-    <h1>Create new Team</h1>
-
-    {{ include('team/_form.html.twig') }}
-
-    <a href="{{ path('team_index') }}">back to list</a>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h2>Add Team</h2>
+            <p><a href="{{ path('team_index') }}" class="btn btn-primary">Back to Teams</a></p>
+            {{ include('team/_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

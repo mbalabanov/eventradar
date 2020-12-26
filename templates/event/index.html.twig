@@ -1,12 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Event index{% endblock %}
+{% block title %}Event List{% endblock %}
 
 {% block body %}
-    <h2>Upcoming Events</h2>
-    <h3>Today is {{ "now"|date("D, d. M Y") }}</h3>
-    <a href="{{ path('event_new') }}" class="btn btn-primary mb-2">Create New Event</a>
 
+    <div class="row">
+        <div class="col-12">
+            <img src="/assets/events/mainpromo.jpg" alt="Welcome to EventRadar" class="img-fluid w-100 rounded">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 mb-4">
+            <h2 class="text-center">Upcoming Events</h2>
+            <h3 class="text-center">Today is {{ "now"|date("D, d. M Y") }}</h3>
+        </div>
+    </div>
+    {% if app.user %}
+        <a href="{{ path('event_new') }}" class="btn btn-primary mb-2">Create New Event</a>
+    {% endif %}
         {% for event in events %}
             <div class="row bg-light border rounded mb-3">
                 <div class="col-md-4 p-4">
@@ -24,7 +36,9 @@
                     <p><strong>Event-No. {{ event.eventid }} at Location "{{ event.locationid.name }}"</strong></p>
                     <p>
                         <a href="{{ path('event_show', {'eventid': event.eventid}) }}" class="btn btn-primary">Details</a>
-                        <a href="{{ path('event_edit', {'eventid': event.eventid}) }}" class="btn btn-primary">Edit</a>
+                        {% if app.user %}
+                            <a href="{{ path('event_edit', {'eventid': event.eventid}) }}" class="btn btn-primary">Edit</a>
+                        {% endif %}
                     </p>
                 </div>
             </div>
