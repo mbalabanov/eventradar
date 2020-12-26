@@ -9,7 +9,6 @@ Goal is to implement a calendar for sport events. Events may be added to the cal
 
 #### Examples:
 - Sat., 18.07.2019, 18:30, Football, Salzburg – Sturm
-
 - Sun., 23.10.2019, 09:45, Ice Hockey, KAC - Capitals
 
 ### 2. Task 1 - Modelling:
