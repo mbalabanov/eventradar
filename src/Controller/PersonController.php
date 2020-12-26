@@ -21,7 +21,7 @@ class PersonController extends AbstractController
     /**
      * @Route("/", name="person_index", methods={"GET"})
      */
-    public function index(): Response
+    public function person_index(): Response
     {
         $people = $this->getDoctrine()
             ->getRepository(Person::class)
@@ -40,7 +40,7 @@ class PersonController extends AbstractController
     /**
      * @Route("/new", name="person_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function person_new(Request $request): Response
     {
         $person = new Person();
         $form = $this->createForm(PersonType::class, $person);
@@ -63,7 +63,7 @@ class PersonController extends AbstractController
     /**
      * @Route("/{personid}/edit", name="person_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Person $person): Response
+    public function person_edit(Request $request, Person $person): Response
     {
         $form = $this->createForm(PersonType::class, $person);
         $form->handleRequest($request);
@@ -83,7 +83,7 @@ class PersonController extends AbstractController
     /**
      * @Route("/{personid}", name="person_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Person $person): Response
+    public function person_delete(Request $request, Person $person): Response
     {
         if ($this->isCsrfTokenValid('delete'.$person->getPersonid(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();

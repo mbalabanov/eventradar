@@ -17,7 +17,7 @@ class RoleController extends AbstractController
     /**
      * @Route("/", name="role_index", methods={"GET"})
      */
-    public function index(): Response
+    public function role_index(): Response
     {
         $roles = $this->getDoctrine()
             ->getRepository(Role::class)
@@ -31,7 +31,7 @@ class RoleController extends AbstractController
     /**
      * @Route("/new", name="role_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function role_new(Request $request): Response
     {
         $role = new Role();
         $form = $this->createForm(RoleType::class, $role);
@@ -54,7 +54,7 @@ class RoleController extends AbstractController
     /**
      * @Route("/{roleid}", name="role_show", methods={"GET"})
      */
-    public function show(Role $role): Response
+    public function role_show(Role $role): Response
     {
         return $this->render('role/show.html.twig', [
             'role' => $role,
@@ -64,7 +64,7 @@ class RoleController extends AbstractController
     /**
      * @Route("/{roleid}/edit", name="role_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Role $role): Response
+    public function role_edit(Request $request, Role $role): Response
     {
         $form = $this->createForm(RoleType::class, $role);
         $form->handleRequest($request);
@@ -84,7 +84,7 @@ class RoleController extends AbstractController
     /**
      * @Route("/{roleid}", name="role_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Role $role): Response
+    public function role_delete(Request $request, Role $role): Response
     {
         if ($this->isCsrfTokenValid('delete'.$role->getRoleid(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();

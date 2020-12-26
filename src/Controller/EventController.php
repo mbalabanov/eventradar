@@ -19,7 +19,7 @@ class EventController extends AbstractController
     /**
      * @Route("/", name="event_index", methods={"GET"})
      */
-    public function index(): Response
+    public function event_index(): Response
     {
         $events = $this->getDoctrine()
             ->getRepository(Event::class)
@@ -33,7 +33,7 @@ class EventController extends AbstractController
     /**
      * @Route("/new", name="event_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function event_new(Request $request): Response
     {
         $event = new Event();
         $form = $this->createForm(EventType::class, $event);
@@ -56,7 +56,7 @@ class EventController extends AbstractController
     /**
      * @Route("/{eventid}", name="event_show", methods={"GET"})
      */
-    public function show(Event $event): Response
+    public function event_show(Event $event): Response
     {
         return $this->render('event/show.html.twig', [
             'event' => $event,
@@ -66,7 +66,7 @@ class EventController extends AbstractController
     /**
      * @Route("/{eventid}/edit", name="event_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Event $event): Response
+    public function event_edit(Request $request, Event $event): Response
     {
         $form = $this->createForm(EventType::class, $event);
         $form->handleRequest($request);
@@ -86,7 +86,7 @@ class EventController extends AbstractController
     /**
      * @Route("/{eventid}", name="event_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Event $event): Response
+    public function event_delete(Request $request, Event $event): Response
     {
         if ($this->isCsrfTokenValid('delete'.$event->getEventid(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();

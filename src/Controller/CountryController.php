@@ -17,7 +17,7 @@ class CountryController extends AbstractController
     /**
      * @Route("/", name="country_index", methods={"GET"})
      */
-    public function index(): Response
+    public function country_index(): Response
     {
         $countries = $this->getDoctrine()
             ->getRepository(Country::class)
@@ -31,7 +31,7 @@ class CountryController extends AbstractController
     /**
      * @Route("/new", name="country_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function country_new(Request $request): Response
     {
         $country = new Country();
         $form = $this->createForm(CountryType::class, $country);
@@ -54,7 +54,7 @@ class CountryController extends AbstractController
     /**
      * @Route("/{countryid}/edit", name="country_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Country $country): Response
+    public function country_edit(Request $request, Country $country): Response
     {
         $form = $this->createForm(CountryType::class, $country);
         $form->handleRequest($request);
@@ -74,7 +74,7 @@ class CountryController extends AbstractController
     /**
      * @Route("/{countryid}", name="country_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Country $country): Response
+    public function country_delete(Request $request, Country $country): Response
     {
         if ($this->isCsrfTokenValid('delete'.$country->getCountryid(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();

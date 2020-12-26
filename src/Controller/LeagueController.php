@@ -17,7 +17,7 @@ class LeagueController extends AbstractController
     /**
      * @Route("/", name="league_index", methods={"GET"})
      */
-    public function index(): Response
+    public function league_index(): Response
     {
         $leagues = $this->getDoctrine()
             ->getRepository(League::class)
@@ -31,7 +31,7 @@ class LeagueController extends AbstractController
     /**
      * @Route("/new", name="league_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function league_new(Request $request): Response
     {
         $league = new League();
         $form = $this->createForm(LeagueType::class, $league);
@@ -54,7 +54,7 @@ class LeagueController extends AbstractController
     /**
      * @Route("/{leagueid}", name="league_show", methods={"GET"})
      */
-    public function show(League $league): Response
+    public function league_show(League $league): Response
     {
         return $this->render('league/show.html.twig', [
             'league' => $league,
@@ -64,7 +64,7 @@ class LeagueController extends AbstractController
     /**
      * @Route("/{leagueid}/edit", name="league_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, League $league): Response
+    public function league_edit(Request $request, League $league): Response
     {
         $form = $this->createForm(LeagueType::class, $league);
         $form->handleRequest($request);
@@ -84,7 +84,7 @@ class LeagueController extends AbstractController
     /**
      * @Route("/{leagueid}", name="league_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, League $league): Response
+    public function league_delete(Request $request, League $league): Response
     {
         if ($this->isCsrfTokenValid('delete'.$league->getLeagueid(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();

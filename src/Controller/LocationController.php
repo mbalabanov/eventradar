@@ -19,7 +19,7 @@ class LocationController extends AbstractController
     /**
      * @Route("/", name="location_index", methods={"GET"})
      */
-    public function index(): Response
+    public function location_index(): Response
     {
         $locations = $this->getDoctrine()
             ->getRepository(Location::class)
@@ -33,7 +33,7 @@ class LocationController extends AbstractController
     /**
      * @Route("/new", name="location_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function location_new(Request $request): Response
     {
         $location = new Location();
         $form = $this->createForm(LocationType::class, $location);
@@ -56,7 +56,7 @@ class LocationController extends AbstractController
     /**
      * @Route("/{locationid}", name="location_show", methods={"GET"})
      */
-    public function show(Location $location): Response
+    public function location_show(Location $location): Response
     {
         return $this->render('location/show.html.twig', [
             'location' => $location,
@@ -66,7 +66,7 @@ class LocationController extends AbstractController
     /**
      * @Route("/{locationid}/edit", name="location_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Location $location): Response
+    public function location_edit(Request $request, Location $location): Response
     {
         $form = $this->createForm(LocationType::class, $location);
         $form->handleRequest($request);
@@ -86,7 +86,7 @@ class LocationController extends AbstractController
     /**
      * @Route("/{locationid}", name="location_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Location $location): Response
+    public function location_delete(Request $request, Location $location): Response
     {
         if ($this->isCsrfTokenValid('delete'.$location->getLocationid(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
