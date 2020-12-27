@@ -2,6 +2,8 @@
 
 A calendar of sports events. Events can be created, edited and categorized based on their sports. This is an exercise project for a job application at Sportradar.
 
+The webapp is available publically at https://eventradar-app.herokuapp.com/
+
 ## Initial Requirements
 
 ### 1. Coding Exercise
