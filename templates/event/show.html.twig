@@ -5,6 +5,7 @@
 {% block body %}
     <div class="row mb-3">
         <div class="col-md-6 p-4">
+            <a class="btn btn-secondary">{{ event.categoryid.name }}</a>
             <h3>{{ event.teamida.name }} vs. {{ event.teamidb.name }}</h3>
             <h4>
                 {{ event.eventdate ? event.eventdate|date('D, d. M. Y') : '' }}, {{ event.eventdate ? event.eventdate|date('H:i') : '' }} Hr.
@@ -14,7 +15,7 @@
         </div>
         <div class="col-md-6 p-4">
             <h3>{{ event.name }}</h3>
-            <p><span class="badge bg-secondary">{{ event.contestid.name }}</span> <span class="badge bg-secondary">{{ event.categoryid.name }}</span></p>
+            <p><span class="badge bg-secondary">{{ event.contestid.name }}</span></p>
             <p><strong>Event-No. {{ event.eventid }} at Location "{{ event.locationid.name }}"</strong></p>
             <p>{{ event.note }}</p>
             

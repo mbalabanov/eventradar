@@ -24,15 +24,20 @@ class DefaultController extends AbstractController
     public function default_index(): Response
     {
 
+        $datetimenow = new \DateTime();
+
         $categories = $this->getDoctrine()
             ->getRepository(Category::class)
             ->findBy([], ['name' => 'ASC']);
         
         $searchterm = '';
 
-        $events = $this->getDoctrine()
-            ->getRepository(Event::class)
-            ->findBy([], ['eventdate' => 'ASC']);
+        $events = $this -> getDoctrine() -> getRepository(Event::class) -> createQueryBuilder('e')
+            -> where('e.eventdate > :val')
+            -> setParameter('val', $datetimenow)
+            -> addOrderBy('e.eventdate', 'ASC')
+            -> getQuery()
+            -> getResult();
 
         return $this->render('event/index.html.twig', [
             'categories' => $categories,
@@ -42,15 +47,44 @@ class DefaultController extends AbstractController
     }
 
     /**
-    * @Route("/categorysearch", name="search_filter", methods={"GET"})
-    */
-    public function search_filter(Request $request): Response
+     * @Route("/pastevents", name="pastevents_index")
+     */
+    public function pastevent_index(): Response
     {
+
+        $datetimenow = new \DateTime();
+
+        $categories = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findBy([], ['name' => 'ASC']);
+        
+        $searchterm = 'Past Events';
+
+        $events = $this -> getDoctrine() -> getRepository(Event::class) -> createQueryBuilder('e')
+            -> where('e.eventdate < :val')
+            -> setParameter('val', $datetimenow)
+            -> addOrderBy('e.eventdate', 'ASC')
+            -> getQuery()
+            -> getResult();
+
+        return $this->render('event/index.html.twig', [
+            'categories' => $categories,
+            'searchterm' => $searchterm,
+            'events' => $events,
+        ]);
+    }
+
+    /**
+    * @Route("/categorysearch/{categoryname}", name="category_filter", methods={"GET"})
+    */
+    public function category_filter($categoryname, Request $request): Response
+    {
+
         $categories = $this->getDoctrine()
             ->getRepository(Category::class)
             ->findBy([], ['name' => 'ASC']);
 
-        $searchterm = dump($request->query->get('term'));
+        $searchterm = $categoryname;
 
         $foundcategory = $this->getDoctrine()
             ->getRepository(Category::class)
@@ -84,8 +118,6 @@ class DefaultController extends AbstractController
      */
     public function location_show(Location $location): Response
     {
-
-        $datetimenow = new \DateTime();
 
         $locationevents = $this->getDoctrine()
         ->getRepository(Event::class)

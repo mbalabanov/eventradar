@@ -12,7 +12,7 @@
 
     <div class="row mt-4">
         <div class="col-md-12 mb-4 text-center">
-            <h2>Upcoming Events</h2>
+            <h2>Sports Events</h2>
             <h3>Today is {{ "now"|date("D, d. M Y") }}</h3>
 
             <div class="dropdown my-4">
@@ -20,23 +20,37 @@
                     Sports Categories
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="/">All <strong>Future</strong> Events</a></li>
+                    <li><hr class="dropdown-divider"></li>
                     {% for category in categories %}
                         <li>
-                            <a class="dropdown-item" href="/categorysearch?term={{ category.name }}">
-                                {{ category.name }}
+                            <a class="
+                                dropdown-item
+                                {% if category.name == searchterm %}
+                                    active
+                                {% endif %}
+                                " href="{{ path('category_filter', {'categoryname': category.name}) }}">
+                                Future <strong>{{ category.name }}</strong>
                                 {% if category.alias %}
                                     ({{ category.alias }})
                                 {% endif %}
+                                Events
                             </a>
                         </li>
                     {% endfor %}
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="/">All Sports</a></li>
+                    <li><a class="dropdown-item" href="{{ path('pastevents_index') }}">All <strong>Past</strong> Events</a></li>
                 </ul>
             </div>
 
             {% if searchterm %}
-                <p>Filtered by: <strong>{{ searchterm }}</strong> <a class="btn btn-light btn-sm border" href="/">&#10005; Clear Filter</a></p>
+                <div class="row">
+                    <div class="col-md-4 offset-md-4">
+                        <div class="alert alert-primary" role="alert">
+                            Filtered by <strong>{{ searchterm }}</strong> <a class="btn btn-outline-primary btn-sm mx-1" href="/">&#10005; Clear Filter</a>
+                        </div>
+                    </div>
+                </div>
             {% endif %}
 
             {% if app.user %}
@@ -48,7 +62,7 @@
     {% for event in events %}
         <div class="row bg-light border rounded mb-3">
             <div class="col-md-4 p-4">
-                <p><a class="btn btn-secondary btn-sm" href="/categorysearch?term={{ event.categoryid.name }}">{{ event.categoryid.name }}</a></p>
+                <p><a class="btn btn-secondary btn-sm" href="{{ path('category_filter', {'categoryname': event.categoryid.name}) }}">{{ event.categoryid.name }}</a></p>
                 <h3>{{ event.eventdate ? event.eventdate|date('D, d. M. Y') : '' }}</h3><h4>{{ event.eventdate ? event.eventdate|date('H:i') : '' }} Hr.</h4>
                 <a href="{{ path('event_show', {'eventid': event.eventid}) }}"><img src="{{ event.imageurl }}" class="img-fluid border rounded"></a>
             </div>
