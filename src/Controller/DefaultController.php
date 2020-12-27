@@ -84,13 +84,11 @@ class DefaultController extends AbstractController
             ->getRepository(Category::class)
             ->findBy([], ['name' => 'ASC']);
 
-        $searchterm = $categoryname;
-
-        $foundcategory = $this->getDoctrine()
+        $selectedcategory = $this->getDoctrine()
             ->getRepository(Category::class)
-            ->findOneBy(['name' => $searchterm]);
+            ->findOneBy(['name' => $categoryname]);
 
-        $categoryid = $foundcategory -> getCategoryid();
+        $categoryid = $selectedcategory -> getCategoryid();
 
         $events = $this->getDoctrine()
             ->getRepository(Event::class)
@@ -98,7 +96,7 @@ class DefaultController extends AbstractController
 
         return $this->render('event/index.html.twig', [
             'categories' => $categories,
-            'searchterm' => $searchterm,
+            'searchterm' => $categoryname,
             'events' => $events,
         ]);
     }
