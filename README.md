@@ -1,8 +1,8 @@
 # Event Radar
 
-A calendar of sports events. Events can be created, edited and categorized based on their sports.
+A calendar of sports events. Events can be created, edited and categorized based on their sports. This is an exercise project for a job application at Sportradar.
 
-## Requirements
+## Initial Requirements
 
 ### 1. Coding Exercise
 Goal is to implement a calendar for sport events. Events may be added to the calendar and it should be possible to categorize the events based on sports.
@@ -29,6 +29,19 @@ Then go on with the PHP part for dynamic display of data – avoid SQL queries w
 - Data output
 
 Additional filters can be added to the calendar presentation.
+
+## Installation
+
+Clone the repository and import the DB export from the directory `db-export` into your MySQL database. Set the database path and user credentials in `.env`.
+
+Run `composer install` (an additional `composer update` might be necessary).
+
+To launch the webshop run `php bin/console server:run` and then follow the instructions in the terminal.
+
+### User Accounts
+You can register a new user or use the following existing user account:
+- `user@gmail.com` for a regular user
+The account password is `123123`
 
 ## Concept and Implementation
 This section describes the steps from the concept to the final implementation of __EventRadar__.
