@@ -31,6 +31,7 @@ Then go on with the PHP part for dynamic display of data – avoid SQL queries w
 Additional filters can be added to the calendar presentation.
 
 ## Installation
+This application uses PHP Symfony, MySQL and XAMPP.
 
 Clone the repository and import the DB export from the directory `db-export` into your MySQL database. Set the database path and user credentials in `.env`.
 
