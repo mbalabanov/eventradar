@@ -21,7 +21,7 @@ class ContestController extends AbstractController
     {
         $contests = $this->getDoctrine()
             ->getRepository(Contest::class)
-            ->findAll();
+            ->findBy([], ['name' => 'ASC']);
 
         return $this->render('contest/index.html.twig', [
             'contests' => $contests,

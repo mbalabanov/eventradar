@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2020 at 12:33 AM
+-- Generation Time: Dec 27, 2020 at 05:53 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -85,9 +85,10 @@ CREATE TABLE `contest` (
 --
 
 INSERT INTO `contest` (`contestId`, `name`, `imageUrl`, `federationName`, `website`) VALUES
-(1, 'UEFA Cup', '/assets/others/uefa-cup.png', 'UEFA', 'uefa.com'),
-(2, 'Champions League', '/assets/others/champions-league.png', 'UEFA', 'uefa.com/uefachampionsleague/'),
-(3, 'Eishockey Pokal Österreich', '/assets/others/eishockey-pokal.png', 'Bet-At-Home Eishockey Liga', 'ice.hockey');
+(1, 'UEFA Cup', '/assets/logos/uefa-cup.png', 'UEFA', 'uefa.com'),
+(2, 'Champions League', '/assets/logos/champions-league.png', 'UEFA', 'uefa.com/uefachampionsleague/'),
+(3, 'Eishockey Pokal Österreich', '/assets/logos/eishockey-pokal.png', 'Bet-At-Home Eishockey Liga', 'ice.hockey'),
+(4, 'Vienna Basketball Championship', '/assets/logos/basketballaustria.png', 'Wiener Basketballverband', 'basketballwien.at/spieltermine');
 
 -- --------------------------------------------------------
 
@@ -337,7 +338,8 @@ INSERT INTO `event` (`eventId`, `eventDate`, `name`, `imageUrl`, `_teamIdA`, `sc
 (6, '2021-07-12 19:00:00', 'Kick Like There\'s No Tomorrow', '/assets/events/promo6.jpg', 2, NULL, 5, NULL, 2, 3, 1, 'Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.'),
 (7, '2021-02-05 17:00:00', 'This Is Brutality!', '/assets/events/promo10.jpg', 10, NULL, 6, NULL, 3, 2, 3, 'Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc. \'Nuff Said!'),
 (8, '2021-03-08 18:00:00', 'No Puckin\' Around', '/assets/events/promo11.jpg', 7, NULL, 10, NULL, 3, 2, 3, 'Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.'),
-(9, '2021-08-01 18:00:00', 'Get Ready To Kick Balls!', '/assets/events/promo7.jpg', 5, NULL, 3, NULL, 2, 4, 1, 'Cras dapibus. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.');
+(9, '2021-08-01 18:00:00', 'Get Ready To Kick Balls!', '/assets/events/promo7.jpg', 5, NULL, 3, NULL, 2, 4, 1, 'Cras dapibus. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.'),
+(10, '2021-01-30 17:00:00', 'Great Balls of Fire', '/assets/events/promo12.jpg', 11, NULL, 12, NULL, 4, 6, 2, 'Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.');
 
 -- --------------------------------------------------------
 
@@ -363,7 +365,8 @@ INSERT INTO `league` (`leagueId`, `name`, `logoUrl`, `website`, `_countryId`) VA
 (3, 'Deutsche Bundesliga', '/assets/logos/deutsche-bundesliga-logo.png', 'bundesliga.de', 65),
 (4, 'Ligue 1', '/assets/logos/ligue1-france.png', 'ligue1.fr', 61),
 (5, 'La Liga', '/assets/logos/la-liga-espana.png', 'laliga.com', 165),
-(6, 'Premier League', '/assets/logos/premier-league-logo.png', 'premierleague.com', 186);
+(6, 'Premier League', '/assets/logos/premier-league-logo.png', 'premierleague.com', 186),
+(7, 'Wiener Basketballverband', '/assets/logos/wbv.png', 'basketballwien.at', 10);
 
 -- --------------------------------------------------------
 
@@ -396,7 +399,8 @@ INSERT INTO `location` (`locationId`, `name`, `imageUrl`, `maxAudienceCapacity`,
 (2, 'Erste Bank Arena', '/assets/locations/albert-schultz-halle.jpg', 7000, 'erstebank-arena.at', '+43 1 204 85 80', 'office@erstebank-arena.at', 'Attemsgasse', '1', '1200', 'Vienna', 10, 'Erste Bank Arena (also known as Albert Schultz Eishalle) is an indoor sporting arena located in Vienna, Austria. The arena has a capacity of 7,022 people[1] and was opened in January 1995. It underwent major renovations in 2010 and 2011 to increase the capacity from 4,500 to over 7,000.'),
 (3, 'Ernst-Happel-Stadion', '/assets/locations/ernst-happel-stadion.jpg', 50000, 'www.wien.gv.at/freizeit/sportamt/sportstaetten/stadien/happel.html', '+43 1 728 08 54', 'info@wienersportstaetten.at', 'Meiereistraße', '7', '1020', 'Vienna', 10, 'The Ernst-Happel-Stadion, known as Praterstadion until 1992, sometimes also called Wiener-Stadion, is a football stadium in Leopoldstadt, the 2nd district of Austria\'s capital Vienna. With 50,865 seats, it is the largest stadium in Austria. It was built between 1929 and 1931 for the second Workers\' Olympiad to the design of German architect Otto Ernst Schweizer. The stadium was renamed in honour of Austrian footballer Ernst Happel following his death in 1992. (Source: Wikipedia.)'),
 (4, 'Wembley Stadium', '/assets/locations/wembley-stadium.jpg', 82000, 'wembleystadium.com', '+44 333 999 1863', 'clubwembley@wembleystadium.com', 'Wembley Stadium', NULL, 'HA9 0WS', 'London', 186, 'Wembley Stadium is a football stadium in Wembley, London. It opened in 2007 on the site of the original Wembley Stadium, which was demolished from 2002 to 2003. The stadium hosts major football matches including home matches of the England national football team, and the FA Cup Final. (Source: Wikipedia.)'),
-(5, 'Merkur Arena', '/assets/locations/merkur-arena.jpg', 16300, 'mcg.at/locations/merkur-arena/', NULL, NULL, 'Stadionplatz', '1', '8041', 'Graz', 10, 'The Liebenauer Stadium, sponsored as the Merkur-Arena (formerly known as the Arnold Schwarzenegger Stadium and UPC-Arena) is in Graz, Styria, Austria. The ground is the home of the football clubs SK Sturm Graz and Grazer AK.');
+(5, 'Merkur Arena', '/assets/locations/merkur-arena.jpg', 16300, 'mcg.at/locations/merkur-arena/', NULL, NULL, 'Stadionplatz', '1', '8041', 'Graz', 10, 'The Liebenauer Stadium, sponsored as the Merkur-Arena (formerly known as the Arnold Schwarzenegger Stadium and UPC-Arena) is in Graz, Styria, Austria. The ground is the home of the football clubs SK Sturm Graz and Grazer AK.'),
+(6, 'Basketball Halle Sandleiten', '/assets/locations/basketballhalle-sandleiten.jpg', 1000, 'wien.gv.at/freizeit/sportamt/sportstaetten/sportfun/ottakring.html', '+43 1 4000-51316', 'sf-16@ma51.wien.gv.at', 'Sandleitengasse', '39', '1160', 'Vienna', 10, 'Sports equipment can be borrowed free of charge on presentation of an official photo ID. Ammenities like bathrooms, locker rooms, and showers are included.  Paid drinks machines are available in the entrance area. (Translated from wien.gv.at)');
 
 -- --------------------------------------------------------
 
@@ -598,7 +602,51 @@ INSERT INTO `person` (`personId`, `firstName`, `middleNames`, `lastName`, `acade
 (175, 'Bekim', NULL, 'Balaj', NULL, '/assets/persons/balaj.jpg', 8, 2, 2),
 (176, 'Kevin', NULL, 'Friesenbichler', NULL, '/assets/persons/friesenbichler.jpg', 8, 10, 2),
 (177, 'Francisco', NULL, 'Mwepu', NULL, '/assets/persons/mwepu.jpg', 8, 194, 2),
-(178, 'Emeka', NULL, 'Eze', NULL, '/assets/persons/eze.jpg', 8, 127, 2);
+(178, 'Emeka', NULL, 'Eze', NULL, '/assets/persons/eze.jpg', 8, 127, 2),
+(179, 'Gerard', NULL, 'Moffett', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(180, 'Foster', NULL, 'Mcaninch', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(181, 'Wilmer', NULL, 'Addison', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(182, 'Chase', NULL, 'Mcgee', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(183, 'Dwayne', NULL, 'Souther', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(184, 'Jame', NULL, 'Smidt', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(185, 'Zachery', NULL, 'Schurg', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(186, 'Norbert', NULL, 'Owusu', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(187, 'Laurence', NULL, 'Cerezo', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(188, 'Valentine', NULL, 'Eppler', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(189, 'Moses', NULL, 'Lawrie', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(190, 'Kelly', NULL, 'Hammock', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(191, 'Wiley', NULL, 'Mickelson', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(192, 'Gino', NULL, 'Masone', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(193, 'Fredric', NULL, 'Paley', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(194, 'Kevin', NULL, 'Doherty', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(195, 'Wilhelm', NULL, 'Underberg', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(196, 'Gerhard', NULL, 'Orange', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(197, 'Fredric', NULL, 'Paley', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(198, 'Monty', NULL, 'Levitsky', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(199, 'Merlin', NULL, 'Capshaw', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(200, 'Blair', NULL, 'Dagen', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(201, 'Santiago', NULL, 'Kinney', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(202, 'Mohammed', NULL, 'Mcmurray', NULL, '/assets/persons/person-placeholder-basketball.jpg', 11, 10, 2),
+(203, 'Sterling', NULL, 'Pettway', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(204, 'Lindsey', NULL, 'Stlaurent', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(205, 'Devin', NULL, 'Riggin', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(206, 'Parker', NULL, 'Prins', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(207, 'Chuck', NULL, 'Dejulio', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(208, 'Abe', NULL, 'Fonner', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(209, 'Jerrold', NULL, 'Merrick', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(210, 'Sydney', NULL, 'Bloyd', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(211, 'Jessie', NULL, 'Rayos', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(212, 'Josh', NULL, 'Cumpston', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(213, 'Mike', NULL, 'Bouffard', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(214, 'Clarence', NULL, 'Buchwald', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(215, 'Cordell', NULL, 'Loomis', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(216, 'Jules', NULL, 'Bouknight', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(217, 'Ronny', NULL, 'Cupp', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(218, 'Mckinley', NULL, 'Ehlert', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(219, 'Chadwick', NULL, 'Gunderson', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(220, 'Rodrick', NULL, 'Strawser', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(221, 'Lester', NULL, 'Servin', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2),
+(222, 'Rolf', NULL, 'Saenz', NULL, '/assets/persons/person-placeholder-basketball.jpg', 12, 10, 2);
 
 -- --------------------------------------------------------
 
@@ -651,7 +699,9 @@ INSERT INTO `team` (`teamId`, `name`, `logoUrl`, `_categoryId`, `_leagueId`, `le
 (7, 'Steinbach Black Wings - EHC Linz', '/assets/logos/black-wings-logo.png', 3, 1, 7, 'The Steinbach Black Wings 1992 are a member of the Austrian Hockey League. They play their home games in Linz, Austria at the Linz AG Eisarena.'),
 (8, 'SK Sturm Graz', '/assets/logos/sturm-graz.png', 1, 2, 2, 'Sportklub Sturm Graz is an Austrian association football club, based in Graz, Styria, playing in the Austrian Football Bundesliga. The club was founded in 1909. Its colours are black and white. In its history, Sturm Graz has won the Austrian football championship three times, in 1998, 1999 and 2011, and participated several times in the UEFA Champions League and UEFA Europa League. Their biggest rivals are Graz neighbours Grazer AK. Source: Wikipedia.'),
 (9, 'FC Red Bull Salzburg', '/assets/logos/red-bull-salzburg.png', 1, 2, 1, 'FC Red Bull Salzburg is an Austrian professional football club based in Wals-Siezenheim, that competes in the Austrian Bundesliga, the top flight of Austrian Football. Their home ground is the Red Bull Arena. Due to sponsorship restrictions, the club is known as FC Salzburg and wears a modified crest when playing in UEFA competitions. The club was known as SV Austria Salzburg, and had several sponsored names, before being bought by Red Bull GmbH in 2005 who renamed the club and changed its colours from its traditional violet and white to red and white. The change resulted in some of the team\'s fans forming a new club, SV Austria Salzburg. Source: Wikipedia.'),
-(10, 'Vienna Capitals', '/assets/logos/vienna-capitals.png', 3, 1, 3, 'Vienna Capitals are an Austrian professional ice hockey club who participate in the Erste Bank Hockey League. Founded in 2001, the Capitals play their home games in Vienna, Austria, at Albert Schultz Eishalle. In the 2004–05 season, the Capitals claimed their first Austrian Championship in defeating EC KAC.');
+(10, 'Vienna Capitals', '/assets/logos/vienna-capitals.png', 3, 1, 3, 'Vienna Capitals are an Austrian professional ice hockey club who participate in the Erste Bank Hockey League. Founded in 2001, the Capitals play their home games in Vienna, Austria, at Albert Schultz Eishalle. In the 2004–05 season, the Capitals claimed their first Austrian Championship in defeating EC KAC.'),
+(11, 'Austrian Basketfighters', '/assets/logos/basketfighters.png', 2, 7, 3, 'The Austrian Basketfighters are a basketball team from Ottakring in Vienna.'),
+(12, 'Basketflames', '/assets/logos/basketflames.png', 2, 7, 1, 'With over 25 teams and 350 active players, the Basket Flames are an absolute power house in Austria\'s basketball scene!');
 
 -- --------------------------------------------------------
 
@@ -671,7 +721,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `roles`, `password`) VALUES
-(1, 'user@gmail.com', '[]', '$argon2id$v=19$m=65536,t=4,p=1$UFBBRERsUlRaVENteWJETg$rgXvVVmtQ9oPZigGNUfAdqLUiOtepn0sYkiqntfSOQE');
+(1, 'user@gmail.com', '[]', '$argon2id$v=19$m=65536,t=4,p=1$UFBBRERsUlRaVENteWJETg$rgXvVVmtQ9oPZigGNUfAdqLUiOtepn0sYkiqntfSOQE'),
+(2, 'marincomics@gmail.com', '[]', '$argon2id$v=19$m=65536,t=4,p=1$bXdROFIwV3hkV1BsQS9jaA$07GWTfE2OM9SQfezGcNThxnLA0uJbMp2jBdPWyDZF60');
 
 --
 -- Indexes for dumped tables
@@ -778,7 +829,7 @@ ALTER TABLE `contenders`
 -- AUTO_INCREMENT for table `contest`
 --
 ALTER TABLE `contest`
-  MODIFY `contestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `contestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `country`
@@ -790,25 +841,25 @@ ALTER TABLE `country`
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `eventId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `eventId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `league`
 --
 ALTER TABLE `league`
-  MODIFY `leagueId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `leagueId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
-  MODIFY `locationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `locationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `person`
 --
 ALTER TABLE `person`
-  MODIFY `personId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=179;
+  MODIFY `personId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=223;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -820,13 +871,13 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `teamId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `teamId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

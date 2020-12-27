@@ -16,19 +16,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class EventController extends AbstractController
 {
-    /**
-     * @Route("/", name="event_index", methods={"GET"})
-     */
-    public function event_index(): Response
-    {
-        $events = $this->getDoctrine()
-            ->getRepository(Event::class)
-            ->findBy([], ['eventdate' => 'ASC']);
-
-        return $this->render('event/index.html.twig', [
-            'events' => $events,
-        ]);
-    }
 
     /**
      * @Route("/new", name="event_new", methods={"GET","POST"})
@@ -44,7 +31,7 @@ class EventController extends AbstractController
             $entityManager->persist($event);
             $entityManager->flush();
 
-            return $this->redirectToRoute('event_index');
+            return $this->redirectToRoute('default_index');
         }
 
         return $this->render('event/new.html.twig', [
@@ -64,7 +51,7 @@ class EventController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('event_index');
+            return $this->redirectToRoute('default_index');
         }
 
         return $this->render('event/edit.html.twig', [
@@ -84,6 +71,6 @@ class EventController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('event_index');
+        return $this->redirectToRoute('default_index');
     }
 }

@@ -23,7 +23,7 @@ class LocationController extends AbstractController
     {
         $locations = $this->getDoctrine()
             ->getRepository(Location::class)
-            ->findAll();
+            ->findBy([], ['name' => 'ASC']);
 
         return $this->render('location/index.html.twig', [
             'locations' => $locations,

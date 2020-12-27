@@ -21,7 +21,7 @@ class LeagueController extends AbstractController
     {
         $leagues = $this->getDoctrine()
             ->getRepository(League::class)
-            ->findAll();
+            ->findBy([], ['name' => 'ASC']);
 
         return $this->render('league/index.html.twig', [
             'leagues' => $leagues,

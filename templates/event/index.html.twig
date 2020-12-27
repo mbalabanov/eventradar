@@ -14,17 +14,43 @@
         <div class="col-md-12 mb-4 text-center">
             <h2>Upcoming Events</h2>
             <h3>Today is {{ "now"|date("D, d. M Y") }}</h3>
+
+            <div class="dropdown my-4">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    Sports Categories
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {% for category in categories %}
+                        <li>
+                            <a class="dropdown-item" href="/categorysearch?term={{ category.name }}">
+                                {{ category.name }}
+                                {% if category.alias %}
+                                    ({{ category.alias }})
+                                {% endif %}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/">All Sports</a></li>
+                </ul>
+            </div>
+
+            {% if searchterm %}
+                <p>Filtered by: <strong>{{ searchterm }}</strong> <a class="btn btn-light btn-sm border" href="/">&#10005; Clear Filter</a></p>
+            {% endif %}
+
             {% if app.user %}
                 <p><a href="{{ path('event_new') }}" class="btn btn-primary mb-2">Create New Event</a></p>
             {% endif %}
+
         </div>
     </div>
     {% for event in events %}
         <div class="row bg-light border rounded mb-3">
             <div class="col-md-4 p-4">
+                <p><a class="btn btn-secondary btn-sm" href="/categorysearch?term={{ event.categoryid.name }}">{{ event.categoryid.name }}</a></p>
                 <h3>{{ event.eventdate ? event.eventdate|date('D, d. M. Y') : '' }}</h3><h4>{{ event.eventdate ? event.eventdate|date('H:i') : '' }} Hr.</h4>
                 <a href="{{ path('event_show', {'eventid': event.eventid}) }}"><img src="{{ event.imageurl }}" class="img-fluid border rounded"></a>
-                <p><span class="badge bg-secondary">{{ event.categoryid.name }}</span></p>
             </div>
             <div class="col-md-8 p-4">
                 <a href="{{ path('event_show', {'eventid': event.eventid}) }}" class="text-decoration-none">

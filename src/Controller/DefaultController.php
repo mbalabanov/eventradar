@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Event;
 use App\Form\EventType;
 use App\Entity\Team;
@@ -11,6 +12,7 @@ use App\Form\PersonType;
 use App\Entity\Location;
 use App\Form\LocationType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,11 +23,48 @@ class DefaultController extends AbstractController
      */
     public function default_index(): Response
     {
+
+        $categories = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findBy([], ['name' => 'ASC']);
+        
+        $searchterm = '';
+
         $events = $this->getDoctrine()
             ->getRepository(Event::class)
             ->findBy([], ['eventdate' => 'ASC']);
 
         return $this->render('event/index.html.twig', [
+            'categories' => $categories,
+            'searchterm' => $searchterm,
+            'events' => $events,
+        ]);
+    }
+
+    /**
+    * @Route("/categorysearch", name="search_filter", methods={"GET"})
+    */
+    public function search_filter(Request $request): Response
+    {
+        $categories = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findBy([], ['name' => 'ASC']);
+
+        $searchterm = dump($request->query->get('term'));
+
+        $foundcategory = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findOneBy(['name' => $searchterm]);
+
+        $categoryid = $foundcategory -> getCategoryid();
+
+        $events = $this->getDoctrine()
+            ->getRepository(Event::class)
+            ->findBy(['categoryid' => $categoryid], ['eventdate' => 'ASC']);
+
+        return $this->render('event/index.html.twig', [
+            'categories' => $categories,
+            'searchterm' => $searchterm,
             'events' => $events,
         ]);
     }
@@ -46,9 +85,25 @@ class DefaultController extends AbstractController
     public function location_show(Location $location): Response
     {
 
+        $datetimenow = new \DateTime();
+
         $locationevents = $this->getDoctrine()
         ->getRepository(Event::class)
         ->findBy(['locationid' => $location]);
+        
+
+/*
+    $em = $this->getEntityManager();
+    $qb = $em->createQueryBuilder();
+
+    $q = $qb->select(array('p'))
+            ->from('YourProductBundle:Product', 'p')
+            ->where(
+                    $qb->expr()->gt('p.eventdate', $datetimenow)
+                )
+            ->orderBy('p.price', 'DESC')
+            ->getQuery();
+*/
 
         return $this->render('location/show.html.twig', [
             'location' => $location,

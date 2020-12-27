@@ -3,19 +3,30 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
-
-    <h1>Register</h1>
-
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            {% for flashError in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+            {% endfor %}
+            <h2>Register</h2>
+            {{ form_start(registrationForm) }}
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        {{ form_row(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        {{ form_row(registrationForm.plainPassword, { label: 'Password', 'attr': {'class': 'form-control'} }) }}
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        {{ form_row(registrationForm.agreeTerms, {label: 'Agree to terms', 'attr': {'class': 'mx-2'}}) }}
+                    </div>
+                </div>
+                <p><button type="submit" class="btn btn-primary">Register</button></p>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
 {% endblock %}
