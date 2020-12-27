@@ -48,13 +48,13 @@
                 {% for event in locationevents %}
                     <div class="col-md-6 p-2">
                         <div class="border rounded bt-light p-3">
+                            <p><a class="btn btn-secondary btn-sm" href="{{ path('category_filter', {'categoryname': event.categoryid.name}) }}">{{ event.categoryid.name }}</a></p>
                             <a href="{{ path('event_show', {'eventid': event.eventid}) }}" class="text-decoration-none">
                                 <h4>{{ event.teamida.name }} vs. {{ event.teamidb.name }}</h4>
                                 <h5>{{ event.name }}</h5>
                             </a>
                             <h5>{{ event.eventdate ? event.eventdate|date('D, d. M. Y') : '' }}</h5>
                             <h5>{{ event.eventdate ? event.eventdate|date('H:i') : '' }} Hr.</h5>
-                            <p><span class="badge bg-secondary">{{ event.categoryid.name }}</span></p>
                             <a href="{{ path('event_show', {'eventid': event.eventid}) }}"><img src="{{ event.imageurl }}" class="img-fluid border rounded"></a>
                             <p><span class="badge bg-secondary">{{ event.contestid.name }}</span></p>
                             <p>{{ event.note }}</p>
