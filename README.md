@@ -40,8 +40,7 @@ To launch the webshop run `php bin/console server:run` and then follow the instr
 
 ### User Accounts
 You can register a new user or use the following existing user account:
-- `user@gmail.com` for a regular user
-The account password is `123123`
+- `user@gmail.com` for a regular user. The account password is `123123`
 
 ## Concept and Implementation
 This section describes the steps from the concept to the final implementation of __EventRadar__.
