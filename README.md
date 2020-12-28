@@ -59,8 +59,8 @@ The following database model was constructed based on the requirements.
 ### Implemented UI
 The following screenshots show the final implementation of the user interface.
 
-![EventRadar Database Model](documentation/screenshot1.png)
+![EventRadar Screenshots](documentation/screenshots1.png)
 
-![EventRadar Database Model](documentation/screenshot2.png)
+![EventRadar Screenshots](documentation/screenshots2.png)
 
-![EventRadar Database Model](documentation/screenshot3.png)
+![EventRadar Screenshots](documentation/screenshots3.png)
