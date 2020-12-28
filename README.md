@@ -1,4 +1,4 @@
-# Event Radar
+# EventRadar
 
 EventRadar is a calendar of sports events. Events can be created, edited and categorized based on their sports. This is an exercise project for a job application at Sportradar.
 
