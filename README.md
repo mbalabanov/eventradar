@@ -45,6 +45,19 @@ To launch the webshop run `php bin/console server:run` and then follow the instr
 You can register a new user or use the following existing user account:
 - `user@gmail.com` for a regular user. The account password is `123123`
 
+### Implemented UI
+The following screenshots show the final implementation of the user interface.
+
+#### Frontpage with Events and Event Details Page
+![EventRadar Screenshots](documentation/screenshots1.png)
+
+#### Team List and Team Details Page
+![EventRadar Screenshots](documentation/screenshots2.png)
+
+#### Location List and Location Details Page
+![EventRadar Screenshots](documentation/screenshots3.png)
+
+
 ## Concept and Implementation
 This section describes the steps from the concept to the final implementation of __EventRadar__.
 
@@ -62,15 +75,3 @@ Based on the database model and the requirements, the following sitemap and wire
 
 ![EventRadar Wireframes](documentation/03_wireframes.png)
 
-
-### Implemented UI
-The following screenshots show the final implementation of the user interface.
-
-#### Frontpage with Events and Event Details Page
-![EventRadar Screenshots](documentation/screenshots1.png)
-
-#### Team List and Team Details Page
-![EventRadar Screenshots](documentation/screenshots2.png)
-
-#### Location List and Location Details Page
-![EventRadar Screenshots](documentation/screenshots3.png)
