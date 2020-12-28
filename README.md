@@ -2,7 +2,8 @@
 
 EventRadar is a calendar of sports events. Events can be created, edited and categorized based on their sports. This is an exercise project for a job application at Sportradar.
 
-The webapp is available publically at https://eventradar-app.herokuapp.com/
+The webapp is available publicly at https://eventradar-app.herokuapp.com/
+(Please give it a moment to spin up the Heroku free-tier.)
 
 ## Initial Requirements
 
