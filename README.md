@@ -50,17 +50,29 @@ This section describes the steps from the concept to the final implementation of
 
 ![EventRadar Logo](documentation/eventradar.png)
 
-
 ### Database Model
 The following database model was constructed based on the requirements.
 
 ![EventRadar Database Model](documentation/01_db-model.png)
 
+### Sitemap and Wireframes
+Based on the database model and the requirements, the following sitemap and wireframes for the UI are drawn up.
+
+#### Sitemap
+![EventRadar Sitemap](documentation/02_sitemap.png)
+
+#### Wireframes
+![EventRadar Wireframes](documentation/03_wireframes.png)
+
+
 ### Implemented UI
 The following screenshots show the final implementation of the user interface.
 
+#### Frontpage with Events and Event Details Page
 ![EventRadar Screenshots](documentation/screenshots1.png)
 
+#### Team List and Team Details Page
 ![EventRadar Screenshots](documentation/screenshots2.png)
 
+#### Location List and Location Details Page
 ![EventRadar Screenshots](documentation/screenshots3.png)
