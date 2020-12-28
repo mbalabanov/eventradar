@@ -1,4 +1,4 @@
-# Event Radar
+# EventRadar
 
 EventRadar is a calendar of sports events. Events can be created, edited and categorized based on their sports. This is an exercise project for a job application at Sportradar.
 
@@ -45,22 +45,33 @@ To launch the webshop run `php bin/console server:run` and then follow the instr
 You can register a new user or use the following existing user account:
 - `user@gmail.com` for a regular user. The account password is `123123`
 
+### Implemented UI
+The following screenshots show the final implementation of the user interface.
+
+#### Frontpage with Events and Event Details Page
+![EventRadar Screenshots](documentation/screenshots1.png)
+
+#### Team List and Team Details Page
+![EventRadar Screenshots](documentation/screenshots2.png)
+
+#### Location List and Location Details Page
+![EventRadar Screenshots](documentation/screenshots3.png)
+
+
 ## Concept and Implementation
 This section describes the steps from the concept to the final implementation of __EventRadar__.
 
 ![EventRadar Logo](documentation/eventradar.png)
-
 
 ### Database Model
 The following database model was constructed based on the requirements.
 
 ![EventRadar Database Model](documentation/01_db-model.png)
 
-### Implemented UI
-The following screenshots show the final implementation of the user interface.
+### Sitemap and Wireframes
+Based on the database model and the requirements, the following sitemap and wireframes for the UI are drawn up.
 
-![EventRadar Database Model](documentation/screenshot1.png)
+![EventRadar Sitemap](documentation/02_sitemap.png)
 
-![EventRadar Database Model](documentation/screenshot2.png)
+![EventRadar Wireframes](documentation/03_wireframes.png)
 
-![EventRadar Database Model](documentation/screenshot3.png)
