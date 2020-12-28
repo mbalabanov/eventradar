@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Country index{% endblock %}
+{% block title %}Country List{% endblock %}
 
 {% block body %}
     <div class="row">
         <div class="col-md-12">
             <h2>Country List</h2>
+            <p>This view is only for logged-in users and presents you with a list of all countries.</p>
             <p><a href="{{ path('country_new') }}" class="btn btn-primary">Create new</a></p>
         </div>
     </div>

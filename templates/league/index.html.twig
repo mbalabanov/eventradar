@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}League index{% endblock %}
+{% block title %}League List{% endblock %}
 
 {% block body %}
     <div class="row">
         <div class="col-md-12">
             <h2>League List</h2>
-            <p><a href="{{ path('league_new') }}" class="btn btn-primary">Create new</a></p>
+            <p>This view is only for logged-in users and presents you with a list of all leagues.</p>
+            <p><a href="{{ path('league_new') }}" class="btn btn-primary">Add New League</a></p>
         </div>
     </div>
     <div class="row">
@@ -16,7 +17,13 @@
                     <div class="alert alert-warning text-center">
                         <strong>{{ league.countryid.name }}</strong> <img src="{{ league.countryid.flagurl }}" alt="{{ league.countryid.name }}" class="border" height="20px">
                     </div>
-                    <p><img src="{{ league.logourl }}" alt="{{ league.name }}" class="img-fluid"></p>
+                    <p>
+                    {% if league.logourl %}
+                        <p><img src="{{ league.logourl }}" alt="{{ league.name }}" class="img-fluid"></p>
+                    {% else %}
+                        <p><img src="/assets/logos/logo-placeholder.jpg" alt="{{ league.name }}" class="img-fluid"></p>
+                    {% endif %}
+                    </p>
                     <h3>{{ league.name }} (ID: {{ league.leagueid }})</h3>
                     <p><strong>Website:</strong> <a href="http://{{ league.website }}" target="_blank">{{ league.website }}</p>
                     <p>

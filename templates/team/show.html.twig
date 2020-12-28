@@ -10,31 +10,25 @@
         </div>
     </div>
     <div class="row mt-4">
-        <div class="col-md-3 text-center">
-            <p><img src="{{ team.logourl }}" alt="{{ team.name }}" class="img-fluid"></p>
-        </div>
-        <div class="col-md-9">
-            <p><span class="badge bg-secondary">{{ team.categoryid.name }}</span></p>
+        <div class="col-md-8">
             <h3>{{ team.name }}</h3>
-            <p>{{ team.description }}</p>
+            <p><a class="btn btn-secondary btn-sm" href="{{ path('category_filter', {'categoryname': team.categoryid.name}) }}">{{ team.categoryid.name }}</a></p>
+            <div class="row">
+                <div class="col-md-8">
+                    <p>{{ team.description }}</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    {% if team.logourl %}
+                        <p><img src="{{ team.logourl }}" alt="{{ team.name }}" class="img-fluid"></p>
+                    {% else %}
+                        <p><img src="/assets/logos/logo-placeholder.jpg" alt="{{ team.name }}" class="img-fluid"></p>
+                    {% endif %}
+                </div>
+            </div>
             {% if app.user %}
                 <p><a href="{{ path('team_edit', {'teamid': team.teamid}) }}" class="btn btn-primary">Edit</a></p>
                 <p>{{ include('team/_delete_form.html.twig') }}</p>
             {% endif %}
-
-            <div class="row border p-1 mx-1 my-4">
-                <div class="col-md-6 p-4 text-center">
-                    <h4>League</h4>
-                    <p><img src="{{ team.leagueid.logourl }}" alt="{{ team.leagueid.name }}" class="img-fluid"></p>
-                    <p>Ranked at no. <strong>{{ team.leagueranking }}</strong> in the <strong>{{ team.leagueid.name }}</strong></p>
-                </div>
-                <div class="col-md-6 p-4 text-center">
-                    <h4>Country</h4>
-                    <p><img src="{{ team.leagueid.countryid.flagurl }}" alt="{{ team.leagueid.countryid.name }}" class="border border-secondary img-fluid m-4"></p>
-                    <h5>{{ team.leagueid.countryid.name }}</h5>
-                </div>
-            </div>
-
             <div class="row">
                 <div class="col-md-12">
                     <h4>Team Members</h4>
@@ -46,7 +40,11 @@
                         <div class="alert alert-light border">
                             <p class="alert alert-warning text-center"><strong>{{ member.teamid.name }}</strong></p>
                             <p class="text-center">
-                                <img src="{{ member.photourl }}" class="img-fluid border rounded">
+                                {% if member.photourl %}
+                                    <p><img src="{{ member.photourl }}" alt="{{ member.firstname }} {{ member.lastname }}" class="img-fluid border rounded"></p>
+                                {% else %}
+                                    <p><img src="/assets/persons/person-placeholder.jpg" alt="{{ team.name }}" class="img-fluid"></p>
+                                {% endif %}
                             </p>
                             <h4>
                                 {% if member.academictitle %}
@@ -75,8 +73,23 @@
                     </div>
                 {% endfor %}
             </div>
-
         </div>
+
+        <div class="col-md-4">
+            <div class="text-center border rounded bg-light py-4">
+                <h4>League</h4>
+                {% if team.leagueid.logourl %}
+                    <p><img src="{{ team.leagueid.logourl }}" alt="{{ team.leagueid.name }}" class="img-fluid"></p>
+                {% else %}
+                    <p><img src="/assets/logos/logo-placeholder.jpg" alt="{{ team.leagueid.name }}" class="img-fluid"></p>
+                {% endif %}
+                <p>Ranked at no. <strong>{{ team.leagueranking }}</strong> in the <strong>{{ team.leagueid.name }}</strong></p>
+                <h4>Country</h4>
+                <p><img src="{{ team.leagueid.countryid.flagurl }}" alt="{{ team.leagueid.countryid.name }}" class="border border-secondary img-fluid m-4"></p>
+                <h5>{{ team.leagueid.countryid.name }}</h5>
+            </div>
+        </div>
+
     </div>
 
 

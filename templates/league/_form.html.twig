@@ -20,19 +20,19 @@
     </div>
     <div class="row my-2">
         <div class="col-md-6">
-            {{ form_label(form.website, 'League Website') }}
-            {{ form_widget(form.website, {'attr': {'class': 'form-control'}}) }}
-            <small>{{ form_help(form.website) }}</small>
-            <div class="form-error">
-                {{ form_errors(form.website) }}
-            </div>
-        </div>
-        <div class="col-md-6">
             {{ form_label(form.countryid, 'Country') }}
             {{ form_widget(form.countryid, {'attr': {'class': 'form-control'}}) }}
             <small>{{ form_help(form.countryid) }}</small>
             <div class="form-error">
                 {{ form_errors(form.countryid) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            {{ form_label(form.website, 'League Website URL') }}
+            {{ form_widget(form.website, {'attr': {'class': 'form-control'}}) }}
+            <small>{{ form_help(form.website) }}</small>
+            <div class="form-error">
+                {{ form_errors(form.website) }}
             </div>
         </div>
     </div>

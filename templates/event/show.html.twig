@@ -4,52 +4,65 @@
 
 {% block body %}
     <div class="row mb-3">
-        <div class="col-md-6 p-4">
-            <a class="btn btn-secondary">{{ event.categoryid.name }}</a>
+        <div class="col-md-12">
+            <h2>Event Details</h2>
+            <p><a href="{{ path('default_index') }}" class="btn btn-primary">Back to Events</a></p>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <!-- First column with the event details -->
+        <div class="col-md-8 py-4">
             <h3>{{ event.teamida.name }} vs. {{ event.teamidb.name }}</h3>
             <h4>
                 {{ event.eventdate ? event.eventdate|date('D, d. M. Y') : '' }}, {{ event.eventdate ? event.eventdate|date('H:i') : '' }} Hr.
             </h4>
+            <p>
+                <a class="btn btn-secondary">{{ event.categoryid.name }}</a>
+                {% if event.eventdate < datetoday %}
+                    <a class="btn btn-danger" href="{{ path('pastevents_index') }}">Past Event</a>
+                {% endif %}
+            </p>
             <p><img src="{{ event.imageurl }}" class="img-fluid border rounded"></p>
-            <p><a href="{{ path('default_index') }}" class="btn btn-primary">Back to Events</a></p>
-        </div>
-        <div class="col-md-6 p-4">
             <h3>{{ event.name }}</h3>
             <p><span class="badge bg-secondary">{{ event.contestid.name }}</span></p>
             <p><strong>Event-No. {{ event.eventid }} at Location "{{ event.locationid.name }}"</strong></p>
             <p>{{ event.note }}</p>
             
             <h4>Opponents</h4>
-            <p><a href="/team/{{ event.teamida.teamid }}" class="btn btn-warning">{{ event.teamida.name }}</a> <a href="/team/{{ event.teamidb.teamid }}" class="btn btn-warning">{{ event.teamidb.name }}</a></p>
+            <p><a href="/team/{{ event.teamida.teamid }}" class="btn btn-primary">{{ event.teamida.name }}</a> <a href="/team/{{ event.teamidb.teamid }}" class="btn btn-primary">{{ event.teamidb.name }}</a></p>
+            <h4>Results</h4>
+            {% if event.scoreteama and event.scoreteamb %}
+                <div class="alert alert-primary text-center" role="alert">
+                    <h5>{{ event.teamida.name }} - Score: {{ event.scoreteama }}</h5>
+                    <h5>{{ event.teamidb.name }} -  Score: {{ event.scoreteamb }}</h5>
+                </div>
+            {% endif %}
+
+            <!-- Edit and delete actions are only displayed to logged-in users. -->
             {% if app.user %}
                 <p>
                     <a href="{{ path('event_edit', {'eventid': event.eventid}) }}" class="btn btn-primary">Edit</a>
                 </p>
                 {{ include('event/_delete_form.html.twig') }}
             {% endif %}
-            <div class="row mt-4 pt-2 border-top">
-                <div class="col-md-12">
-                    <h4><a href="{{ path('location_show', {'locationid': event.locationid.locationid}) }}" class="text-decoration-none">Location: {{ event.locationid.name }}</a></h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <p><a href="{{ path('location_show', {'locationid': event.locationid.locationid}) }}"><img src="{{ event.locationid.imageurl }}" alt="{{ event.locationid.name }}" class="img-fluid rounded border"></a></p>
-                    <p><a href="{{ path('location_show', {'locationid': event.locationid.locationid}) }}" class="btn btn-primary">Location Details</a></p>
-                </div>
-                <div class="col-md-8">
-                    <p><strong>Address:</strong> {{ event.locationid.street }} {{ event.locationid.streetno }}, {{ event.locationid.postalcode }} {{ event.locationid.city }}</p>
-                    {% if event.locationid.phone %}
-                        <p><strong>Telephone Number:</strong> {{ event.locationid.phone }}</p>
-                    {% endif %}
-                    {% if event.locationid.email %}
-                        <p><strong>Email Address:</strong> <a href="mailto:{{ event.locationid.email }}">{{ event.locationid.email }}</a></p>
-                    {% endif %}
-                    {% if event.locationid.website %}
-                        <p class="text-break"><strong>Website:</strong> <a href="{{ event.locationid.website }}" target="_blank">{{ event.locationid.website }}</a></p>
-                    {% endif %}
-                </div>
-            </div>
+        </div>
+
+        <!-- Second column with the location details. -->
+        <div class="col-md-4 py-4">
+            <h3><a href="{{ path('location_show', {'locationid': event.locationid.locationid}) }}" class="text-decoration-none">{{ event.locationid.name }}</a></h3>
+            <p><a class="btn btn-secondary" href="{{ path('location_show', {'locationid': event.locationid.locationid}) }}">Location</a></p>
+            <p><strong>Address:</strong> {{ event.locationid.street }} {{ event.locationid.streetno }}, {{ event.locationid.postalcode }} {{ event.locationid.city }}</p>
+            {% if event.locationid.phone %}
+                <p><strong>Telephone Number:</strong> {{ event.locationid.phone }}</p>
+            {% endif %}
+            {% if event.locationid.email %}
+                <p><strong>Email Address:</strong> <a href="mailto:{{ event.locationid.email }}">{{ event.locationid.email }}</a></p>
+            {% endif %}
+            {% if event.locationid.website %}
+                <p class="text-break"><strong>Website:</strong> <a href="{{ event.locationid.website }}" target="_blank">{{ event.locationid.website }}</a></p>
+            {% endif %}
+            <p><a href="{{ path('location_show', {'locationid': event.locationid.locationid}) }}"><img src="{{ event.locationid.imageurl }}" alt="{{ event.locationid.name }}" class="img-fluid rounded border"></a></p>
+            <p><a href="{{ path('location_show', {'locationid': event.locationid.locationid}) }}" class="btn btn-primary">Location Details</a></p>
         </div>
     </div>
 {% endblock %}

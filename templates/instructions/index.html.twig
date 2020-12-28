@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Instructions{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>Instructions</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <p>Your final objective is to create an <strong>Event</strong>. If the participating Teams, Sports Category, Contest and the Location already exist, then you simply click on "Create New Event", pick from the lists of Teams, Locations, Categories, Contests, and enter the Name, Date and Time. To promote the event you can add an image URL (1200 x 600 px recommended) and a note describing the event in a paragraph.</p>
+        <p class="p-5"><img src="/assets/instructions/event-creation-process.png" alt="The Process of adding an Event" class="img-fluid"></p>
+        <p>Please find a breakdown of each data type below.</p>
+
+        <h3>Events</h3>
+        <p>Before you add your Event, make sure you have at least two Teams, a Location, a Contest and a Sports Category.Then enter the Name, Date and Time. You need an Image URL and Notes to promote the Event.</p>
+        <p><img src="/assets/instructions/event-form.png" alt="The form for creating an event" class="img-fluid border rounded mb-4"></p>
+
+        <h3>Locations</h3>
+        <p>Before adding a Location, make sure that the Country you need for the Location has been added. Then enter the Name, Image URL (300 x 200px recommended), Audience Capacity, Website, Phone Number, Address Information, and Description.</p>
+        <p><img src="/assets/instructions/location-form.png" alt="The form for adding a location" class="img-fluid border rounded mb-4"></p>
+
+        <h3>Teams</h3>
+        <p>Creating new Teams requires the most work. You need a League, a Country, a Sports Category and a logo (180 x 180px or a similar square aspect ratio recommended). Having Team Members (Persons) is not mandatory but advised. Adding persons requires the right role to exist.</p>
+        <p><img src="/assets/instructions/team-form.png" alt="The form for adding a new team" class="img-fluid border rounded mb-4"></p>
+
+        <h3>Persons</h3>
+        <p>The only prerequisite for adding a person is that the respective Team and Role already exist. Then it is only a matter of entering the names and the photo URL (220 x 290px or a resolution with this aspect ratio recommended). Please note that if you do not include an image URL, then a placeholder will automatically be used. </p>
+        <p><img src="/assets/instructions/person-form.png" alt="The form for adding a new person" class="img-fluid border rounded mb-4"></p>
+
+        <h3>Roles</h3>
+        <p>At present there are four roles that can be assigned to a Person: "Trainer (Coach)", "Player", "Team Captain" and "Doctor". You can add a new role and enter a name for it. It will then be automatically available when adding new persons or editing existing ones.</p>
+        <p><img src="/assets/instructions/role-form.png" alt="The form for adding a new role" class="img-fluid border rounded mb-4"></p>
+
+        <h3>Leagues and Contests</h3>
+        <p>Leagues and contests are very similar. Leagues are needed for Teams and Contests are required for Events. You can add new leagues/contests and edit existing ones. Both need you to enter a name, a logo URL and a website URL. Leagues need you to select a country. Contests need you to enter a federation name. If you do not provide a logo, then a placeholder will be used instead.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <p><img src="/assets/instructions/league-form.png" alt="The form for adding a new league" class="img-fluid border rounded mb-4"></p>
+            </div>
+            <div class="col-md-6">
+                <p><img src="/assets/instructions/contest-form.png" alt="The form for adding a new contest" class="img-fluid border rounded mb-4"></p>
+            </div>
+        </div>
+
+        <h3>Sports Categories</h3>
+        <p>Adding a new sports category is easy. It only requires the name of the category and - if necessary - an alias (e.g. the alias for "Football" is "Soccer"). New categories are automatically included in the menu on the event page. There is also the option to add a description of the sport. At the moment this is only displayed for the admin in the Category page and is not shown to public visitos.</p>
+        <p><img src="/assets/instructions/category-form.png" alt="The form for adding a new category" class="img-fluid border rounded mb-4"></p>
+
+        <h3>Countries</h3>
+        <p>Currently 195 countries and their flags are included by default. It is very likely that all the countries you will ever need are already in the list and you will not have to add a new country for years to come. Countries only require a Name and a Flag URL (approx. 200 x 120px recommended).</p>
+        <p><img src="/assets/instructions/country-form.png" alt="The form for adding a new country" class="img-fluid border rounded mb-4"></p>
+    </div>
+    <div class="col-md-4">
+        <h4><a href="{{ path('default_index') }}" class="text-decoration-none">Events</a></h4>
+        <p><a href="{{ path('default_index') }}"><img src="/assets/instructions/events-view.png" alt="Events" class="img-fluid border rounded"></a></p>
+        <p class="mb-4"><a href="{{ path('default_index') }}" class="btn btn-primary btn-sm">Go to Events List</a></p>
+        <h4><a href="{{ path('location_index') }}" class="text-decoration-none">Locations</a></h4>
+        <p><a href="{{ path('location_index') }}"><img src="/assets/instructions/location-view.png" alt="Locations" class="img-fluid border rounded"></a></p>
+        <p class="mb-4"><a href="{{ path('location_index') }}" class="btn btn-primary btn-sm">Go to Locations List</a></p>
+        <h4><a href="{{ path('team_index') }}" class="text-decoration-none">Teams</a></h4>
+        <p><a href="{{ path('team_index') }}"><img src="/assets/instructions/team-view.png" alt="Teams" class="img-fluid border rounded"></a></p>
+        <p class="mb-4"><a href="{{ path('team_index') }}" class="btn btn-primary btn-sm">Go to Teams List</a></p>
+        <h4><a href="{{ path('person_index') }}" class="text-decoration-none">Persons</a></h4>
+        <p><a href="{{ path('person_index') }}"><img src="/assets/instructions/persons-view.png" alt="Persons" class="img-fluid border rounded"></a></p>
+        <p class="mb-4"><a href="{{ path('person_index') }}" class="btn btn-primary btn-sm">Go to Persons List</a></p>
+        <h4><a href="{{ path('role_index') }}" class="text-decoration-none">Roles</a></h4>
+        <p><a href="{{ path('role_index') }}"><img src="/assets/instructions/role-view.png" alt="Roles" class="img-fluid border rounded"></a></p>
+        <p class="mb-4"><a href="{{ path('role_index') }}" class="btn btn-primary btn-sm">Go to Roles List</a></p>
+        <h4><a href="{{ path('league_index') }}" class="text-decoration-none">Leagues</a></h4>
+        <p><a href="{{ path('league_index') }}"><img src="/assets/instructions/league-view.png" alt="Leagues" class="img-fluid border rounded"></a></p>
+        <p class="mb-4"><a href="{{ path('league_index') }}" class="btn btn-primary btn-sm">Go to Leagues List</a></p>
+        <h4><a href="{{ path('contest_index') }}" class="text-decoration-none">Contests</a></h4>
+        <p><a href="{{ path('contest_index') }}"><img src="/assets/instructions/contests-view.png" alt="Contests" class="img-fluid border rounded"></a></p>
+        <p class="mb-4"><a href="{{ path('contest_index') }}" class="btn btn-primary btn-sm">Go to Contests List</a></p>
+        <h4><a href="{{ path('category_index') }}" class="text-decoration-none">Sports Categories</a></h4>
+        <p><a href="{{ path('category_index') }}"><img src="/assets/instructions/category-view.png" alt="Sports Categories" class="img-fluid border rounded"></a></p>
+        <p class="mb-4"><a href="{{ path('category_index') }}" class="btn btn-primary btn-sm">Go to Categories List</a></p>
+        <h4><a href="{{ path('country_index') }}" class="text-decoration-none">Countries</a></h4>
+        <p><a href="{{ path('country_index') }}"><img src="/assets/instructions/countries-view.png" alt="Countries" class="img-fluid border rounded"></a></p>
+        <p class="mb-4"><a href="{{ path('country_index') }}" class="btn btn-primary btn-sm">Go to Countries List</a></p>
+    </div>
+</div>
+{% endblock %}

@@ -3,9 +3,12 @@
 {% block title %}New Role{% endblock %}
 
 {% block body %}
-    <h1>Create new Role</h1>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h2>Add New Role</h2>
+        <p><a href="{{ path('role_index') }}" class="btn btn-primary">Back to Roles</a></p>
+        {{ include('role/_form.html.twig') }}
+    </div>
+</div>
 
-    {{ include('role/_form.html.twig') }}
-
-    <a href="{{ path('role_index') }}">back to list</a>
 {% endblock %}

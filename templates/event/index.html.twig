@@ -12,9 +12,10 @@
 
     <div class="row mt-4">
         <div class="col-md-12 mb-4 text-center">
-            <h2>Sports Events</h2>
-            <h3>Today is {{ "now"|date("D, d. M Y") }}</h3>
+            <h2>Welcome to EventRadar!</h2>
+            <p>This is an exercise in PHP Symfony, TWIG and MySQL. The Github repository is here: <a href="https://github.com/mbalabanov/eventradar" target="_blank">github.com/mbalabanov/eventradar</a><br/>You can select a category from the menu below and choose to see future or past events in the menu above.<br/>Today is <strong>{{ "now"|date("D, d. M Y") }}</strong>, a good day for an event. Please find below a list of sporting events.</p>
 
+            <!-- Dropdown menu to select a category -->
             <div class="dropdown my-4">
                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                     Sports Categories
@@ -22,6 +23,8 @@
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <li><a class="dropdown-item" href="/">All <strong>Future</strong> Events</a></li>
                     <li><hr class="dropdown-divider"></li>
+
+                    <!-- All current categories are pulled from the DB and displayed as options in the list. -->
                     {% for category in categories %}
                         <li>
                             <a class="
@@ -43,6 +46,7 @@
                 </ul>
             </div>
 
+            <!-- The information about the search term that us used to filter the results is only shown when a seearch term was passed onto the page -->
             {% if searchterm %}
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
@@ -53,18 +57,34 @@
                 </div>
             {% endif %}
 
+            <!-- "Create New Event" is only displayed for logged in users -->
             {% if app.user %}
                 <p><a href="{{ path('event_new') }}" class="btn btn-primary mb-2">Create New Event</a></p>
             {% endif %}
 
         </div>
     </div>
+
+    <!-- Aggregated List of Events
+         If the event has no image URL assigned to it, then an automatic placeholder is used. -->
     {% for event in events %}
         <div class="row bg-light border rounded mb-3">
             <div class="col-md-4 p-4">
-                <p><a class="btn btn-secondary btn-sm" href="{{ path('category_filter', {'categoryname': event.categoryid.name}) }}">{{ event.categoryid.name }}</a></p>
+                <!-- Shows Event Category and displays a button if the event date is in the past -->
+                <p>
+                    <a class="btn btn-secondary btn-sm" href="{{ path('category_filter', {'categoryname': event.categoryid.name}) }}">{{ event.categoryid.name }}</a>
+                    {% if event.eventdate < datetoday %}
+                        <a class="btn btn-danger btn-sm" href="{{ path('pastevents_index') }}">Past Event</a>
+                    {% endif %}
+                </p>
                 <h3>{{ event.eventdate ? event.eventdate|date('D, d. M. Y') : '' }}</h3><h4>{{ event.eventdate ? event.eventdate|date('H:i') : '' }} Hr.</h4>
-                <a href="{{ path('event_show', {'eventid': event.eventid}) }}"><img src="{{ event.imageurl }}" class="img-fluid border rounded"></a>
+                <a href="{{ path('event_show', {'eventid': event.eventid}) }}">
+                    {% if event.imageurl %}
+                        <img src="{{ event.imageurl }}" class="img-fluid border rounded" alt="{{ event.name }}">
+                    {% else %}
+                        <img src="/assets/events/promo-placeholder.jpg" class="img-fluid border rounded" alt="{{ event.name }}">
+                    {% endif %}
+                </a>
             </div>
             <div class="col-md-8 p-4">
                 <a href="{{ path('event_show', {'eventid': event.eventid}) }}" class="text-decoration-none">
@@ -73,6 +93,13 @@
                 </a>
                 <p><span class="badge bg-secondary">{{ event.contestid.name }}</span></p>
                 <p>{{ event.note }}</p>
+                {% if event.scoreteama and event.scoreteamb %}
+                        <div class="alert alert-primary text-center" role="alert">
+                            <h4>Results</h4>
+                            <h5>{{ event.teamida.name }} - Score: {{ event.scoreteama }}</h5>
+                            <h5>{{ event.teamidb.name }} -  Score: {{ event.scoreteamb }}</h5>
+                        </div>
+                {% endif %}
                 <p><strong>Event-No. {{ event.eventid }} at Location "{{ event.locationid.name }}"</strong></p>
                 <p>
                     <a href="{{ path('event_show', {'eventid': event.eventid}) }}" class="btn btn-primary">Details</a>

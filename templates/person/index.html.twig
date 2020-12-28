@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Person index{% endblock %}
+{% block title %}Person List{% endblock %}
 
 {% block body %}
-    <h2>Team Members</h2>
+    <h2>Persons (Team Members)</h2>
+    <p>This view is only for logged-in users and presents you with a list of all persons.</p>
     <p><a href="{{ path('person_new') }}" class="btn btn-primary">Add New Person</a></p>
     
     <div class="row">
@@ -12,7 +13,11 @@
                 <div class="alert alert-light border">
                     <p class="alert alert-warning text-center"><strong>{{ person.teamid.name }}</strong></p>
                     <p class="text-center">
-                        <img src="{{ person.photourl }}" class="img-fluid border rounded">
+                        {% if person.photourl %}
+                            <p><img src="{{ person.photourl }}" alt="{{ person.firstname }} {{ person.lastname }}" class="img-fluid border rounded"></p>
+                        {% else %}
+                            <p><img src="/assets/persons/person-placeholder.jpg" alt="{{ person.name }}" class="img-fluid"></p>
+                        {% endif %}
                     </p>
                     <h4>
                         {% if person.academictitle %}

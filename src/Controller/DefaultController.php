@@ -43,6 +43,7 @@ class DefaultController extends AbstractController
             'categories' => $categories,
             'searchterm' => $searchterm,
             'events' => $events,
+            'datetoday' => $datetimenow,
         ]);
     }
 
@@ -71,6 +72,7 @@ class DefaultController extends AbstractController
             'categories' => $categories,
             'searchterm' => $searchterm,
             'events' => $events,
+            'datetoday' => $datetimenow,
         ]);
     }
 
@@ -79,6 +81,8 @@ class DefaultController extends AbstractController
     */
     public function category_filter($categoryname, Request $request): Response
     {
+
+        $datetimenow = new \DateTime();
 
         $categories = $this->getDoctrine()
             ->getRepository(Category::class)
@@ -98,6 +102,7 @@ class DefaultController extends AbstractController
             'categories' => $categories,
             'searchterm' => $categoryname,
             'events' => $events,
+            'datetoday' => $datetimenow,
         ]);
     }
 
@@ -106,8 +111,11 @@ class DefaultController extends AbstractController
      */
     public function event_show(Event $event): Response
     {
+        $datetimenow = new \DateTime();
+
         return $this->render('event/show.html.twig', [
             'event' => $event,
+            'datetoday' => $datetimenow,
         ]);
     }
 
@@ -117,27 +125,16 @@ class DefaultController extends AbstractController
     public function location_show(Location $location): Response
     {
 
+        $datetimenow = new \DateTime();
+
         $locationevents = $this->getDoctrine()
-        ->getRepository(Event::class)
-        ->findBy(['locationid' => $location]);
-        
-
-/*
-    $em = $this->getEntityManager();
-    $qb = $em->createQueryBuilder();
-
-    $q = $qb->select(array('p'))
-            ->from('YourProductBundle:Product', 'p')
-            ->where(
-                    $qb->expr()->gt('p.eventdate', $datetimenow)
-                )
-            ->orderBy('p.price', 'DESC')
-            ->getQuery();
-*/
+            ->getRepository(Event::class)
+            ->findBy(['locationid' => $location], ['eventdate' => 'DESC']);
 
         return $this->render('location/show.html.twig', [
             'location' => $location,
             'locationevents' => $locationevents,
+            'datetoday' => $datetimenow,
         ]);
     }
 

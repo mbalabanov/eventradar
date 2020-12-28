@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}About EventRadar{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>About EventRadar</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <p>EventRadar is a calendar of sports events. Users who have logged in can create, edit and categorize Events based on their sports. This is an exercise project for a job application at Sportradar.</p>
+        <p>The Github repository can be found here: <a href="https://github.com/mbalabanov/eventradar" target="_blank">github.com/mbalabanov/eventradar</a></p>
+        <p class="p-5"><img src="/assets/eventradar.png" alt="EventRadar" class=" img-fluid"></p>
+        <h3 class="pb-2 border-bottom">Feature Requirements</h3>
+        <h4>1. Coding Exercise</h4>
+        <p>Goal is to implement a calendar for sport events. Events may be added to the calendar and it should be possible to categorize the events based on sports.</p>
+
+        <h5>Examples:</h5>
+        <ul>
+            <li>Sat., 18.07.2019, 18:30, Football, Salzburg – Sturm</li>
+            <li>Sun., 23.10.2019, 09:45, Ice Hockey, KAC - Capitals</li>
+        </ul>
+        <h4>2. Task 1 - Modelling</h4>
+        <p>Start with identifying the database entities and then create a suitable database diagram (ERD). The ERD should cover all tables and their relations. Furthermore the database should contain additional information, which may be valuable for Sport Calendar.</p>
+
+        <h4>3. Task 2 – DB Structure/Data</h4>
+        <p>Create a database following the structure of your ERD. Add all necessary fields to the tables. Foreign keys should be named with a ‘_’ as prefix (Example: _FOREIGNKEY).</p>
+
+        <h4>4. Task 3 – HTML/PHP:</h4>
+        <p>Create a HTML frontend to display the data in a user friendly way. Navigation should be indicated but no functionality is needed. Then go on with the PHP part for dynamic display of data – avoid SQL queries within loops!</p>
+
+        <h5>Required parts:</h5>
+        <ol>
+            <li>Database connection</li>
+            <li>SQL query</li>
+            <li>Data output</li>
+        </ol>
+        <p>Additional filters can be added to the calendar presentation.</p>
+
+        <p class="text-center">
+            <img src="/assets/events/sports-explosion.jpg" class="img-fluid" alt="All Sports, all Events">
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p class="text-center">
+            <img src="/assets/events/about-sports1.jpg" class="img-fluid rounded border" alt="Ice Hockey">
+        </p>
+        <p class="text-center">
+            <img src="/assets/events/about-sports2.jpg" class="img-fluid rounded border" alt="Baseball">
+        </p>
+        <p class="text-center">
+            <img src="/assets/events/about-sports3.jpg" class="img-fluid rounded border" alt="Basketball">
+        </p>
+    </div>
+</div>
+
+{% endblock %}
