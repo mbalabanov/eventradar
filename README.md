@@ -52,6 +52,15 @@ This section describes the steps from the concept to the final implementation of
 
 
 ### Database Model
-The following database model was constructed based on the requirements
+The following database model was constructed based on the requirements.
 
 ![EventRadar Database Model](documentation/01_db-model.png)
+
+### Implemented UI
+The following screenshots show the final implementation of the user interface.
+
+![EventRadar Database Model](documentation/screenshot1.png)
+
+![EventRadar Database Model](documentation/screenshot2.png)
+
+![EventRadar Database Model](documentation/screenshot3.png)
