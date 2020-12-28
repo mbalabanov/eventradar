@@ -58,10 +58,8 @@ The following database model was constructed based on the requirements.
 ### Sitemap and Wireframes
 Based on the database model and the requirements, the following sitemap and wireframes for the UI are drawn up.
 
-#### Sitemap
 ![EventRadar Sitemap](documentation/02_sitemap.png)
 
-#### Wireframes
 ![EventRadar Wireframes](documentation/03_wireframes.png)
 
 
