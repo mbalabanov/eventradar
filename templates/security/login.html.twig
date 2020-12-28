@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Sign-In Page{% endblock %}
 
 {% block body %}
 
@@ -17,8 +17,12 @@
                 </div>
             {% endif %}
 
-            <h2>Please sign in</h2>
-
+            <h2>Please Sign In</h2>
+            <p>You can <a href="/register">register</a> any email account fictional or real, or you can login using the following credentials:</p>
+            <div class="alert alert-warning" role="alert">
+                User name: user@gmail.com<br/>
+                Password: 123123</p>
+            </div>
             <div class="form-group">
                 <div class="row my-2">
                     <div class="col-md-12">
