@@ -32,6 +32,8 @@ Then go on with the PHP part for dynamic display of data – avoid SQL queries w
 
 Additional filters can be added to the calendar presentation.
 
+![EventRadar Logo](documentation/eventradar.png)
+
 ## Installation
 This application uses PHP Symfony, MySQL and XAMPP.
 
@@ -60,8 +62,6 @@ The following screenshots show the final implementation of the user interface.
 
 ## Concept and Implementation
 This section describes the steps from the concept to the final implementation of __EventRadar__.
-
-![EventRadar Logo](documentation/eventradar.png)
 
 ### Database Model
 The following database model was constructed based on the requirements.
