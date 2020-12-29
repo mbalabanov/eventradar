@@ -30,8 +30,8 @@
             
             <h4>Opponents</h4>
             <p><a href="/team/{{ event.teamida.teamid }}" class="btn btn-primary">{{ event.teamida.name }}</a> <a href="/team/{{ event.teamidb.teamid }}" class="btn btn-primary">{{ event.teamidb.name }}</a></p>
-            <h4>Results</h4>
             {% if event.scoreteama and event.scoreteamb %}
+                <h4>Results</h4>
                 <div class="alert alert-primary text-center" role="alert">
                     <h5>{{ event.teamida.name }} - Score: {{ event.scoreteama }}</h5>
                     <h5>{{ event.teamidb.name }} -  Score: {{ event.scoreteamb }}</h5>

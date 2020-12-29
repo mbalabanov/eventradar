@@ -21,9 +21,6 @@
                     Sports Categories
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="/">All <strong>Future</strong> Events</a></li>
-                    <li><hr class="dropdown-divider"></li>
-
                     <!-- All current categories are pulled from the DB and displayed as options in the list. -->
                     {% for category in categories %}
                         <li>
@@ -43,6 +40,7 @@
                     {% endfor %}
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="{{ path('pastevents_index') }}">All <strong>Past</strong> Events</a></li>
+                    <li><a class="dropdown-item" href="/">All <strong>Future</strong> Events</a></li>
                 </ul>
             </div>
 
