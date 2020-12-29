@@ -16,7 +16,7 @@
                         {% if person.photourl %}
                             <p><img src="{{ person.photourl }}" alt="{{ person.firstname }} {{ person.lastname }}" class="img-fluid border rounded"></p>
                         {% else %}
-                            <p><img src="/assets/persons/person-placeholder.jpg" alt="{{ person.name }}" class="img-fluid"></p>
+                            <p><img src="/assets/persons/person-placeholder.jpg" alt="{{ person.firstname }} {{ person.lastname }}" class="img-fluid"></p>
                         {% endif %}
                     </p>
                     <h4>
