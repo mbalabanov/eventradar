@@ -66,7 +66,7 @@ Based on the database model and the requirements, the following sitemap and wire
 ### Implemented UI
 The following screenshots show the final implementation of the user interface.
 
-![EventRadar Overview](documentation/eventradar-overview.png)
+![EventRadar Overview](assets/instructions/eventradar-overview.png)
 
 #### Frontpage with Events and Event Details Page
 ![EventRadar Screenshots](documentation/screenshots1.png)
