@@ -42,6 +42,131 @@
         </ol>
         <p>Additional filters can be added to the calendar presentation.</p>
 
+        <h3>Quick Tour</h3>
+
+        <div class="row">
+            <div class="col-md-12">
+            <p><img src="/assets/instructions/eventradar-overview.png" alt="EventRadar Overview" class="img-fluid"></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 p-4">
+                <h4>
+                    List of Sports Events
+                </h4>
+                <p>
+                    Visitors at <a href="http://eventradar-app.herokuapp.com">eventradar-app.herokuapp.com</a> are presented with a list of upcoming events. They can filter the events be category or by date (future or past events). Selecting "Details" presents them with further information about the event including the contact infos of the event's location.
+                </p>
+                <p>
+                    Regular visitors cannot make any changes to the event data, this is reserved to users who have registered and signed in. You can use the guest user user@gmail.com (PW: 123123) to try the admin area yourself.
+                </p>
+                <p>
+                    <button type="button" class="btn btn-outline-primary btn-sm m-2" data-bs-toggle="modal" data-bs-target="#eventradar1">
+                        Zoom Image
+                    </button>
+                </p>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="eventradar1" tabindex="-1" aria-labelledby="eventradar1" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="eventradar1">List of Sports Events</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="/assets/instructions/eventradar1.png" class="img-fluid" alt="List of Sports Events">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 p-4">
+                <h4>
+                    Event Details
+                </h4>
+                <p>
+                    Each event has a separate details page showing the marketing slogan, the dates and the teams playing. A longer text is provided with a description. This can be used to describe the circumstances and challenges the participating teams face. If an event is over and the results are entered, then the scores are displayed.
+                </p>
+                <p>
+                    Clicking on the team name shows the team details including the team members. In this example most teams only contain placeholder data, only Rapid Wien, FC Bayern München and Sturm Graz feature real team information and player data.
+                </p>
+                <p>
+                    <button type="button" class="btn btn-outline-primary btn-sm m-2" data-bs-toggle="modal" data-bs-target="#eventradar2">
+                        Zoom Image
+                    </button>
+                </p>
+            </div>
+            <div class="col-md-4 text-center py-4">
+                <img src="/assets/instructions/eventradar2.png" alt="Event Details" class="img-fluid" data-bs-toggle="modal" data-bs-target="#eventradar2">
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="eventradar2" tabindex="-1" aria-labelledby="eventradar2" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="eventradar2">Event Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="/assets/instructions/eventradar2.png" class="img-fluid" alt="Event Details">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 text-center py-4">
+                <img src="/assets/instructions/eventradar3.png" alt="Editing Content" class="img-fluid" data-bs-toggle="modal" data-bs-target="#eventradar3">
+            </div>
+            <div class="col-md-8 p-4">
+                <h4>
+                    Editing Content
+                </h4>
+                <p>
+                    When a user is logged in they can click on the 'Admin' menu in the top right corner of the navigation. The menu lists all the available views. These include <strong>events</strong>, <strong>locations</strong>, <strong>teams</strong>, <strong>persons</strong> (team members), <strong>roles</strong>, <strong>leagues</strong>, <strong>contests</strong>, <strong>sports categories</strong>, and <strong>countries</strong>. They can access the <strong>instructions</strong>, for more information on how to make changes.
+                </p>
+                <p>
+                    <button type="button" class="btn btn-outline-primary btn-sm m-2" data-bs-toggle="modal" data-bs-target="#eventradar3">
+                        Zoom Image
+                    </button>
+                </p>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="eventradar3" tabindex="-1" aria-labelledby="eventradar3" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#eventradar3">
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#eventradar3">
+                Zoom
+            </button>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="eventradar3">Editing Content</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="/assets/instructions/eventradar3.png" class="img-fluid" alt="EventRadar">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <p class="text-center">
             <img src="/assets/events/sports-explosion.jpg" class="img-fluid" alt="All Sports, all Events">
         </p>
