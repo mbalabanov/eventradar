@@ -9,7 +9,7 @@ The __explainer video__ is available at https://youtu.be/x5CDPkX2I7c
 ## Initial Requirements
 
 ### 1. Coding Exercise
-Goal is to implement a calendar for sport events. Events may be added to the calendar and it should be possible to categorize the events based on sports.
+The objective is to implement a calendar for sport events. Events may be added to the calendar and it should be possible to categorize the events based on sports.
 
 #### Examples:
 - Sat., 18.07.2019, 18:30, Football, Salzburg – Sturm
