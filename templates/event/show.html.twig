@@ -17,7 +17,7 @@
                 {{ event.eventdate ? event.eventdate|date('D, d. M. Y') : '' }}, {{ event.eventdate ? event.eventdate|date('H:i') : '' }} Hr.
             </h4>
             <p>
-                <a class="btn btn-secondary">{{ event.categoryid.name }}</a>
+                <a class="btn btn-secondary" href="{{ path('category_filter', {'categoryname': event.categoryid.name}) }}">{{ event.categoryid.name }}</a>
                 {% if event.eventdate < datetoday %}
                     <a class="btn btn-danger" href="{{ path('pastevents_index') }}">Past Event</a>
                 {% endif %}
